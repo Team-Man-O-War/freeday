@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title> <h1>Social event app.<h1></title>
+	<title style="font-size: 24px">Social event app.</title>
 </head>
 <body>
 	<div>
