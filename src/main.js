@@ -6,12 +6,25 @@ var SearchBar = require('./components/SearchBar.js');
 var List = require('./components/List.js');
 var BottomBox = require('./components/BottomBox.js');
 
-// var App = React.createClass({
-// 	render: function(){
-// 		return (
 
-// 		);
-// 	}
-// });
+var App = React.createClass({
+  getInitialState: function(){
+    return (
+      titles: {};
+    )
+  },
 
-React.render(<List/>, document.getElementById('map'));
+  componentDidMount: function(){
+    this.setState({titles:'hello'});
+  },
+
+  render: function(){
+    return (
+      <div>
+      <h1>{this.state.titles}</h1>
+      </div>
+    );
+  }
+});
+
+React.render(<App/>, document.body);
