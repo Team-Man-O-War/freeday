@@ -6,12 +6,12 @@ var SearchBar = require('./components/SearchBar.js');
 var List = require('./components/List.js');
 var BottomBox = require('./components/BottomBox.js');
 
-var App = React.createClass({
-	render: function(){
-		return (
+// var App = React.createClass({
+// 	render: function(){
+// 		return (
 
-		);
-	}
-});
+// 		);
+// 	}
+// });
 
-React.render(<App/>, document.body);
+React.render(<List/>, document.getElementById('map'));

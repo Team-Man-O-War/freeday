@@ -8,7 +8,11 @@ var reactify = require('reactify');
 var watchify = require('watchify');
 var nodemon = require('gulp-nodemon');
 var reload = browsersync.reload;
-
+// gulp.task('copy', function () {
+//	gulp.src('./client/index.html')
+//	.pipe(gulp.dest('path'));
+//});
+console.log('hello');
 gulp.task('watch', function() {
 	
 	var watcher = watchify(browserify({
@@ -22,34 +26,69 @@ gulp.task('watch', function() {
 		watcher.bundle()
 			//.pipe(uglify())
 			.pipe(source('bundle.js'))
-			.pipe(gulp.dest('./client/build/'))
-			.pipe(browsersync.reload({stream:true}))
+			.pipe(gulp.dest('./client/build'));
+			//.pipe(browsersync.reload({stream:true}))
 			console.log('updated at ' + Date.now());
 	})
 		.bundle()
 		.pipe(source('bundle.js'))
 		.pipe(gulp.dest('./client/build'));
 });
+gulp.task('build', function() {
+
+	browserify({
+		entries: './src/main.js',
+		transform: reactify,
+		debug: true,
+		cache: {}, packageCache: {}, fullPaths: true
+		}).bundle()
+		.pipe(source('bundle.js'))
+		.pipe(gulp.dest('./client/build'));
+});
+// Process Scripts
+//gulp.task('scripts', function() {
+//	return gulp.src('./src/components/*.js')
+//	.pipe(concat('all.js'))
+//	.pipe(uglify())
+//	.pipe(gulp.dest('./client/build'));
+//});
 
 gulp.task('sync', ['watch'], function() {
  browsersync.init({
 
- 	files: ['**/*.*'],
+ 	files: ['**/**'],
  	proxy: 'http://localhost:3000',
  	port: 4000
 	});
+
+	gulp.watch(['./client/build/bundle.js'], reload);
+	gulp.watch(['./src/**/*.js'], reload);
+
 });
 
+//gulp.task('browserify', function() {
+//	return browserify('./client/main.js')
+//		.bundle()
+//		.pipe(source('bundle.js'))
+//		.pipe(gulp.dest('./build'));
+//})
+
+//gulp.task('watch', function() {
+//	gulp.watch('client/index.html');
+//	gulp.watch('./client/components/*.js', 
+//		gulp.series('scripts', browsersync.reload));
+//			gulp.watch('./build/bundle.js');
+//});
 
 gulp.task('server', function(){
 	nodemon({
 		script: './server/server.js',
 		ext: 'html js',
-		ignore: ['client/']
+		ignore: ['client']
 	})
 });
 
 // Default Task
 gulp.task('default', 
-	['server', 'sync', 'watch']);
+	['server', 'sync', 'build', 'watch']);
 

@@ -21,6 +21,9 @@
   },
   "dependencies": {
     "express": "^4.13.3",
-    "react": "^0.13.3"
+    "pg": "^4.4.1",
+    "pg-hstore": "^2.3.2",
+    "react": "^0.13.3",
+    "sequelize": "^3.6.0"
   }
 }

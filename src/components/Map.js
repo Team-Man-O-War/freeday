@@ -11,8 +11,8 @@ var Map = React.createClass({//Embed map. Use google maps & geolocator. Will pul
     },
 	render: function(){
 		return (
-
-		);
+      <div> </div>
+		)
 	}
 });
 
