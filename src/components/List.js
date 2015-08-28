@@ -4,7 +4,7 @@ var ListItems = require('./ListItems');
 var List = React.createClass({//List feed located below map & searchbar. Pulls data from ListItems component.
 	render: function(){
 		return (
-      <div> LIST</div>
+      <div></div>
 		)
 	}
 });

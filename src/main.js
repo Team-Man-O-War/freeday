@@ -10,18 +10,18 @@ var BottomBox = require('./components/BottomBox.js');
 var App = React.createClass({
   // getInitialState: function(){
   //   return (
-
+  //     header: {};
   //   )
   // },
 
   componentDidMount: function(){
-    this.setState({titles:'hello'});
+    this.setState({header:'hello'});
   },
 
   render: function(){
     return (
       <div>
-      <h1>{this.state.titles}</h1>
+        {this.state.header}
       </div>
     );
   }
