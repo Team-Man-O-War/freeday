@@ -8,11 +8,11 @@ var BottomBox = require('./components/BottomBox.js');
 
 
 var App = React.createClass({
-  getInitialState: function(){
-    return (
-      titles: {};
-    )
-  },
+  // getInitialState: function(){
+  //   return (
+
+  //   )
+  // },
 
   componentDidMount: function(){
     this.setState({titles:'hello'});
