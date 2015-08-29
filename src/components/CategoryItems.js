@@ -1,9 +1,11 @@
 var React = require('react');
 
 var CategoryItems = React.createClass({//individual categories that will fit into CategoryBar component and apply filters to Pins.
-	render: function(){
+	render: function(){//will likely be an array
 		return (
-      <div> </div>
+      <div>
+      ARRAY OF CATEGORIES WILL GO HERE
+      </div>
 		)
 	}
 });

@@ -10,18 +10,40 @@ var BottomBox = require('./components/BottomBox.js');
 var App = React.createClass({
   // getInitialState: function(){
   //   return (
-  //     header: {};
-  //   )
+  //     anything: {};
+  //   );
   // },
 
-  componentDidMount: function(){
-    this.setState({header:'hello'});
-  },
+  // componentDidMount: function(){
+  //   this.setState({anything:'hello'});
+  // },
 
   render: function(){
     return (
       <div>
-        {this.state.header}
+        <div>
+          <TopBox/>
+        </div>
+
+        <div>
+          <CategoryBar/>
+        </div>
+        
+         <div>
+          <Map/>
+        </div>
+
+         <div>
+          <SearchBar/>
+        </div>
+
+         <div>
+          <List/>
+        </div>
+
+         <div>
+          <BottomBox/>
+        </div>
       </div>
     );
   }

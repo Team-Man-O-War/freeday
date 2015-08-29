@@ -7,7 +7,13 @@ var TopBox = React.createClass({ // Top of the page, with CreateEvent, login/use
 								//Will pull from createevent/login/register components. 
 	render: function(){
 		return (
-      <div> </div>
+      <div id="topbox">
+        TopBox:
+        <CreateEvent/> 
+        <SignUp/>
+        <LogIn/> 
+      </div>
+
 		)
 	}
 });
