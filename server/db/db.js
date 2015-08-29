@@ -5,27 +5,32 @@ var Category = require('./models/category.js');
 
 //here we have to set up user.sync, we sync our schemas to become tables
 
-User.sync({force:true}).then(function(){
-  //table is created
-  // return User.create({
-  //   username: 'arash',
-  //   password: 'arash is cool'
+// User.sync({force:true}).then(function(){
+//   //table is created
+//   return User.create({
+//     username: 'arash',
+//     password: 'arash is cool'
 
-  // })
-});
+//   })
+// });
 
-Event.sync({force:true}).then(function(){
-  //table is created
-  // return Event.create({
-  //   title:
-  //   category:
-  //   time:
-  //   description:
-  //   location:
-  //   tags:
-  // })
+User.sync().then(function(){
 
 });
+
+
+// Event.sync({force:true}).then(function(){
+//   //table is created
+//   return Event.create({
+//     title:
+//     category:
+//     time:
+//     description:
+//     location:
+//     tags:
+//   })
+
+// });
 
 //here we set up the many to many relationship, and name the table UserEvent.
 User.belongsToMany(Event,{as:'party',through:'attendee_party',foreignKey:'userId'});

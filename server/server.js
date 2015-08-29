@@ -3,6 +3,8 @@ var app = express();
 var pg = require('pg-hstore');
 var connect = require('./db/connection.js');
 var router = require('./router.js');
+// requires below I have added for jsonwebtokens -arash
+
 
 app.use(router);
 
