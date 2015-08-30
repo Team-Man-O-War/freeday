@@ -1,6 +1,6 @@
 var React = require('react');
 
-var ListItems = React.createClass({//Individual events in list form, feeds into List component for display.
+var ListItem = React.createClass({//Individual events in list form, feeds into List component for display.
 	render: function(){
 		return (
       <div>
@@ -11,4 +11,4 @@ var ListItems = React.createClass({//Individual events in list form, feeds into 
 	}
 });
 
-module.exports = ListItems;
+module.exports = ListItem;

@@ -8,7 +8,7 @@ var router = require('./router.js');
 
 app.use(router);
 
-if (connect.sync()){ //checks for connection to DB
+if (connect.sync()){ 
   console.log('Connected to DB.');
 }
 else {
