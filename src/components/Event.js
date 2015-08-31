@@ -26,7 +26,7 @@ var Event = React.createClass({
     render: function(){
       return (
         <div>
-          <button onMouseOver={this.openModal} onClick={this.openModal}>Open Modal</button>
+          <button type="default-primary" onMouseOver={this.openModal} onClick={this.openModal}>Open Modal</button>
           <Modal
             isOpen={this.state.modalIsOpen}
             onRequestClose={this.closeModal}
@@ -35,9 +35,9 @@ var Event = React.createClass({
           <h1>Your Event</h1>
             <div> Address: 100 Super Cool St. Los Angeles, CA 12345 </div>
               <br></br>
-              <button>Attend</button>
-              <button>Might Attend</button>
-              <button>Hide</button>
+              <button>I Will Attend</button>
+              <button>I Might Attend</button>
+              <button>Hide Event</button>
               <button>Request Info</button>
               <br></br>
               <div> 10/25 Attendees </div>
