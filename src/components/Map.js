@@ -1,19 +1,21 @@
 var React = require('react');
-var Pins = require('./Pins');
-
-var Map = React.createClass({//Embed map. Use google maps & geolocator. Will pull info from Pins component.
-	getDefaultProps: function () {
-        return {
-            initialZoom: 6,
-            mapCenterLat: 53.5333,
-            mapCenterLng: -113.4073126
-        };
-    },
-	render: function(){
-		return (
-      <div> </div>
-		)
-	}
+var GoogleMap = require('google-map-react');
+var Map = React.createClass({
+  getInitialState: function(){
+    return{
+      center: [33.979471, -118.422549],
+      zoom: 12
+    };
+  },
+  render: function(){
+    return(
+      <div>
+        <GoogleMap 
+          center={this.state.center} 
+          zoom={this.state.zoom} >
+        </GoogleMap>
+      </div>
+      );
+  }
 });
-
 module.exports = Map;

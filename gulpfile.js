@@ -12,9 +12,9 @@ var reload = browsersync.reload;
 //	gulp.src('./client/index.html')
 //	.pipe(gulp.dest('path'));
 //});
-console.log('hello');
+
 gulp.task('watch', function() {
-	
+	var start = Date.now();
 	var watcher = watchify(browserify({
 		entries: './src/main.js',
 		transform: reactify,
@@ -28,7 +28,7 @@ gulp.task('watch', function() {
 			.pipe(source('bundle.js'))
 			.pipe(gulp.dest('./client/build'));
 			//.pipe(browsersync.reload({stream:true}))
-			console.log('updated at ' + Date.now());
+			console.log('updated at ' + (Date.now() - start) + ' ms ago');
 	})
 		.bundle()
 		.pipe(source('bundle.js'))
@@ -53,18 +53,7 @@ gulp.task('build', function() {
 //	.pipe(gulp.dest('./client/build'));
 //});
 
-gulp.task('sync', ['watch'], function() {
- browsersync.init({
 
- 	files: ['**/**'],
- 	proxy: 'http://localhost:3000',
- 	port: 4000
-	});
-
-	gulp.watch(['./client/build/bundle.js'], reload);
-	gulp.watch(['./src/**/*.js'], reload);
-
-});
 
 //gulp.task('browserify', function() {
 //	return browserify('./client/main.js')
@@ -90,5 +79,5 @@ gulp.task('server', function(){
 
 // Default Task
 gulp.task('default', 
-	['server', 'sync', 'build', 'watch']);
+	['server', 'build', 'watch']);
 
