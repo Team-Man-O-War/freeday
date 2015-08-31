@@ -1,50 +1,62 @@
-// var React = require('react');
-// var Modal = require('react-modal');
+var React = require('react');
+var Modal = require('react-modal');
 
-// var appElement = document.getElementById('your-app-element');
+var appElement = document.getElementById('main');
 
-// Modal.setAppElement(appElement);
-// Modal.injectCSS();
+Modal.setAppElement(appElement);
+Modal.injectCSS();
 
 
-//Has full information on events and allows users to create new events.
-//Will be a modal and include react-dropzone for file upload of image/pdf
+// Has full information on events and allows users to create new events.
+// Will be a modal and include react-dropzone for file upload of image/pdf
 
-// var Event = React.createClass({
-    // getInitialState: function(){
-    //   return { modalIsOpen: false }; 
-    // } ,     
+var Event = React.createClass({
+    getInitialState: function(){
+      return { modalIsOpen: false }; 
+    } ,     
 
-    // openModal: function() {
-    //   this.setState({modalIsOpen: true});
-    // },
+    openModal: function() {
+      this.setState({modalIsOpen: true});
+    },
 
-    // closeModal: function() {
-    //   this.setState({modalIsOpen: false});
-    // },
+    closeModal: function() {
+      this.setState({modalIsOpen: false});
+    },
 
-    // render: function(){
-    //   return (
-    //     <div>
-          // <button onClick={this.openModal}>Open Modal</button>
-          // <Modal
-          //   isOpen={this.state.modalIsOpen}
-          //   onRequestClose={this.closeModal}
-          // >
-          // <h2>Hello</h2>
-          // <button onClick={this.closeModal}>Close</button>
-          // <div>I am a modal</div>
-          //  <form>
-          //   <input />
-          //   <button>tab navigation</button>
-          //   <button>stays</button>
-          //   <button>inside</button>
-          //   <button>the modal</button>
-          //   </form>
-          // </Modal>
-//         </div>
-//       );
-//     }
-// });
+    render: function(){
+      return (
+        <div>
+          <button onMouseOver={this.openModal} onClick={this.openModal}>Open Modal</button>
+          <Modal
+            isOpen={this.state.modalIsOpen}
+            onRequestClose={this.closeModal}
+          >
+          <button onClick={this.closeModal}>Close</button>
+          <h1>Your Event</h1>
+            <div> Address: 100 Super Cool St. Los Angeles, CA 12345 </div>
+              <br></br>
+              <button>Attend</button>
+              <button>Might Attend</button>
+              <button>Hide</button>
+              <button>Request Info</button>
+              <br></br>
+              <div> 10/25 Attendees </div>
+            <br></br>
+            <div>
+            Event description: Yada yada yada Yada yada yada Yada yada yada
+            Yada yada yada Yada yada yada Yada yada yada
+            Yada yada yada Yada yada yada Yada yada yada etc etc etc...
+            </div>
+            <br></br>
+            <br></br>
+            <form id="comments">
+              <input type ='text' placeholder='Leave a Comment'/>
+              <button>Submit</button>
+            </form>
+          </Modal>
+        </div>
+      );
+    }
+});
 
-// module.exports = Event;
+module.exports = Event;

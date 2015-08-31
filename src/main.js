@@ -5,6 +5,7 @@ var Map = require('./components/Map.js');
 var SearchBar = require('./components/SearchBar.js');
 var List = require('./components/List.js');
 var BottomBox = require('./components/BottomBox.js');
+var Event = require('./components/Event.js');
 
 
 var App = React.createClass({
@@ -44,9 +45,13 @@ var App = React.createClass({
          <div>
           <BottomBox/>
         </div>
+
+        <div>
+        <Event/>
+        </div>
       </div>
     );
   }
 });
 
-React.render(<App/>, document.body);
+React.render(<App/>, document.getElementById('main'));
