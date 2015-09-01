@@ -30,7 +30,8 @@ var Event = React.createClass({
     render: function(){
       return (
         <div>
-          <button type="default-primary" onMouseOver={this.openModal} onClick={this.openModal}>Open Modal</button>
+          <button type="default-primary" onMouseOver={this.openModal} onClick={this.openModal}>Event Modal</button>
+          //(Opens modal with info for existing event)
           <Modal
             isOpen={this.state.modalIsOpen}
             onRequestClose={this.closeModal} 

@@ -4,8 +4,7 @@ var BottomBox = React.createClass({//Bottom of the page div for additional infor
 	render: function(){
 		return (
       <div>
-        BottomBox-
-        Additional info/functionality
+        //(Contains any additional info/functionality)
       </div>
 		)
 	}

@@ -5,7 +5,7 @@ var Infinite = require('react-infinite');
 var List = React.createClass({
     getInitialState: function() {
         return {
-            elements: this.buildElements(0, 20),
+            elements: this.buildElements(1, 20),
             isInfiniteLoading: false
         }
     },
@@ -30,7 +30,7 @@ var List = React.createClass({
                 isInfiniteLoading: false,
                 elements: that.state.elements.concat(newElements)
             });
-        }, 2500);
+        }, 1500);
     },
 
     elementInfiniteLoad: function() {
@@ -40,7 +40,7 @@ var List = React.createClass({
     },
 
     render: function() {
-        return <Infinite elementHeight={40}
+        return <Infinite elementHeight={20}
                          containerHeight={250}
                          infiniteLoadBeginBottomOffset={200}
                          onInfiniteLoad={this.handleInfiniteLoad}
