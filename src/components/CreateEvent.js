@@ -5,7 +5,7 @@ var CreateEvent = React.createClass({//Component in TopBox that allows user to c
 	render: function(){
 		return (
       <div>
-        <button class="newEvent">Create Event!</button>//(Will open modal of Event component with onClick)
+        <button>Create Event!</button>//(Will open modal of Event component with onClick)
       </div>
 		)
 	}

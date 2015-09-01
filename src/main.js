@@ -1,10 +1,12 @@
 var React = require('react');
-var TopBox = require('./components/TopBox.js');
-var CategoryBar = require('./components/CategoryBar.js');
-var Map = require('./components/Map.js');
-var SearchBar = require('./components/SearchBar.js');
-var List = require('./components/List.js');
-var BottomBox = require('./components/BottomBox.js');
+var Map = require('./components/Map');
+var TopBox = require('./components/TopBox');
+var CategoryBar = require('./components/CategoryBar');
+var Map = require('./components/Map');
+var SearchBar = require('./components/SearchBar');
+var List = require('./components/List');
+var BottomBox = require('./components/BottomBox');
+var Event = require('./components/Event');
 
 
 var App = React.createClass({
@@ -21,6 +23,7 @@ var App = React.createClass({
   render: function(){
     return (
       <div>
+
         <div>
           <TopBox/>
         </div>
@@ -29,24 +32,30 @@ var App = React.createClass({
           <CategoryBar/>
         </div>
         
-         <div>
+        <div>
+          <Event/>
+        </div>
+
+        <div>
           <Map/>
         </div>
 
-         <div>
+        <div>
           <SearchBar/>
         </div>
 
-         <div>
+        <div>
           <List/>
         </div>
 
-         <div>
+        <div>
           <BottomBox/>
         </div>
+
       </div>
     );
   }
 });
 
-React.render(<App/>, document.body);
+React.render(<App/>, document.getElementById('main'));
+

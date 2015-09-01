@@ -4,7 +4,7 @@ var CategoryItem = React.createClass({//individual categories that will fit into
 	render: function(){//will likely be an array
 		return (
       <div>
-      // {this.state.categories} Array of categories
+      Array of categories
       </div>
 		)
 	}
