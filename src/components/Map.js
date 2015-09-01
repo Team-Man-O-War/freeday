@@ -2,14 +2,33 @@ var React = require('react');
 var Pins = require('./Pins');
 var GoogleMap = require('google-map-react');
 var StyleSheet = require('react-style');
+var $ = require('jquery');
+
 var Map = React.createClass({
+  
   getInitialState: function(){
     return{
       center: [33.979471, -118.422549],
-      zoom: 12
+      zoom: 12,
+      map: ''
     };
   },
+
+  componentDidMount: function() {
+    $.get('/map', function(data) {
+      console.log(data);
+      if (this.isMounted()) {
+        this.setState({
+          map: data.uri
+        });
+      }
+    }.bind(this));
+  },
+
   render: function(){
+    var styles = {
+      height: '200'
+    };
     return(
       <div className="container-fluid" >
         <div className="row">
@@ -26,10 +45,10 @@ var Map = React.createClass({
   },
 });
 
-var styles = 
-StyleSheet.create({
-  gooMap: {
-    height: '100px'
-  }
-});
+// var styles = 
+// StyleSheet.create({
+//   gooMap: {
+//     height: '100px'
+//   }
+// });
 module.exports = Map;
