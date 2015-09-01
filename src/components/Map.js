@@ -1,6 +1,7 @@
 var React = require('react');
 var Pins = require('./Pins');
 var GoogleMap = require('google-map-react');
+var StyleSheet = require('react-style');
 var Map = React.createClass({
   getInitialState: function(){
     return{
@@ -10,14 +11,25 @@ var Map = React.createClass({
   },
   render: function(){
     return(
-      <div>
-        <GoogleMap 
-          center={this.state.center} 
-          zoom={this.state.zoom} >
-        </GoogleMap>
+      <div className="container-fluid" >
+        <div className="row">
+          <div className="col-xs-12 col-sm-8 col-sm-offset-2">
+            <GoogleMap 
+              style={styles}
+              center={this.state.center} 
+              zoom={this.state.zoom} >
+            </GoogleMap>
+          </div>
+        </div>
       </div>
-      );
+    );
   },
+});
 
+var styles = 
+StyleSheet.create({
+  gooMap: {
+    height: '100px'
+  }
 });
 module.exports = Map;
