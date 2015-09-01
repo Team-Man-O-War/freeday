@@ -1,10 +1,19 @@
 var React = require('react');
-var CategoryItems = require('./CategoryItems');
+var CategoryItem = require('./CategoryItem');
 
-var CategoryBar = React.createClass({//will contain individual category items from CategoryItems.
-	render: function(){
+var CategoryBar = React.createClass({//will contain individual category items from CategoryItem.
+	// getInitialState: function(){
+ //    return (
+ //      categories: ['music','videogaming','boardgaming','social','educational','romantic','other']
+ //    )
+ //  },
+
+  render: function(){//may need .map or loop later
 		return (
-      <div> </div>
+      <div>
+      CategoryBar:
+      <CategoryItem/>
+      </div>
 		)
 	}
 });

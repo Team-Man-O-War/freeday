@@ -1,4 +1,5 @@
 var React = require('react');
+var Pins = require('./Pins');
 var GoogleMap = require('google-map-react');
 var Map = React.createClass({
   getInitialState: function(){
@@ -16,6 +17,7 @@ var Map = React.createClass({
         </GoogleMap>
       </div>
       );
-  }
+  },
+
 });
 module.exports = Map;

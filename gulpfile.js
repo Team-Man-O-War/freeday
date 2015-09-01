@@ -69,6 +69,16 @@ gulp.task('build', function() {
 //			gulp.watch('./build/bundle.js');
 //});
 
+gulp.task('sync', ['watch'], function() {
+  browsersync.init({
+ 
+	 	files: ['**/*.*'],
+ 		files: ['**/**'],
+  	proxy: 'http://localhost:3000',
+  	port: 4000
+ 	});
+ });
+
 gulp.task('server', function(){
 	nodemon({
 		script: './server/server.js',
@@ -80,4 +90,5 @@ gulp.task('server', function(){
 // Default Task
 gulp.task('default', 
 	['server', 'build', 'watch']);
+
 
