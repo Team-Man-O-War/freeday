@@ -30,9 +30,11 @@ User.sync().then(function(){
 //     tags:
 //   })
 // });
-Event.sync.then(function(){
 
-});
+// Event.sync.then(function(){
+
+// });
+
 //here we set up the many to many relationship, and name the table UserEvent.
 User.belongsToMany(Event,{as:'party',through:'attendee_party',foreignKey:'userId'});
 
