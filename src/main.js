@@ -1,12 +1,12 @@
 var React = require('react');
 var Map = require('./components/Map');
-var TopBox = require('./components/TopBox.js');
-var CategoryBar = require('./components/CategoryBar.js');
-var Map = require('./components/Map.js');
-var SearchBar = require('./components/SearchBar.js');
-var List = require('./components/List.js');
-var BottomBox = require('./components/BottomBox.js');
-var Event = require('./components/Event.js');
+var TopBox = require('./components/TopBox');
+var CategoryBar = require('./components/CategoryBar');
+var Map = require('./components/Map');
+var SearchBar = require('./components/SearchBar');
+var List = require('./components/List');
+var BottomBox = require('./components/BottomBox');
+var Event = require('./components/Event');
 
 
 var App = React.createClass({
@@ -33,6 +33,10 @@ var App = React.createClass({
         </div>
         
         <div>
+          <Event/>
+        </div>
+
+        <div>
           <Map/>
         </div>
 
@@ -46,10 +50,6 @@ var App = React.createClass({
 
         <div>
           <BottomBox/>
-        </div>
-
-        <div>
-          <Event/>
         </div>
 
       </div>
