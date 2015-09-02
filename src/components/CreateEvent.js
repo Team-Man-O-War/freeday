@@ -26,7 +26,7 @@ var CreateEvent = React.createClass({
     render: function(){
       return (
         <div>
-          <button type="default-primary" onMouseOver={this.openModal} onClick={this.openModal}>Create Event</button>
+          <button type="default-primary" onClick={this.openModal}>Create Event</button>
           //(Opens modal with form to create new event)
           <Modal
             isOpen={this.state.modalIsOpen}
