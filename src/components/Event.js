@@ -12,7 +12,7 @@ Modal.injectCSS();
 
 var Event = React.createClass({
     getInitialState: function(){
-      return { modalIsOpen: false }; 
+      return { modalIsOpen: false, value: "Comments will go here" }; 
     } ,     
 
     openModal: function() {
@@ -23,19 +23,24 @@ var Event = React.createClass({
       this.setState({modalIsOpen: false});
     },
 
+    handleChange: function(event){
+      this.setState({value: event.target.value});
+    },
+
     render: function(){
       return (
         <div>
-          <button type="default-primary" onMouseOver={this.openModal} onClick={this.openModal}>Open Modal</button>
+          <button type="default-primary" onMouseOver={this.openModal} onClick={this.openModal}>Event Modal</button>
+          //(Opens modal with info for existing event)
           <Modal
             isOpen={this.state.modalIsOpen}
-            onRequestClose={this.closeModal}
+            onRequestClose={this.closeModal} 
           >
           <button onClick={this.closeModal}>Close</button>
           <h1>Your Event</h1>
             <div> Address: 100 Super Cool St. Los Angeles, CA 12345 </div>
               <br></br>
-              <button>I Will Attend</button>
+              <button onClick="Thanks!">I Will Attend</button>
               <button>I Might Attend</button>
               <button>Hide Event</button>
               <button>Request Info</button>
@@ -50,8 +55,9 @@ var Event = React.createClass({
             <br></br>
             <br></br>
             <form id="comments">
-              <input type ='text' placeholder='Leave a Comment'/>
-              <button>Submit</button>
+              <input type ='text' placeholder='Leave a Comment' onChange={this.handleChange}/>
+              <button onClick={this.handleChange}>Submit</button>
+              <div>{this.state.value}</div>
             </form>
           </Modal>
         </div>

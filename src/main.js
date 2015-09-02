@@ -24,10 +24,17 @@ var App = React.createClass({
     return (
       <div>
 
+        <h3>Top Box:</h3>
         <div>
           <TopBox/>
         </div>
 
+        <br></br>
+        <div>
+          <Event/>
+        </div>
+
+        <h3>CategoryBar:</h3>
         <div>
           <CategoryBar/>
         </div>
@@ -38,18 +45,18 @@ var App = React.createClass({
 
         <div>
           <SearchBar/>
-        </div>
+          //(Search/filtering functionality)
+        </div> 
 
+        <h3>List: //(Contains Event components)
+        </h3>
         <div>
           <List/>
         </div>
 
+        <h3>Bottom Box:</h3>
         <div>
           <BottomBox/>
-        </div>
-
-        <div>
-          <Event/>
         </div>
 
       </div>

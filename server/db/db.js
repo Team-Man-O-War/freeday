@@ -29,6 +29,9 @@ User.sync().then(function(){
 //     location:
 //     tags:
 //   })
+// });
+
+// Event.sync.then(function(){
 
 // });
 

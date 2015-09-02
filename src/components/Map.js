@@ -58,7 +58,7 @@ var Map = React.createClass({
 
   render: function(){
     var styles = {
-      height: '200'
+      height: '150'
     };
     return(
       <div className="container-fluid" >
