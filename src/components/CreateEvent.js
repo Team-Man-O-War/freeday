@@ -1,5 +1,6 @@
 var React = require('react');
 var Modal = require('react-modal');
+var ImageUpload = require('./ImageUpload');
 
 var appElement = document.getElementById('main');
 
@@ -61,9 +62,11 @@ var CreateEvent = React.createClass({
             <form>
               <div>{this.state.value}</div>
             </form>
+
             <div>
-              //(React-dropzone & LWIP for image upload)
+              <ImageUpload/>
             </div>
+
           </Modal>
         </div>
       );
