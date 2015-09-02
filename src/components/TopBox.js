@@ -10,7 +10,7 @@ var TopBox = React.createClass({
 	render: function(){
 		return (
       <div id="topbox">
-        TopBox:
+        //(Contains SignUp, LogIn, in CreateEvent)
         <CreateEvent/> 
         <SignUp/>
         <LogIn/> 

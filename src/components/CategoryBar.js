@@ -11,7 +11,7 @@ var CategoryBar = React.createClass({//will contain individual category items fr
   render: function(){//may need .map or loop later
 		return (
       <div>
-      CategoryBar:
+      //(Contains CategoryItems icons/buttons that should toggle off & on and filter results)
       <CategoryItem/>
       </div>
 		)
