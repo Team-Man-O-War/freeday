@@ -17,16 +17,24 @@ request.get('https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amph
   });
 });
 
+
 // if (sequelize.sync()) {
 //   console.log('db running');
 // } else {
 //   console.log('start db');
 // }
-app.use(express.static('client'));//should serve index.html page.
+// app.use(express.static('client'));//should serve index.html page.
 
 router.post('/login',function(req,res,done){
-  //user.findOne() do i need this here since i have it in passport.js??
+  //user.findOne() 
+  //do i need this here since i have it in passport.js??
+
+
+
 });
+
+
+
 
 
 // if (connect.sync()){ 
