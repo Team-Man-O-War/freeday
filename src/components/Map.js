@@ -15,7 +15,6 @@ var Map = React.createClass({
   },
 
   componentDidMount: function() {
-
     if (navigator.geolocation) {
       console.log('im here');
       navigator.geolocation.getCurrentPosition(function(position) {
@@ -23,7 +22,6 @@ var Map = React.createClass({
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-        console.log(this);
         if (this.isMounted()) {
           console.log('moundsfdsted');
           this.setState({

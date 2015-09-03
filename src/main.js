@@ -1,12 +1,10 @@
 var React = require('react');
-var Map = require('./components/Map');
 var TopBox = require('./components/TopBox');
 var CategoryBar = require('./components/CategoryBar');
-var Map = require('./components/Map');
 var SearchBar = require('./components/SearchBar');
-var List = require('./components/List');
+var ListItem = require('./components/ListItem');
 var BottomBox = require('./components/BottomBox');
-var Event = require('./components/Event');
+var List = require('./components/List');
 
 var App = React.createClass({
 
@@ -20,9 +18,7 @@ var App = React.createClass({
         </div>
 
         <br></br>
-        <div>
-          <Event/>
-        </div>
+ 
 
         <h3>CategoryBar:</h3>
         <div>

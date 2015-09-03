@@ -27,14 +27,19 @@ var User = require('./db/models/user');
 //     }
 // });
 
-var map = 'https://www.googleapis.com/geolocation/v1/geolocate?key=' + config.googleMapApi.key;
-app.post('/map', function(req, res) {
-  request.get({map: map}, function(err, response, body) {
-      res.send(map);
-    });
-});
+// var map = 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=' + config.googleMapApi.key;
+// app.get('/map', function(req, res) {
+//   request.get(map, function(err, response, body) {
+//      console.log(map);
+//     });
+// });
 
-
+// var eBrite = 'https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=' + config.eventBriteApi.key;
+// app.get('/event', function(req, res) { 
+//   request('/https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=' + config.eventBriteApi.key, function (error, response, body) {
+//     console.log(body);
+//   });
+// });
 // if (sequelize.sync()) {
 //   console.log('db running');
 // } else {
