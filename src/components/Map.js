@@ -14,10 +14,6 @@ var Map = React.createClass({
     };
   },
 
-  handleMarker: function() {
-
-  },
-
   componentDidMount: function() {
 
     if (navigator.geolocation) {

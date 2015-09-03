@@ -10,6 +10,7 @@ var request = require('request');
 var config = require('./config/config.js');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+var User = require('./db/models/user');
 
 // request({
 //     url: 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=' + config.googleMapApi.key, //URL to hit
@@ -33,16 +34,19 @@ app.post('/map', function(req, res) {
     });
 });
 
+
 // if (sequelize.sync()) {
 //   console.log('db running');
 // } else {
 //   console.log('start db');
 // }
+
 app.use(express.static('client'));//should serve index.html page.
 
 router.post('/login',function(req,res,done){
   //user.findOne() do i need this here since i have it in passport.js??
 });
+
 
 
 // if (connect.sync()){ 
