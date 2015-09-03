@@ -53,7 +53,7 @@ var Map = React.createClass({
               <GoogleMap 
                 center={this.state.center}
                 zoom={this.state.zoom}>
-                <div lat={this.state.center[0]} lng={this.state.center[1]} style={styles.youreHere}></div>
+                <div lat={this.state.center[0]} lng={this.state.center[1]} style={styles.youreHere}> ME!</div>
               </GoogleMap>
             </div>
           </div>
@@ -70,8 +70,9 @@ var styles =
       height: '20',
       width: '50',
       color: 'white',
+      textAlign: 'center',
       backgroundColor: 'black',
-      borderRadius: 50
+      borderRadius: '50%'
     }
 });
 
