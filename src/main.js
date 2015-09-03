@@ -6,7 +6,7 @@ var Map = require('./components/Map');
 var SearchBar = require('./components/SearchBar');
 var List = require('./components/List');
 var BottomBox = require('./components/BottomBox');
-var Event = require('./components/Event');
+var EventInfo = require('./components/EventInfo');
 // var StyleSheet = require('react-style');
 
 var App = React.createClass({
@@ -22,7 +22,7 @@ var App = React.createClass({
 
         <br></br>
         <div>
-          <Event/>
+          <EventInfo/>
         </div>
 
         <h3>CategoryBar:</h3>
