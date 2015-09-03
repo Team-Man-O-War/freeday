@@ -1,4 +1,3 @@
-
 var Sequelize = require('sequelize');
 var database = require('../connection.js');
 
