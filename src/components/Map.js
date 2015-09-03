@@ -1,27 +1,31 @@
 var React = require('react');
-var Pins = require('./Pins');
+var Pin = require('./Pin');
 var GoogleMap = require('google-map-react');
 var StyleSheet = require('react-style');
 var $ = require('jquery');
 
 var Map = React.createClass({
   
-  getInitialState: function(){
+  getInitialState: function() {
     return{
-      center: [45.4000, 75.6667],
-      zoom: 10,
+      center: [39.1000, 84.5167],
+      zoom: 12,
       map: ''
     };
   },
 
   componentDidMount: function() {
+
     if (navigator.geolocation) {
+      console.log('im here');
       navigator.geolocation.getCurrentPosition(function(position) {
         var pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
+        console.log(this);
         if (this.isMounted()) {
+          console.log('moundsfdsted');
           this.setState({
             center: [pos.lat, pos.lng]
           });
@@ -29,35 +33,25 @@ var Map = React.createClass({
       }.bind(this));
     }
   },
-  // componentDidMount: function() {
-  //     navigator.geolocation.getCurrentPosition(
-  //       (center) => this.setState({center}),
-  //       (error) => alert(error.message),
-  //       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
-  //     );
-  //     this.watchID = navigator.geolocation.watchPosition((center) => {
-  //       this.setState({center});
-  //     });
-  //   },
   
   componentWillUnmount: function() {
       navigator.geolocation.clearWatch(this.watchID);
      },
 
-
   render: function(){
-    var styles = {
-      height: '150'
-    };
+
     return(
-      <div className="container-fluid" >
-        <div className="row">
-          <div className="col-xs-12 col-sm-8 col-sm-offset-2">
-            <GoogleMap
-              style={styles}
-              center={this.state.center} 
-              zoom={this.state.zoom} >
-            </GoogleMap>
+      <div>
+        <div className="container-fluid">
+          <div className="row">
+          hello
+            <div className="col-xs-12 col-sm-8 col-sm-offset-2">
+              <GoogleMap 
+                center={this.state.center}
+                zoom={this.state.zoom}>
+                <div lat={this.state.center[0]} lng={this.state.center[1]} style={styles.youreHere}> ME!</div>
+              </GoogleMap>
+            </div>
           </div>
         </div>
       </div>
@@ -65,10 +59,18 @@ var Map = React.createClass({
   },
 });
 
-// var styles = 
-// StyleSheet.create({
-//   gooMap: {
-//     height: '100px'
-//   }
-// });
+var styles = 
+  StyleSheet.create({
+    youreHere: {
+      position: 'absolute',
+      height: '20',
+      width: '50',
+      color: 'white',
+      textAlign: 'center',
+      backgroundColor: 'black',
+      borderRadius: '50%'
+    }
+});
+
+
 module.exports = Map;

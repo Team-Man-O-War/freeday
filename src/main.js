@@ -29,7 +29,7 @@ var App = React.createClass({
         <div>
           <CategoryBar/>
         </div>
-        
+
         <div>
           <Map/>
         </div>
