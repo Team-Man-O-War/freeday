@@ -40,18 +40,10 @@ app.post('/map', function(req, res) {
 // }
 app.use(express.static('client'));//should serve index.html page.
 
-<<<<<<< HEAD
-// var connect = require('./db/connection.js');
-// var router = require('./router.js');
-// requires below I have added for jsonwebtokens -arash
-
-// app.use(router);
-=======
 router.post('/login',function(req,res,done){
   //user.findOne() do i need this here since i have it in passport.js??
 });
 
->>>>>>> b597d03a255efe95672c5a27c16152c23cdf9aa0
 
 // if (connect.sync()){ 
 //   console.log('Connected to DB.');

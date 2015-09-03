@@ -7,7 +7,7 @@ var SearchBar = require('./components/SearchBar');
 var List = require('./components/List');
 var BottomBox = require('./components/BottomBox');
 var Event = require('./components/Event');
-
+var Pin = require('./components/Pin');
 
 var App = React.createClass({
   // getInitialState: function(){
@@ -38,7 +38,7 @@ var App = React.createClass({
         <div>
           <CategoryBar/>
         </div>
-        
+
         <div>
           <Map/>
         </div>
