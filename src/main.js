@@ -7,18 +7,9 @@ var SearchBar = require('./components/SearchBar');
 var List = require('./components/List');
 var BottomBox = require('./components/BottomBox');
 var Event = require('./components/Event');
-
+// var StyleSheet = require('react-style');
 
 var App = React.createClass({
-  // getInitialState: function(){
-  //   return (
-  //     anything: {};
-  //   );
-  // },
-
-  // componentDidMount: function(){
-  //   this.setState({anything:'hello'});
-  // },
 
   render: function(){
     return (

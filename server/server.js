@@ -42,11 +42,6 @@ app.post('/map', function(req, res) {
 // }
 // app.use(express.static('client'));//should serve index.html page.
 
-
-
-
-
-
 // if (connect.sync()){ 
 //   console.log('Connected to DB.');
 // }

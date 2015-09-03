@@ -35,7 +35,7 @@ var List = React.createClass({
 
     elementInfiniteLoad: function() {
         return <div className="infinite-list-item">
-            Loading...
+            Loading Events...
         </div>;
     },
 

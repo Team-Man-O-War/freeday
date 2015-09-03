@@ -1,5 +1,6 @@
 var React = require('react');
 var Modal = require('react-modal');
+var ImageUpload = require('./ImageUpload');
 
 var appElement = document.getElementById('main');
 
@@ -26,7 +27,7 @@ var CreateEvent = React.createClass({
     render: function(){
       return (
         <div>
-          <button type="default-primary" onMouseOver={this.openModal} onClick={this.openModal}>Create Event</button>
+          <button type="default-primary" onClick={this.openModal}>Create Event</button>
           //(Opens modal with form to create new event)
           <Modal
             isOpen={this.state.modalIsOpen}
@@ -61,9 +62,11 @@ var CreateEvent = React.createClass({
             <form>
               <div>{this.state.value}</div>
             </form>
+
             <div>
-              //(React-dropzone & LWIP for image upload)
+              <ImageUpload/>
             </div>
+
           </Modal>
         </div>
       );

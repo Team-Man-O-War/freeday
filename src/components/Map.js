@@ -9,21 +9,10 @@ var Map = React.createClass({
   getInitialState: function(){
     return{
       center: [45.4000, 75.6667],
-      zoom: 12,
+      zoom: 10,
       map: ''
     };
   },
-  
-  // geoLoco: function() {
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition(function(position) {
-  //       var pos = {
-  //         lat: position.coords.latitude,
-  //         lng: position.coords.longitude
-  //       };
-  //     });
-  //   }
-  // },
 
   componentDidMount: function() {
     if (navigator.geolocation) {
