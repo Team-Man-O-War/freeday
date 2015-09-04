@@ -12,6 +12,11 @@ var ImageUpload = React.createClass({
 
     onDrop: function (files) {
       console.log('Received files: ', files);
+      var req = request.post('/upload');
+        files.forEach((file)=> {
+          req.attach(file.name, file);
+      });
+        req.end(callback);
     },
 
     onOpenClick: function () {
