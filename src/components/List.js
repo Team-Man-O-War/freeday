@@ -47,9 +47,7 @@ var List = React.createClass({
                          loadingSpinnerDelegate={this.elementInfiniteLoad()}
                          isInfiniteLoading={this.state.isInfiniteLoading}
                          >
-                         <div>
             {this.state.elements}
-            </div>
         </Infinite>;
     }
 });
