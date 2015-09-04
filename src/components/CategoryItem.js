@@ -4,7 +4,36 @@ var CategoryItem = React.createClass({//individual categories that will fit into
 	render: function(){//will likely be an array
 		return (
       <div>
-      [Featured] [Music] [Video Gaming] [Board Gaming] [Social] [Educational] [Romantic] [Athletic] [Other ][Etc...]
+        <div>
+          <button>[Featured]</button>
+        </div>
+        <div>
+          <button>[Music]</button>
+        </div>
+        <div>
+          <button>[Video Gaming]</button>
+        </div>
+        <div>
+          <button>[Board Gaming]</button>
+        </div>
+        <div>
+          <button>[Social]</button>
+        </div>
+        <div>
+          <button>[Educational]</button>
+        </div>
+        <div>
+          <button>[Romantic]</button>
+        </div>
+        <div>
+          <button>[Athletic]</button>
+        </div>
+        <div>
+          <button>[Other]</button>
+        </div>
+        <div>
+          <button>[Etc...]</button>
+        </div>
       </div>
 		)
 	}
