@@ -10,7 +10,7 @@ Modal.injectCSS();
 var CreateEvent = React.createClass({
     getInitialState: function(){
       return { modalIsOpen: false, value: "Event description will go here." }; 
-    } ,     
+    },     
 
     openModal: function() {
       this.setState({modalIsOpen: true});
@@ -62,10 +62,9 @@ var CreateEvent = React.createClass({
             <form>
               <div>{this.state.value}</div>
             </form>
-
-            <div>
+              
               <ImageUpload/>
-            </div>
+              <input type='file'/>
 
           </Modal>
         </div>

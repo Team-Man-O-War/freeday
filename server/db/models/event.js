@@ -1,8 +1,8 @@
 var Sequelize = require('sequelize');
-var database = require('../connection.js');
+var sequelize = require('../connection.js');
 
 
-var Event = database.define('event',{
+var Event = sequelize.define('event',{
 
   title:{
     type:Sequelize.STRING,

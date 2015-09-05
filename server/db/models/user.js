@@ -1,8 +1,8 @@
 var Sequelize = require('sequelize');
-var database = require('../connection.js');
+var sequelize = require('../connection.js');
 
 
-var User = database.define('user',{
+var User = sequelize.define('user',{
 
   username:{
     type: Sequelize.STRING,

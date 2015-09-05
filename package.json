@@ -38,6 +38,6 @@
     "react-modal": "^0.3.0",
     "react-style": "^0.5.5",
     "request": "^2.61.0",
-    "sequelize": "^3.6.0"
+    "sequelize": "^3.7.1"
   }
 }

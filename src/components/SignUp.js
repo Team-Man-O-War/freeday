@@ -12,18 +12,26 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
     
     userInput.username = signUpDom.firstChild.children[1].value;
     userInput.password = signUpDom.firstChild.children[2].value;
-    console.log(userInput);
+    var jsonifiedInput = JSON.stringify(userInput);
+    //the json.stringify sends the correct form
+   
 
     $.ajax({
       url:"/signup",
       type:"POST",
-      data:userInput,
+      data:jsonifiedInput,
       datatype:'json' ,
       contentType:'application/json',
-      success: '',
-      error: ''
+      success: function(something){
+        //send something from server to client on successful transaction
+        console.log("this is the something that i am looking for: ",something);
+      },
+      error: function(xhr,ajaxOptions,err){
+        alert("error",err);
+        console.log(err);
+        console.log(xhr.status);
+      }
     })
-
 
   },
 	render: function(){

@@ -10,16 +10,13 @@ var ListItem = React.createClass({
     };
   },
 
-  componentDidMount: function () {
-
-  },
-
   render: function() {
     return (
       <div className="infinite-list-item">
-        Event {this.props.num}
+        <a href={this.props.num}>
+          Event {this.props.num}
+        </a>
       </div>
-
       )
     }
 });

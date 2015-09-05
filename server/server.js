@@ -2,21 +2,23 @@ var express = require('express');
 var app = express();
 var pg = require('pg-hstore');
 var connect = require('./db/connection');
-var router = require('./router');
-require('./db/passport');
-app.use(router);
 var bodyParser = require('body-parser');
 var request = require('request');
 var config = require('./config/config.js');
+var router = require('./router');//sequelise must be loaded before router
+var User = require('./db/models/user');
+
+require('./db/passport');
+app.use(router);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-var User = require('./db/models/user');
+
 
 app.get('/map', function(req, res) {
   request.get('https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=' + config.googleMapApi.key, 
     function(err, response, body) {
       res.send(body);
-    });
+  });
 });
 
 app.get('/event', function(req, res) {
@@ -33,12 +35,6 @@ app.get('/meetup', function(req, res) {
     });
 });
 
-// if (sequelize.sync()) {
-//   console.log('db running');
-// } else {
-//   console.log('start db');
-// }
-
 app.use(express.static('client'));//should serve index.html page.
 
 router.post('/login',function(req,res,done){
@@ -47,12 +43,6 @@ router.post('/login',function(req,res,done){
 
 
 
-// if (connect.sync()){ 
-//   console.log('Connected to DB.');
-// }
-// else {
-//   console.log("UNABLE TO CONNECT TO DB");
-// }
 console.log('Connected');
 
 app.listen(3000);

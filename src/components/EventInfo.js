@@ -13,7 +13,7 @@ Modal.injectCSS();
 var Event = React.createClass({
     getInitialState: function(){
       return { modalIsOpen: false, value: "Comments will go here" }; 
-    } ,     
+    },     
 
     openModal: function() {
       this.setState({modalIsOpen: true});

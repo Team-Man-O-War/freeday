@@ -5,6 +5,10 @@ var SearchBar = require('./components/SearchBar');
 var ListItem = require('./components/ListItem');
 var BottomBox = require('./components/BottomBox');
 var List = require('./components/List');
+var Map = require('./components/Map');
+var EventInfo = require('./components/EventInfo');
+// var StyleSheet = require('react-style');
+
 
 var App = React.createClass({
 
@@ -18,7 +22,10 @@ var App = React.createClass({
         </div>
 
         <br></br>
- 
+        <div>
+          <EventInfo/>
+        </div>
+
 
         <h3>CategoryBar:</h3>
         <div>

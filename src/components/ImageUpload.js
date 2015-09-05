@@ -7,11 +7,16 @@ var ImageUpload = React.createClass({
     getInitialState: function() {
       return {
         files: []
-      }
+      };
     },
 
     onDrop: function (files) {
       console.log('Received files: ', files);
+      var req = request.post('/upload');
+        files.forEach((file)=> {
+          req.attach(file.name, file);
+      });
+        req.end(callback);
     },
 
     onOpenClick: function () {
@@ -23,7 +28,7 @@ var ImageUpload = React.createClass({
         return (
             <div>
                 <Dropzone ref="dropzone" onDrop={this.onDrop} onClick={this.onOpenClick}>
-                    <div>Click here or drag and drop image to upload.</div>
+                    <div>Click button or drag and drop image into box to upload.</div>
                 </Dropzone>
 
                 {this.state.files.length > 0 ? <div>
