@@ -26,12 +26,28 @@ app.use(bodyParser.json());
 //     }
 // });
 
-var map = 'https://www.googleapis.com/geolocation/v1/geolocate?key=' + config.googleMapApi.key;
-app.post('/map', function(req, res) {
-  request.get({map: map}, function(err, response, body) {
-      res.send(map);
+// var map = 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=' + config.googleMapApi.key;
+app.get('/map', function(req, res) {
+  request.get('https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=' + config.googleMapApi.key, 
+    function(err, response, body) {
+      res.send(body);
     });
 });
+
+app.get('/event', function(req, res) {
+  request.get('https://www.eventbriteapi.com/v3/events/search/?q=popular=true&location.latitude=34.0500&location.longitude=118.2500&location.within=2mi&token=' + config.eventBriteApi.token,
+    function(err, response, body) {
+      res.send(body);
+    });
+});
+
+app.get('/meetup', function(req, res) {
+  request.get('https://api.meetup.com/2/open_events?sign=true&photo-host=public&lat=33.97906&lon=-118.4228&page=20&key=' + config.meetupApi.key,
+    function(err, response, body) {
+      res.send(body);
+    });
+});
+
 
 // if (sequelize.sync()) {
 //   console.log('db running');

@@ -14,22 +14,14 @@ var Map = React.createClass({
     };
   },
 
-  handleMarker: function() {
-
-  },
-
   componentDidMount: function() {
-
     if (navigator.geolocation) {
-      console.log('im here');
       navigator.geolocation.getCurrentPosition(function(position) {
         var pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-        console.log(this);
         if (this.isMounted()) {
-          console.log('moundsfdsted');
           this.setState({
             center: [pos.lat, pos.lng]
           });
