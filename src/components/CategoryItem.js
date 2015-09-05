@@ -14,6 +14,7 @@ var CategoryItem = React.createClass({//individual categories that will fit into
       <button>Athletic</button>
       <button>Other</button>
       <button>Etc...</button>
+      //(Set true/false to toggle filters)
       </div>
 		)
 	}
