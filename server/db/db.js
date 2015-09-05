@@ -1,7 +1,8 @@
-//Database info will go here
+// //Database info will go here
 var User = require('./models/user.js');
 var Event = require('./models/event.js');
 var Category = require('./models/category.js');
+
 
 //here we have to set up user.sync, we sync our schemas to become tables
 console.log('hi');
@@ -16,6 +17,7 @@ User.sync({force:true}).then(function(){
 
 
 //here we set up the many to many relationship, and name the table UserEvent.
+
 User.belongsToMany(Event,{as:'party',through:'attendee_party',foreignKey:'userId'});
 
 Event.belongsToMany(User,{as:'attendee',through:'attendee_party',foreignKey:'eventId'});
@@ -29,4 +31,12 @@ var db = {
 };
 //this code above bundles together the db as an object to be exported below but it is useless at the moment
 
-module.exports = db;
+
+// var db = {
+//   User: User,
+//   Event: Event,
+//   Category: Category
+// };
+
+
+// module.exports = db;

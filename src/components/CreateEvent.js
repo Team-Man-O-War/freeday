@@ -62,10 +62,9 @@ var CreateEvent = React.createClass({
             <form>
               <div>{this.state.value}</div>
             </form>
-
-            <div>
+              
               <ImageUpload/>
-            </div>
+              <input type='file'/>
 
           </Modal>
         </div>

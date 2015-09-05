@@ -20,8 +20,12 @@ app.post('/map', function(req, res) {
     });
 });
 
-// app.use(express.static('client'));//should serve index.html page.
 
+app.use(express.static('client'));//should serve index.html page.
+
+router.post('/login',function(req,res,done){
+  //user.findOne() do i need this here since i have it in passport.js??
+});
 
 
 
