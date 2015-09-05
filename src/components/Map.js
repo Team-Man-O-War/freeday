@@ -16,14 +16,12 @@ var Map = React.createClass({
 
   componentDidMount: function() {
     if (navigator.geolocation) {
-      console.log('im here');
       navigator.geolocation.getCurrentPosition(function(position) {
         var pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
         if (this.isMounted()) {
-          console.log('moundsfdsted');
           this.setState({
             center: [pos.lat, pos.lng]
           });

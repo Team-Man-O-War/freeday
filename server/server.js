@@ -12,34 +12,27 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 var User = require('./db/models/user');
 
-// request({
-//     url: 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=' + config.googleMapApi.key, //URL to hit
-//     //qs: {from: 'blog example', time: +new Date()}, //Query string data
-//     method: 'GET', //Specify the method
-//     headers: { //We can define headers too
-//         'Content-Type': 'application/json'
-//     }
-// }, function(error, response, body){
-//     if(error) {
-//         console.log(error);
-//     } else {
-//         console.log(response.statusCode, body);
-//     }
-// });
+app.get('/map', function(req, res) {
+  request.get('https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=' + config.googleMapApi.key, 
+    function(err, response, body) {
+      res.send(body);
+    });
+});
 
-// var map = 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=' + config.googleMapApi.key;
-// app.get('/map', function(req, res) {
-//   request.get(map, function(err, response, body) {
-//      console.log(map);
-//     });
-// });
+app.get('/event', function(req, res) {
+  request.get('https://www.eventbriteapi.com/v3/events/search/?q=popular=true&location.latitude=34.0500&location.longitude=118.2500&location.within=2mi&token=' + config.eventBriteApi.token,
+    function(err, response, body) {
+      res.send(body);
+    });
+});
 
-// var eBrite = 'https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=' + config.eventBriteApi.key;
-// app.get('/event', function(req, res) { 
-//   request('/https://www.eventbrite.com/oauth/authorize?response_type=code&client_id=' + config.eventBriteApi.key, function (error, response, body) {
-//     console.log(body);
-//   });
-// });
+app.get('/meetup', function(req, res) {
+  request.get('https://api.meetup.com/2/open_events?sign=true&photo-host=public&lat=33.97906&lon=-118.4228&page=20&key=' + config.meetupApi.key,
+    function(err, response, body) {
+      res.send(body);
+    });
+});
+
 // if (sequelize.sync()) {
 //   console.log('db running');
 // } else {
