@@ -7,8 +7,8 @@ var Sequelize = require('sequelize');
 var connect = require('../db/connection.js');
 var port = process.env.PORT || 3000;
 //this will be user to connect to user model
-var db = require('../db/db.js');
-var User = db.User;
+//var db = require('../db/db.js'); this doesnt exist anymore
+//var User = db.User; this doesnt exist anymore
 var passport = require('../db/passport.js');
 var router = require('../router.js');
 // app.use(bodyParser.urlencoded({ extended: true }));
