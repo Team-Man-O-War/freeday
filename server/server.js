@@ -5,7 +5,7 @@ var connect = require('./db/connection');
 var bodyParser = require('body-parser');
 var request = require('request');
 var config = require('./config/config.js');
-var router = require('./router');//sequelise must be loaded before router
+var router = require('./router');//sequelize must be loaded before router
 var User = require('./db/models/user');
 
 require('./db/passport');

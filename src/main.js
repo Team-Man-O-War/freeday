@@ -8,6 +8,7 @@ var List = require('./components/List');
 var Map = require('./components/Map');
 var EventInfo = require('./components/EventInfo');
 // var StyleSheet = require('react-style');
+var RadiumButton = require('./components/RadiumButton');
 
 
 var App = React.createClass({
@@ -15,6 +16,11 @@ var App = React.createClass({
   render: function(){
     return (
       <div>
+
+      <div>
+      <RadiumButton/>
+      </div>
+
 
         <h3>Top Box:</h3>
         <div>

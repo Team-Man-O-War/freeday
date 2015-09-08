@@ -51,7 +51,7 @@ var List = React.createClass({
     elementInfiniteLoad: function() {
         return (
         <div className="infinite-list-item">
-            Loading...
+            Loading Events...
         </div>
       )
     },
@@ -59,13 +59,13 @@ var List = React.createClass({
     render: function() {
         return (
           <Infinite elementHeight={20}
-                 containerHeight={250}
-                 infiniteLoadBeginBottomOffset={200}
-                 onInfiniteLoad={this.handleInfiniteLoad}
-                 loadingSpinnerDelegate={this.elementInfiniteLoad()}
-                 isInfiniteLoading={this.state.isInfiniteLoading}
-                 >
-            {this.state.elements}
+             containerHeight={250}
+             infiniteLoadBeginBottomOffset={200}
+             onInfiniteLoad={this.handleInfiniteLoad}
+             loadingSpinnerDelegate={this.elementInfiniteLoad()}
+             isInfiniteLoading={this.state.isInfiniteLoading}
+             >
+          {this.state.elements}
         </Infinite>
       )
     }
