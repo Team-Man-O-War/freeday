@@ -22,14 +22,12 @@ var SearchBar = React.createClass({//Employs search functionality and filters ev
 var styles = {
   base: {
     background: 'steelblue',
-    border: 0,
-    borderRadius: 8,
+    borderRadius: 2,
     color: 'black',
     padding: '1em',
     float: 'right',
     marginLeft: '20em',
     marginRight: '20em',
-    overflow: 'auto',
   },
 };
 

@@ -30,6 +30,7 @@ var styles = {
     color: 'black',
     padding: '.08em',
     margin: '4em',
+    overflow: 'auto',
 
     ':hover': {
       backgroundColor: 'firebrick'
