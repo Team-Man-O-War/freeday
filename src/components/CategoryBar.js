@@ -20,6 +20,8 @@ var styles = {
     border: 0,
     borderRadius: 14,
     padding: '1.5em',
+    marginLeft: '150px',
+    marginRight: '150px',
   },
 };
 

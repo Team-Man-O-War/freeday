@@ -61,8 +61,7 @@ var App = React.createClass({
 
 var styles = {
   base: {
-    background: 'whitesmoke',
-    border: 0,
+    backgroundColor: 'whitesmoke',
   },
 };
 

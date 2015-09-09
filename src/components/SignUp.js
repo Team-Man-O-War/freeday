@@ -59,7 +59,7 @@ var styles = {
     padding: '.4em',
 
     ':hover': {
-      backgroundColor: 'lightsteelblue'
+      backgroundColor: 'powderblue'
     },
 
     ':focus': {

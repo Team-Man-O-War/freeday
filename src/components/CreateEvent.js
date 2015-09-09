@@ -81,12 +81,14 @@ var styles = {
   base: {
     background: 'steelblue',
     border: 0,
-    borderRadius: 14,
+    borderRadius: 100,
     color: 'black',
-    padding: '1em',
+    padding: '3em',
+    float: 'right',
+    overflow: 'auto',
 
     ':hover': {
-      backgroundColor: 'lightsteelblue'
+      backgroundColor: 'powderblue'
     },
 
     ':focus': {

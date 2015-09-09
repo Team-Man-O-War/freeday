@@ -76,7 +76,7 @@ var styles = {
     padding: '1em',
 
     ':hover': {
-      backgroundColor: 'lightsteelblue'
+      backgroundColor: 'powderblue'
     },
 
     ':focus': {

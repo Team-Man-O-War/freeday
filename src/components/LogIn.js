@@ -20,7 +20,7 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
 
 var styles = {
   base: {
-    background: 'steelblue',
+    background: 'powderblue',
     border: 0,
     borderRadius: 8,
     color: 'black',

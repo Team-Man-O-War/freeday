@@ -40,7 +40,6 @@ var Map = React.createClass({
       <div>
         <div className="container-fluid">
           <div className="row">
-          hello
             <div className="col-xs-12 col-sm-8 col-sm-offset-2">
               <GoogleMap 
                 center={this.state.center}

@@ -29,8 +29,7 @@ var styles = {
     borderRadius: 8,
     color: 'black',
     padding: '.08em',
-    width: '1.5em',
-    height: '1em',
+    margin: '4em',
 
     ':hover': {
       backgroundColor: 'firebrick'
