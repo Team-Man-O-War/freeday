@@ -1,4 +1,5 @@
 var React = require('react');
+var Radium = require('radium');
 var $ = require('jquery');
 //require jquery and use it to send post request
 
@@ -41,11 +42,34 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
           <label>Sign Up </label>
           <input type="email" placeholder= "e-mail"/>
           <input type="password" placeholder= "password"/>
-          <input type="submit" value="Submit"/>
+          <button style={styles.base}>
+            {this.props.children}Submit</button>
         </form>    
       </div>
 		)
 	}
 });
 
-module.exports = SignUp;
+var styles = {
+  base: {
+    background: 'steelblue',
+    border: 0,
+    borderRadius: 8,
+    color: 'black',
+    padding: '.4em',
+
+    ':hover': {
+      backgroundColor: 'lightsteelblue'
+    },
+
+    ':focus': {
+      backgroundColor: 'steelblue'
+    },
+
+    ':active': {
+      backgroundColor: 'midnightblue'
+    },
+  },
+};
+
+module.exports = Radium(SignUp);

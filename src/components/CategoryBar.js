@@ -16,7 +16,7 @@ var CategoryBar = React.createClass({//will contain individual category items fr
 
 var styles = {
   base: {
-    background: 'steelblue',
+    background: 'lightsteelblue',
     border: 0,
     borderRadius: 14,
     padding: '1.5em',

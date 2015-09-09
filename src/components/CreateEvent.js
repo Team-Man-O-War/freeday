@@ -1,6 +1,7 @@
 var React = require('react');
 var Modal = require('react-modal');
 var ImageUpload = require('./ImageUpload');
+var Radium = require('radium');
 
 var appElement = document.getElementById('main');
 
@@ -27,7 +28,11 @@ var CreateEvent = React.createClass({
     render: function(){
       return (
         <div>
-          <button type="default-primary" onClick={this.openModal}>Create Event</button>
+          <button type="default-primary" onClick={this.openModal} style={[
+        styles.base,
+        this.props.block && styles.block
+        ]}>
+      {this.props.children}Create Event</button>
           //(Opens modal with form to create new event)
           <Modal
             isOpen={this.state.modalIsOpen}
@@ -72,4 +77,35 @@ var CreateEvent = React.createClass({
     }
 });
 
-module.exports = CreateEvent;
+var styles = {
+  base: {
+    background: 'steelblue',
+    border: 0,
+    borderRadius: 14,
+    color: 'black',
+    padding: '1em',
+
+    ':hover': {
+      backgroundColor: 'lightsteelblue'
+    },
+
+    ':focus': {
+      backgroundColor: 'steelblue'
+    },
+
+    ':active': {
+      backgroundColor: 'midnightblue'
+    },
+  },
+
+  block: {
+    display: 'block',
+
+    ':hover': {
+      boxShadow: '0 3px 0 rgba(0,0,0,0.2)'
+    }
+  },
+};
+
+
+module.exports = Radium(CreateEvent);

@@ -8,19 +8,15 @@ var List = require('./components/List');
 var Map = require('./components/Map');
 var EventInfo = require('./components/EventInfo');
 // var StyleSheet = require('react-style');
-var RadiumButton = require('./components/RadiumButton');
+var Radium = require('radium');
 
 
 var App = React.createClass({
 
   render: function(){
     return (
-      <div>
-
-      <div>
-      <RadiumButton/>
-      </div>
-
+      <div style={styles.base}>
+      {this.props.children}
 
         <h3>Top Box:</h3>
         <div>
@@ -63,5 +59,12 @@ var App = React.createClass({
   }
 });
 
-React.render(<App/>, document.getElementById('main'));
+var styles = {
+  base: {
+    background: 'whitesmoke',
+    border: 0,
+  },
+};
+
+Radium(React.render(<App/>, document.getElementById('main')));
 
