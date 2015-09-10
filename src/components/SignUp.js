@@ -40,8 +40,12 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
       <div>
         <form onSubmit={this.handleSubmit}>
           <label>Sign Up </label>
-          <input type="email" placeholder= "e-mail"/>
-          <input type="password" placeholder= "password"/>
+          <input type="email" placeholder= "e-mail" style={styles.input1}>
+            {this.props.children}
+            </input>
+          <input type="password" placeholder= "password" style={styles.input2}>
+            {this.props.children}
+            </input>
           <button style={styles.base}>
             {this.props.children}Submit</button>
         </form>    
@@ -56,7 +60,10 @@ var styles = {
     border: 0,
     borderRadius: 8,
     color: 'black',
-    padding: '.4em',
+    padding: '.3em',
+    paddingLeft: '.5em',
+    paddingRight: '.5em',
+    marginLeft: '.2em',
 
     ':hover': {
       backgroundColor: 'powderblue'
@@ -70,6 +77,22 @@ var styles = {
       backgroundColor: 'midnightblue'
     },
   },
+
+  input1: {
+    backgroundColor: 'seashell',
+    color: 'black',
+    borderRadius: 6,
+    margin: '.5em',
+    padding: '.3em',
+  },
+
+    input2: {
+    backgroundColor: 'seashell',
+    color: 'black',
+    borderRadius: 6,
+    padding: '.3em',
+  }
+
 };
 
 module.exports = Radium(SignUp);

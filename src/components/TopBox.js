@@ -12,7 +12,7 @@ var TopBox = React.createClass({
 		return (
       <div style={styles.base}>
       {this.props.children}
-        //(Contains SignUp, LogIn, in CreateEvent)
+      <h1><a href=''>freeday</a></h1>
         <CreateEvent/> 
         <SignUp/>
         <LogIn/> 
@@ -26,6 +26,7 @@ var styles = {
     background: 'lightsteelblue',
     padding: '2em',
     borderRadius: 8,
+    marginTop: '1em',
   },
 };
 

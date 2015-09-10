@@ -17,8 +17,6 @@ var App = React.createClass({
     return (
       <div style={styles.base}>
       {this.props.children}
-
-        <h3>Top Box:</h3>
         <div>
           <TopBox/>
         </div>
@@ -28,8 +26,6 @@ var App = React.createClass({
           <EventInfo/>
         </div>
 
-
-        <h3>CategoryBar:</h3>
         <div>
           <CategoryBar/>
         </div>
@@ -49,7 +45,6 @@ var App = React.createClass({
           <List/>
         </div>
 
-        <h3>Bottom Box:</h3>
         <div>
           <BottomBox/>
         </div>

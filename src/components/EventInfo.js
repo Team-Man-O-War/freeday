@@ -33,7 +33,6 @@ var Event = React.createClass({
         <div>
           <button type="default-primary" onClick={this.openModal} style={styles.base}>
       {this.props.children}Event Modal</button>
-          //(Opens modal with info for existing event)
           <Modal
             isOpen={this.state.modalIsOpen}
             onRequestClose={this.closeModal} 
@@ -73,7 +72,8 @@ var styles = {
     border: 0,
     borderRadius: 14,
     color: 'black',
-    padding: '1em',
+    padding: '2em',
+    margin: '1em',
 
     ':hover': {
       backgroundColor: 'powderblue'

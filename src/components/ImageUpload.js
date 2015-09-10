@@ -1,6 +1,11 @@
 var React = require('react');
 var Dropzone = require('react-dropzone');
 // var StyleSheet = require('react-style');
+// var imgur = require('imgur');
+
+// imgur.setClientId(imgurApi.clientId);
+// imgur.getClientId();
+
 
 var ImageUpload = React.createClass({
 

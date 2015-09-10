@@ -29,18 +29,12 @@ var styles = {
     borderRadius: 8,
     color: 'black',
     padding: '.08em',
+    paddingRight: '5em',
+    paddingLeft: '1em',
     margin: '4em',
     overflow: 'auto',
 
     ':hover': {
-      backgroundColor: 'firebrick'
-    },
-
-    ':focus': {
-      backgroundColor: 'firebrick'
-    },
-
-    ':active': {
       backgroundColor: 'firebrick'
     },
   },

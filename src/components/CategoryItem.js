@@ -32,63 +32,63 @@ var styles = {
   featured: {
     background: 'red',
     borderRadius: 14,
-    color: 'black',
+    color: 'snow',
     padding: '3em',
   },
 
     music: {
     background: 'blue',
     borderRadius: 14,
-    color: 'black',
+    color: 'snow',
     padding: '3em',
   },
 
      videoGames: {
     background: 'green',
     borderRadius: 14,
-    color: 'black',
+    color: 'snow',
     padding: '3em',
   },
 
      social: {
     background: 'purple',
     borderRadius: 14,
-    color: 'black',
+    color: 'snow',
     padding: '3em',
   },
 
        boardGames: {
     background: 'orange',
     borderRadius: 14,
-    color: 'black',
+    color: 'snow',
     padding: '3em',
   },
 
       educational: {
-    background: 'yellow',
+    background: 'gold',
     borderRadius: 14,
-    color: 'black',
+    color: 'snow',
     padding: '3em',
   },
 
     romance: {
     background: 'pink',
     borderRadius: 14,
-    color: 'black',
+    color: 'snow',
     padding: '3em',
   },
 
      athletic: {
-    background: 'cyan',
+    background: 'lightskyblue',
     borderRadius: 14,
-    color: 'black',
+    color: 'snow',
     padding: '3em',
   },
 
    other: {
     background: 'teal',
     borderRadius: 14,
-    color: 'black',
+    color: 'snow',
     padding: '3em',
   },
 };

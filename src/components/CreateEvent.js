@@ -33,7 +33,6 @@ var CreateEvent = React.createClass({
         this.props.block && styles.block
         ]}>
       {this.props.children}Create Event</button>
-          //(Opens modal with form to create new event)
           <Modal
             isOpen={this.state.modalIsOpen}
             onRequestClose={this.closeModal} 
@@ -80,12 +79,13 @@ var CreateEvent = React.createClass({
 var styles = {
   base: {
     background: 'steelblue',
-    border: 0,
     borderRadius: 100,
     color: 'black',
-    padding: '3em',
+    padding: '4em',
     float: 'right',
     overflow: 'auto',
+    margin: '-2.5em',
+    marginRight: '1em',
 
     ':hover': {
       backgroundColor: 'powderblue'

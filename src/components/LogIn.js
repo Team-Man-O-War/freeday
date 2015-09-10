@@ -6,13 +6,19 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
 		return (
       <div> 
         <label>Log In </label>
-          <input type="email" placeholder= "e-mail"/>
-          <input type="password" placeholder= "password"/>
+          <input type="email" placeholder= "e-mail" style={styles.input1}>
+            {this.props.children}
+            </input>
+          <input type="password" placeholder= "password" style={styles.input2}>
+            {this.props.children}
+            </input>
             <button style={styles.base}>
             {this.props.children}Submit</button>
             <br></br>
-            <button>Log In with Facebook</button>
-            <button>Log In with G-Mail</button>
+            <button style={styles.facebook}>
+            {this.props.children}Facebook</button>
+            <button style={styles.gmail}>
+            {this.props.children}G-Mail</button>
       </div>
 		)
 	}
@@ -20,14 +26,17 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
 
 var styles = {
   base: {
-    background: 'powderblue',
+    background: 'steelblue',
     border: 0,
     borderRadius: 8,
     color: 'black',
-    padding: '.4em',
+    padding: '.3em',
+    paddingLeft: '.5em',
+    paddingRight: '.5em',
+    marginLeft: '.2em',
 
     ':hover': {
-      backgroundColor: 'lightsteelblue'
+      backgroundColor: 'powderblue'
     },
 
     ':focus': {
@@ -38,6 +47,39 @@ var styles = {
       backgroundColor: 'midnightblue'
     },
   },
+
+    input1: {
+    backgroundColor: 'seashell',
+    color: 'black',
+    borderRadius: 6,
+    margin: '.5em',
+    padding: '.3em',
+  },
+
+    input2: {
+    backgroundColor: 'seashell',
+    color: 'black',
+    borderRadius: 6,
+    padding: '.3em',
+  },
+
+facebook: {
+  backgroundColor: '#3b5998',
+  color: 'white',
+  borderRadius: 4,
+  marginLeft: '6em',
+  marginTop: '1em',
+  padding: '.6em',
+},
+
+gmail: {
+  backgroundColor: 'crimson',
+  color: 'white',
+  borderRadius: 4,
+  marginLeft: '10em',
+  marginTop: '1em',
+  padding: '.6em',
+},
 };
 
 module.exports = Radium(LogIn);
