@@ -45,7 +45,7 @@ var Map = React.createClass({
               <GoogleMap 
                 center={this.state.center}
                 zoom={this.state.zoom}>
-                <div lat={this.state.center[0]} lng={this.state.center[1]} style={styles.youreHere}> ME!</div>
+                <div lat={this.state.center[0]} lng={this.state.center[1]} style={styles.youreHere}> YOU ARE HERE</div>
               </GoogleMap>
             </div>
           </div>

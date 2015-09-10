@@ -84,7 +84,7 @@ var styles = {
     padding: '4em',
     float: 'right',
     overflow: 'auto',
-    margin: '-2.5em',
+    marginTop: '-2em',
     marginRight: '1em',
 
     ':hover': {

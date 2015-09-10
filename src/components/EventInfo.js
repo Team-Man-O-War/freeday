@@ -74,6 +74,7 @@ var styles = {
     color: 'black',
     padding: '2em',
     margin: '1em',
+    marginLeft: '47%',
 
     ':hover': {
       backgroundColor: 'powderblue'
