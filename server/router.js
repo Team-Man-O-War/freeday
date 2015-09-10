@@ -1,35 +1,67 @@
 var Router = require('express').Router;
-var express = require('express');
-//var Sequelize = require('sequelize');
 var db = require('./db/db.js');
-var User = require('./db/models/user.js');
-var Event = require('./db/models/event.js');
-var Category = require('./db/models/category.js');
+var User = db.User;
+var Event = db.Event;
+var Category = db.Category;
 var router = new Router();
-router.use(express.static('client'));
+var LocalStrategy = require('passport-local').Strategy;
+var passport =  require('passport');
+var bcrypt = require('bcrypt-nodejs');
+var jwt = require('jsonwebtoken');
 
+router.post('/login', passport.authenticate('local', {
+  successRedirect : '/', // redirect to the secure profile section
+  failureRedirect : '/login', // redirect back to the signup page if 
+}));
 
-//code below catches post requests from /signup, should be changed to login
-router.post('/signup',function(req,res,done){ 
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    // User.findOrCreate wont fire unless data is sent back
+    User.find({where: {username: username}})
+      .then(function(user) {
+        // console.log(user.password);
+        // console.log(password);
+        if (!user) {
+          console.log('user not found');
+          return done(null, false, {message: "The user is not exist"});
+        } 
+        if (!bcrypt.compareSync(password, user.password)) {
+          console.log('invalid pass...');
+          return done(null, false, {message: "Wrong password"});
+        } 
+        console.log('all good dog');
+        var token = jwt.sign({username: user.username}, secret);
+        // res.json({success: true, message: 'Enjoy!', token : token });
+        console.log(user, ' user logged in');
+        return done(null, token);
+      });
+    }
+));
 
-   User.findOrCreate(
-    {where: {username:req.body.username},defaults:{username:req.body.username,password:req.body.password}}).spread(function(user,created){
-        if(created===false){
-          alert("that user exists bruh");
-        }
-      res.send({message:"good job"})
+router.post('/signup', function (req, res, next) {
+  User.find({where: {username: req.body.username}}).then(function (err, user) {
+    if (err) {
+      return next(err);
+    }
 
-
-    })
-     .error(function(onError){
-     console.log(onError,"error")//need to handle error differently
-     });
- 
-});
+    if (user) {
+      res.send('username is taken');
+    } else {
   
-
-
-
+      User
+        .create({username: req.body.username, password: req.body.password, address: req.body.address})
+        .save(req.body)
+        .then(function (user) {
+          res.send(user)
+        .catch(function (error) {
+            if (error) {
+              res.send(error);
+            }
+          });
+        });
+    } 
+  });
+});
 
 
 

@@ -7,12 +7,27 @@ var request = require('request');
 var config = require('./config/config.js');
 var router = require('./router');//sequelise must be loaded before router
 var User = require('./db/models/user');
+var passport = require('passport');
+var session = require('express-session');
 
-require('./db/passport');
-app.use(router);
+require('./db/db');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+// require('./router')(passport);
 
+app.use(session({secret: config.secret.shh }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(router);
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
 
 app.get('/map', function(req, res) {
   request.get('https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=' + config.googleMapApi.key, 
@@ -35,11 +50,11 @@ app.get('/meetup', function(req, res) {
     });
 });
 
-app.use(express.static('client'));//should serve index.html page.
+app.use('/', express.static('client'));//should serve index.html page.
 
-router.post('/login',function(req,res,done){
-  //user.findOne() do i need this here since i have it in passport.js??
-});
+// router.post('/login',function(req,res,done){
+//   //user.findOne() do i need this here since i have it in passport.js??
+// });
 
 
 

@@ -1,22 +1,27 @@
 var Sequelize = require('sequelize');
-var sequelize = require('../connection.js');
-
+var sequelize = require('../connection');
+var bcrypt = require('bcrypt-nodejs');
 
 var User = sequelize.define('user',{
 
   username:{
     type: Sequelize.STRING,
+    unique: true,
     field:'username'
   },
   password:{
     type: Sequelize.STRING,
-    field:'password'
+    set: function(v) {
+      var salt = bcrypt.genSaltSync(10);
+      var hash = bcrypt.hashSync(v, salt);
+      this.setDataValue('password', hash);
+    }
+
   },
   address:{
-    type:Sequelize.STRING,
+    type: Sequelize.STRING,
     field:'address'
   },
-
 });
 
 module.exports = User;
