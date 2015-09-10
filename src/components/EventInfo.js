@@ -72,9 +72,10 @@ var styles = {
     border: 0,
     borderRadius: 14,
     color: 'black',
-    padding: '2em',
+    padding: '3em',
     margin: '1em',
-    marginLeft: '47%',
+    marginLeft: '46%',
+    marginTop: '-.5em',
 
     ':hover': {
       backgroundColor: 'powderblue'
