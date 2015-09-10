@@ -1,5 +1,6 @@
 var React = require('react');
 var Modal = require('react-modal');
+var Radium = require('radium');
 
 var appElement = document.getElementById('main');
 
@@ -30,8 +31,8 @@ var Event = React.createClass({
     render: function(){
       return (
         <div>
-          <button type="default-primary" onClick={this.openModal}>Event Modal</button>
-          //(Opens modal with info for existing event)
+          <button type="default-primary" onClick={this.openModal} style={styles.base}>
+      {this.props.children}Event Modal</button>
           <Modal
             isOpen={this.state.modalIsOpen}
             onRequestClose={this.closeModal} 
@@ -40,7 +41,7 @@ var Event = React.createClass({
           <h1>Your Event</h1>
             <div> Address: 100 Super Cool St. Los Angeles, CA 12345 </div>
               <br></br>
-              <button onClick="Thanks!">I Will Attend</button>
+              <button >I Will Attend</button>
               <button>I Might Attend</button>
               <button>Hide Event</button>
               <button>Request Info</button>
@@ -65,4 +66,29 @@ var Event = React.createClass({
     }
 });
 
-module.exports = Event;
+var styles = {
+  base: {
+    background: 'steelblue',
+    border: 0,
+    borderRadius: 14,
+    color: 'black',
+    padding: '3em',
+    margin: '1em',
+    marginLeft: '46%',
+    marginTop: '-.5em',
+
+    ':hover': {
+      backgroundColor: 'powderblue'
+    },
+
+    ':focus': {
+      backgroundColor: 'steelblue'
+    },
+
+    ':active': {
+      backgroundColor: 'midnightblue'
+    },
+  },
+};
+
+module.exports = Radium(Event);

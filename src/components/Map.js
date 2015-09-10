@@ -1,7 +1,7 @@
 var React = require('react');
 var Pin = require('./Pin');
 var GoogleMap = require('google-map-react');
-var StyleSheet = require('react-style');
+var Radium = require('radium');
 var $ = require('jquery');
 
 var Map = React.createClass({
@@ -37,15 +37,15 @@ var Map = React.createClass({
   render: function(){
 
     return(
-      <div>
+      <div style={styles.base}>
+      {this.props.children}
         <div className="container-fluid">
           <div className="row">
-          hello
             <div className="col-xs-12 col-sm-8 col-sm-offset-2">
               <GoogleMap 
                 center={this.state.center}
                 zoom={this.state.zoom}>
-                <div lat={this.state.center[0]} lng={this.state.center[1]} style={styles.youreHere}> ME!</div>
+                <div lat={this.state.center[0]} lng={this.state.center[1]} style={styles.youreHere}> YOU ARE HERE</div>
               </GoogleMap>
             </div>
           </div>
@@ -55,8 +55,14 @@ var Map = React.createClass({
   },
 });
 
-var styles = 
-  StyleSheet.create({
+var styles = {
+  base: {
+    background: 'steelblue',
+    border: 0,
+    borderRadius: 50,
+    color: 'black',
+    padding: '1em',
+
     youreHere: {
       position: 'absolute',
       height: '20',
@@ -65,8 +71,8 @@ var styles =
       textAlign: 'center',
       backgroundColor: 'black',
       borderRadius: '50%'
-    }
-});
+    },
+  },
+};
 
-
-module.exports = Map;
+module.exports = Radium(Map);

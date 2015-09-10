@@ -8,15 +8,15 @@ var List = require('./components/List');
 var Map = require('./components/Map');
 var EventInfo = require('./components/EventInfo');
 // var StyleSheet = require('react-style');
+var Radium = require('radium');
 
 
 var App = React.createClass({
 
   render: function(){
     return (
-      <div>
-
-        <h3>Top Box:</h3>
+      <div style={styles.base}>
+      {this.props.children}
         <div>
           <TopBox/>
         </div>
@@ -26,8 +26,6 @@ var App = React.createClass({
           <EventInfo/>
         </div>
 
-
-        <h3>CategoryBar:</h3>
         <div>
           <CategoryBar/>
         </div>
@@ -47,7 +45,6 @@ var App = React.createClass({
           <List/>
         </div>
 
-        <h3>Bottom Box:</h3>
         <div>
           <BottomBox/>
         </div>
@@ -57,5 +54,11 @@ var App = React.createClass({
   }
 });
 
-React.render(<App/>, document.getElementById('main'));
+var styles = {
+  base: {
+    backgroundColor: 'whitesmoke',
+  },
+};
+
+Radium(React.render(<App/>, document.getElementById('main')));
 

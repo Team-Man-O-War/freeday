@@ -1,4 +1,5 @@
 var React = require('react');
+var Radium = require('radium');
 var $ = require('jquery');
 //require jquery and use it to send post request
 
@@ -39,13 +40,59 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
       <div>
         <form onSubmit={this.handleSubmit}>
           <label>Sign Up </label>
-          <input type="email" placeholder= "e-mail"/>
-          <input type="password" placeholder= "password"/>
-          <input type="submit" value="Submit"/>
+          <input type="email" placeholder= "e-mail" style={styles.input1}>
+            {this.props.children}
+            </input>
+          <input type="password" placeholder= "password" style={styles.input2}>
+            {this.props.children}
+            </input>
+          <button style={styles.base}>
+            {this.props.children}Submit</button>
         </form>    
       </div>
 		)
 	}
 });
 
-module.exports = SignUp;
+var styles = {
+  base: {
+    background: 'steelblue',
+    border: 0,
+    borderRadius: 8,
+    color: 'black',
+    padding: '.3em',
+    paddingLeft: '.5em',
+    paddingRight: '.5em',
+    marginLeft: '.2em',
+
+    ':hover': {
+      backgroundColor: 'powderblue'
+    },
+
+    ':focus': {
+      backgroundColor: 'steelblue'
+    },
+
+    ':active': {
+      backgroundColor: 'midnightblue'
+    },
+  },
+
+  input1: {
+    backgroundColor: 'seashell',
+    color: 'black',
+    borderRadius: 6,
+    margin: '.5em',
+    padding: '.3em',
+  },
+
+    input2: {
+    backgroundColor: 'seashell',
+    color: 'black',
+    borderRadius: 6,
+    padding: '.3em',
+  }
+
+};
+
+module.exports = Radium(SignUp);

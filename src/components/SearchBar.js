@@ -1,17 +1,19 @@
 var React = require('react');
+var Radium = require('radium');
 
-var SearchBar = React.createClass({//Employs search functionality and filters events to be rendered. Between map and list.
+var SearchBar = React.createClass({
 	render: function(){
-    var styles = {
-      width: '538'
-    };
 		return (
-        <div className="container-fluid" >
-        <div className="row">
-          <div className="col-xs-12 col-sm-8 col-sm-offset-2">
+        <div style={styles.base}>
+        {this.props.children}
+        <div>
+          <div>
         <form>
-          <input type="search" placeholder= "search" style={styles}/>
-          <button>Submit</button>
+          <input type="search" placeholder= "search by event type" style={styles.search}>
+            {this.props.children}
+            </input>
+          <button style={styles.button}>
+            {this.props.children}Submit</button>
         </form>
       </div>
       </div>
@@ -20,4 +22,35 @@ var SearchBar = React.createClass({//Employs search functionality and filters ev
 	}
 });
 
-module.exports = SearchBar;
+var styles = {
+  base: {
+    background: 'steelblue',
+    borderRadius: 2,
+    color: 'black',
+    padding: '1em',
+    float: 'right',
+    marginLeft: '20em',
+    marginRight: '20em',
+  },
+  search: {
+    backgroundColor: 'seashell',
+    color: 'black',
+    borderRadius: 6,
+    padding: '.3em',
+  },
+  button: {
+    backgroundColor: 'orangered',
+    color: 'seashell',
+    padding: '.3em',
+    paddingLeft: '.5em',
+    paddingRight: '.5em',
+    borderRadius: 8,
+    marginLeft: '.2em',
+
+    ':hover': {
+      backgroundColor: 'crimson'
+    },
+  }
+};
+
+module.exports = Radium(SearchBar);
