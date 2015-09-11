@@ -28,7 +28,7 @@ var styles = {
     background: 'lightsteelblue',
     padding: '2em',
     borderRadius: 8,
-    marginTop: '1em',
+    margin: '1em 0 0 0',
   },
 };
 

@@ -28,9 +28,7 @@ var styles = {
     border: '1px solid black',
     borderRadius: 8,
     color: 'black',
-    padding: '.08em',
-    paddingRight: '5em',
-    paddingLeft: '1em',
+    padding: '.08em 5em .08em 1em',
     margin: '4em',
     overflow: 'auto',
 

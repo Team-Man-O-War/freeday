@@ -29,8 +29,7 @@ var styles = {
     color: 'black',
     padding: '1em',
     float: 'right',
-    marginLeft: '20em',
-    marginRight: '20em',
+    margin: '0 20em 0 20em',
   },
   search: {
     backgroundColor: 'seashell',
@@ -41,11 +40,9 @@ var styles = {
   button: {
     backgroundColor: 'orangered',
     color: 'seashell',
-    padding: '.3em',
-    paddingLeft: '.5em',
-    paddingRight: '.5em',
+    padding: '.3em .5em .3em .5em',
     borderRadius: 8,
-    marginLeft: '.2em',
+    margin: '0 0 0 .2em',
 
     ':hover': {
       backgroundColor: 'crimson'

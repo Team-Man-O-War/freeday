@@ -1,6 +1,5 @@
-
 var Sequelize = require('sequelize');
-var database = require('../connection.js');
+var database = require('../connection');
 
 var Category = database.define('category',{
   name:Sequelize.STRING,

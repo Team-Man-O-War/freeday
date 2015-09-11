@@ -1,5 +1,5 @@
 var Sequelize = require('sequelize');
-var sequelize = require('../connection.js');
+var sequelize = require('../connection');
 
 
 var Event = sequelize.define('event',{

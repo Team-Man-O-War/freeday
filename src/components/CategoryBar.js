@@ -18,8 +18,7 @@ var styles = {
     border: 0,
     borderRadius: 14,
     padding: '1.5em',
-    marginLeft: '100px',
-    marginRight: '115px',
+    margin: '0 115px 0 100px',
   },
 };
 

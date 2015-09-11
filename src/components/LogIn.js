@@ -30,10 +30,8 @@ var styles = {
     border: 0,
     borderRadius: 8,
     color: 'black',
-    padding: '.3em',
-    paddingLeft: '.5em',
-    paddingRight: '.5em',
-    marginLeft: '.2em',
+    padding: '.3em .5em .3em .5em',
+    margin: '0 0 0 .2em',
 
     ':hover': {
       backgroundColor: 'powderblue'
@@ -52,8 +50,7 @@ var styles = {
     backgroundColor: 'seashell',
     color: 'black',
     borderRadius: 6,
-    marginRight: '.5em',
-    marginLeft: '1.2em',
+    margin: '0 .5em 0 1.2em',
     padding: '.3em',
   },
 
@@ -68,9 +65,7 @@ facebook: {
   backgroundColor: '#3b5998',
   color: 'white',
   borderRadius: 4,
-  marginLeft: '11.4em',
-  marginRight: '.5em',
-  marginTop: '1.3em',
+  margin: '1.3em .5em 0 11.4em',
   padding: '.6em',
 },
 
@@ -78,7 +73,7 @@ gmail: {
   backgroundColor: 'crimson',
   color: 'white',
   borderRadius: 4,
-  marginTop: '1.3em',
+  margin: '1.3em 0 0 0',
   padding: '.6em',
 },
 };

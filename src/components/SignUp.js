@@ -60,10 +60,8 @@ var styles = {
     border: 0,
     borderRadius: 8,
     color: 'black',
-    padding: '.3em',
-    paddingLeft: '.5em',
-    paddingRight: '.5em',
-    marginLeft: '.2em',
+    padding: '.3em .5em .3em .5em',
+    margin: '0 0 0 .2em',
 
     ':hover': {
       backgroundColor: 'powderblue'
