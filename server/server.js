@@ -12,6 +12,7 @@ var session = require('express-session');
 
 require('./db/db');
 
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // require('./router')(passport);
