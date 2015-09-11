@@ -22,7 +22,7 @@ app.use(passport.session());
 app.use(router);
 
 passport.serializeUser(function(user, done) {
-  done(null, user);
+  done(null, user.id);
 });
 
 passport.deserializeUser(function(user, done) {

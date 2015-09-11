@@ -12,12 +12,15 @@ var ListItem = React.createClass({
   },
 
   render: function() {
+    // console.log(this.props.meetupEvent, 'hellodjfsldjfj');
+    // console.log(meetupEventItem);
     return (
       <div className="infinite-list-item">
         <a href={this.props.num} style={styles.base}>
           {this.props.children}Event {this.props.num}
         </a>
       </div>
+      <div>{meetupEventItem}</div>
       )
     }
 });
