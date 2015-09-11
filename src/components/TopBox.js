@@ -2,6 +2,7 @@ var React = require('react');
 var CreateEvent = require('./CreateEvent');
 var SignUp = require('./SignUp');
 var LogIn = require('./LogIn');
+var Clock = require('./Clock');
 var Radium = require('radium');
 
 // Top of the page, with CreateEvent, login/user & logo/title. 
@@ -16,6 +17,7 @@ var TopBox = React.createClass({
         <CreateEvent/> 
         <SignUp/>
         <LogIn/> 
+        <Clock/>
       </div>
 		)
 	}

@@ -5,11 +5,10 @@ var Radium = require('radium');
 var $ = require('jquery');
 
 var Map = React.createClass({
-  
   getInitialState: function() {
     return{
       center: [39.1000, 84.5167],
-      zoom: 12,
+      zoom: 9,
       map: ''
     };
   },

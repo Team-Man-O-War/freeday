@@ -7,6 +7,8 @@ var request = require('request');
 var config = require('./config/config.js');
 var router = require('./router');//sequelize must be loaded before router
 var User = require('./db/models/user');
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads/' })
 
 require('./db/passport');
 app.use(router);
