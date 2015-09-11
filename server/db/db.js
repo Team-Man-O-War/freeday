@@ -17,7 +17,7 @@ var Category = require('./models/Category');
 //   });
 // });
 
-// User.sync();
+
 // Event.sync();
 // Category.sync();
 User.belongsToMany(Event,{as:'party',through:'attendee_party',foreignKey:'userId'});

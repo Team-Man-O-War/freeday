@@ -15,15 +15,14 @@ var List = React.createClass({
   },
 
   componentDidMount: function() {
+    var self = this;
     $.get('/meetup', function (data) {
-      console.log(data);
+      if (self.isMounted()) {
+        self.setState({
+          events: [data]
+        });
+      }
     });
-    console.log(meetup);
-    if (this.isMounted()) {
-      this.setState({
-        events: [data.results]
-      });
-    }
   },
 
   buildElements: function(start, end) {
@@ -58,14 +57,16 @@ var List = React.createClass({
     },
 
     render: function() {
+      var meetupEventList = this.state.events;
+      console.log(meetupEventList);
         return (
+          <ListItem meetupEvent={this.props.meetupEventList}
           <Infinite elementHeight={20}
              containerHeight={250}
              infiniteLoadBeginBottomOffset={200}
              onInfiniteLoad={this.handleInfiniteLoad}
              loadingSpinnerDelegate={this.elementInfiniteLoad()}
-             isInfiniteLoading={this.state.isInfiniteLoading}
-             >
+             isInfiniteLoading={this.state.isInfiniteLoading}>
           {this.state.elements}
         </Infinite>
       )
