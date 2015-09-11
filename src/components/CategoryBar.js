@@ -19,7 +19,7 @@ var styles = {
     borderRadius: 14,
     padding: '1.5em',
     marginLeft: '100px',
-    marginRight: '100px',
+    marginRight: '115px',
   },
 };
 

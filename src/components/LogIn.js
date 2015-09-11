@@ -70,7 +70,7 @@ facebook: {
   borderRadius: 4,
   marginLeft: '11.4em',
   marginRight: '.5em',
-  marginTop: '1em',
+  marginTop: '1.3em',
   padding: '.6em',
 },
 
@@ -78,7 +78,7 @@ gmail: {
   backgroundColor: 'crimson',
   color: 'white',
   borderRadius: 4,
-  marginTop: '1em',
+  marginTop: '1.3em',
   padding: '.6em',
 },
 };

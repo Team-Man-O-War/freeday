@@ -25,7 +25,7 @@ var SearchBar = React.createClass({
 var styles = {
   base: {
     background: 'steelblue',
-    borderRadius: 2,
+    borderRadius: 4,
     color: 'black',
     padding: '1em',
     float: 'right',

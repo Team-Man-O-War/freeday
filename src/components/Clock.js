@@ -18,7 +18,11 @@ var styles = {
     fontFamily: 'Verdana',
     fontSize: '1.3em',
     color: 'slategray',
-    marginLeft: '84%',
+    marginLeft: '80%',
+    backgroundColor: 'seashell',
+    padding: '.5em',
+    paddingLeft: '2em',
+    borderRadius: 14,
   },
 };
 
