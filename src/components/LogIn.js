@@ -6,7 +6,7 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
 		return (
       <div> 
         <label>Log In </label>
-          <input type="email" placeholder= "e-mail" style={styles.input1}>
+          <input type="text" placeholder= "username" style={styles.input1}>
             {this.props.children}
             </input>
           <input type="password" placeholder= "password" style={styles.input2}>

@@ -40,7 +40,7 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
       <div>
         <form onSubmit={this.handleSubmit}>
           <label>Sign Up </label>
-          <input type="email" placeholder= "e-mail" style={styles.input1}>
+          <input type="text" placeholder= "username" style={styles.input1}>
             {this.props.children}
             </input>
           <input type="password" placeholder= "password" style={styles.input2}>
