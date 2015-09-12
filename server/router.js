@@ -10,6 +10,9 @@ var bcrypt = require('bcrypt-nodejs');
 var jwt = require('jsonwebtoken');
 
 router.post('/login', passport.authenticate('local', {
+
+//DONT REDIRECT HERE RUN THE FUNCTION FROM STACKOVERFLOW INSTEAD
+//
   successRedirect : '/', // redirect to the secure profile section
   failureRedirect : '/login', // redirect back to the signup page if 
 }));
@@ -32,8 +35,8 @@ passport.use(new LocalStrategy(
         console.log('all good dog');
         var token = jwt.sign({username: user.username}, secret);
         // res.json({success: true, message: 'Enjoy!', token : token });
-        console.log(user, ' user logged in');
-        return done(null, token);
+        console.log(user, 'user logged in');
+        return done(null, user);//where does token go once its returned
       });
     }
 ));
