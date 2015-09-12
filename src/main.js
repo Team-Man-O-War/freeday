@@ -36,7 +36,7 @@ var App = React.createClass({
 
         <div>
           <SearchBar/>
-          //(Search/filtering functionality)
+          <br></br>
         </div> 
 
         <h3>List: //(Contains Event components)

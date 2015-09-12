@@ -84,8 +84,7 @@ var styles = {
     padding: '4em',
     float: 'right',
     overflow: 'auto',
-    marginTop: '-2em',
-    marginRight: '1em',
+    margin: '-2em 1em 0 0',
 
     ':hover': {
       backgroundColor: 'powderblue'

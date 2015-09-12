@@ -13,6 +13,7 @@ var session = require('express-session');
 
 require('./db/db');
 
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // require('./router')(passport);
@@ -27,7 +28,7 @@ app.use(express.static('client'));//should serve index.html page.
 require('./db/passport');
 
 passport.serializeUser(function(user, done) {
-  done(null, user);
+  done(null, user.id);
 });
 
 passport.deserializeUser(function(user, done) {
