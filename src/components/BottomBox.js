@@ -18,6 +18,7 @@ var styles = {
     background: 'lightsteelblue',
     padding: '2em',
     borderRadius: 8,
+    fontFamily: 'Verdana'
   },
 };
 

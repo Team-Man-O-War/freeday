@@ -34,6 +34,7 @@ var styles = {
     borderRadius: 14,
     color: 'snow',
     padding: '3em',
+    fontFamily: 'Verdana'
   },
 
     music: {
@@ -41,6 +42,7 @@ var styles = {
     borderRadius: 14,
     color: 'snow',
     padding: '3em',
+    fontFamily: 'Verdana'
   },
 
      videoGames: {
@@ -48,6 +50,7 @@ var styles = {
     borderRadius: 14,
     color: 'snow',
     padding: '3em',
+    fontFamily: 'Verdana'
   },
 
      social: {
@@ -55,6 +58,7 @@ var styles = {
     borderRadius: 14,
     color: 'snow',
     padding: '3em',
+    fontFamily: 'Verdana'
   },
 
        boardGames: {
@@ -62,6 +66,7 @@ var styles = {
     borderRadius: 14,
     color: 'snow',
     padding: '3em',
+    fontFamily: 'Verdana'
   },
 
       educational: {
@@ -69,6 +74,7 @@ var styles = {
     borderRadius: 14,
     color: 'snow',
     padding: '3em',
+    fontFamily: 'Verdana'
   },
 
     romance: {
@@ -76,6 +82,7 @@ var styles = {
     borderRadius: 14,
     color: 'snow',
     padding: '3em',
+    fontFamily: 'Verdana'
   },
 
      athletic: {
@@ -83,6 +90,7 @@ var styles = {
     borderRadius: 14,
     color: 'snow',
     padding: '3em',
+    fontFamily: 'Verdana'
   },
 
    other: {
@@ -90,6 +98,7 @@ var styles = {
     borderRadius: 14,
     color: 'snow',
     padding: '3em',
+    fontFamily: 'Verdana'
   },
 };
 

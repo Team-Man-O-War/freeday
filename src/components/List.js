@@ -60,7 +60,6 @@ var List = React.createClass({
       var meetupEventList = this.state.events;
       console.log(meetupEventList);
         return (
-          <ListItem meetupEvent={this.props.meetupEventList}
           <Infinite elementHeight={20}
              containerHeight={250}
              infiniteLoadBeginBottomOffset={200}

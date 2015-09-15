@@ -85,6 +85,7 @@ var styles = {
     float: 'right',
     overflow: 'auto',
     margin: '-2em 1em 0 0',
+    fontFamily: 'Verdana',
 
     ':hover': {
       backgroundColor: 'powderblue'

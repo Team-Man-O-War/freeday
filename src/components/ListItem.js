@@ -20,7 +20,6 @@ var ListItem = React.createClass({
           {this.props.children}Event {this.props.num}
         </a>
       </div>
-      <div>{meetupEventItem}</div>
       )
     }
 });
@@ -34,6 +33,7 @@ var styles = {
     padding: '.08em 5em .08em 1em',
     margin: '4em',
     overflow: 'auto',
+    fontFamily: 'Verdana',
 
     ':hover': {
       backgroundColor: 'firebrick'

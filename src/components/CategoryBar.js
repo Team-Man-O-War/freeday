@@ -18,7 +18,8 @@ var styles = {
     border: 0,
     borderRadius: 14,
     padding: '1.5em',
-    margin: '0 115px 0 100px',
+    margin: '0 5% 0 5%',
+    fontFamily: 'Verdana'
   },
 };
 

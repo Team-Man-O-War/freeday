@@ -32,6 +32,7 @@ var styles = {
     color: 'black',
     padding: '.3em .5em .3em .5em',
     margin: '0 0 0 .2em',
+    fontFamily: 'Verdana',
 
     ':hover': {
       backgroundColor: 'powderblue'
@@ -52,6 +53,7 @@ var styles = {
     borderRadius: 6,
     margin: '0 .5em 0 1.2em',
     padding: '.3em',
+    fontFamily: 'Verdana'
   },
 
     input2: {
@@ -59,6 +61,7 @@ var styles = {
     color: 'black',
     borderRadius: 6,
     padding: '.3em',
+    fontFamily: 'Verdana'
   },
 
 facebook: {
@@ -67,6 +70,7 @@ facebook: {
   borderRadius: 4,
   margin: '1.3em .5em 0 11.4em',
   padding: '.6em',
+  fontFamily: 'Verdana'
 },
 
 gmail: {
@@ -75,6 +79,7 @@ gmail: {
   borderRadius: 4,
   margin: '1.3em 0 0 0',
   padding: '.6em',
+  fontFamily: 'Verdana'
 },
 };
 

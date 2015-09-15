@@ -1,11 +1,5 @@
 var React = require('react');
 var Dropzone = require('react-dropzone');
-// var StyleSheet = require('react-style');
-// var imgur = require('imgur');
-
-// imgur.setClientId(imgurApi.clientId);
-// imgur.getClientId();
-
 
 var ImageUpload = React.createClass({
 
@@ -37,22 +31,13 @@ var ImageUpload = React.createClass({
                 </Dropzone>
 
                 {this.state.files.length > 0 ? <div>
-                <h2>Uploading {this.state.files.length} files...</h2>
+                <h2>Uploading file...</h2>
                 <div>{this.state.files.map((file) => <img src={file.preview} /> )}</div>
                 </div> : null}
             </div>
         );
     }
 });
-
-// var uploadStyle = StyleSheet.create({
-//     style: {
-//       color: 'red'
-//     },
-//     activeStyle: {
-//       color: 'blue'
-//     } 
-// });
 
 
 module.exports = ImageUpload;

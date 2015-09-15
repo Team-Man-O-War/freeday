@@ -30,12 +30,14 @@ var styles = {
     padding: '1em',
     float: 'right',
     margin: '0 20em 0 20em',
+    fontFamily: 'Verdana',
   },
   search: {
     backgroundColor: 'seashell',
     color: 'black',
     borderRadius: 6,
     padding: '.3em',
+    fontFamily: 'Verdana'
   },
   button: {
     backgroundColor: 'orangered',
@@ -43,6 +45,7 @@ var styles = {
     padding: '.3em .5em .3em .5em',
     borderRadius: 8,
     margin: '0 0 0 .2em',
+    fontFamily: 'Verdana',
 
     ':hover': {
       backgroundColor: 'crimson'

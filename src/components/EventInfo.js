@@ -74,6 +74,7 @@ var styles = {
     color: 'black',
     padding: '3em',
     margin: '-.5em 1em 1em 46%',
+    fontFamily: 'Verdana',
 
     ':hover': {
       backgroundColor: 'powderblue'

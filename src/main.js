@@ -54,11 +54,14 @@ var App = React.createClass({
   }
 });
 
+App = Radium(App);
+
 var styles = {
   base: {
     backgroundColor: 'whitesmoke',
+    fontFamily: 'Verdana'
   },
 };
 
-Radium(React.render(<App/>, document.getElementById('main')));
+React.render(<App/>, document.getElementById('main'));
 

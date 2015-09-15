@@ -29,6 +29,7 @@ var styles = {
     padding: '2em',
     borderRadius: 8,
     margin: '1em 0 0 0',
+    fontFamily: 'Verdana'
   },
 };
 
