@@ -12,18 +12,16 @@ var ListItem = React.createClass({
   },
 
   render: function() {
-    
-    // for (var i = 0; i < singleEvent.length; i+=1) {
-    //   singleEvent[i]
-    // }
- // 
+    var singleEvent = this.props.singleEvent;
+
+
     return (
       <div className="infinite-list-item">
         <a href={this.props.num} >
        
-          {this.props.children}Event <div dangerouslySetInnerHTML={{__html: this.props.singleEvent}} />
+          {this.props.children}Event 
         </a>
-        
+        <div style={styles.base} dangerouslySetInnerHTML={{__html: singleEvent}} />
       </div>
       
       )

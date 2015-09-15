@@ -23,24 +23,21 @@ var List = React.createClass({
           events: data.results
         });
         self.setState({
-          elements: self.buildElements(0, 20)
+          elements: self.buildElements(0, 30)
         });
     });
   },
 
   buildElements: function(start, end) {
-    var events = [];
     var eventArray = [];
-    console.log(this.state.events);
-    var filtered =  this.state.events.filter(function(e) {
-      events.push(e.name);
-      events.push(e.created);
-      events.push(e.description);
-    });
-    console.log(events);
+    var events = this.state.events;
+
     if (this.state.events.length > 0)  {
-      for (var i = start; i < end; i++) {
-        eventArray.push(<ListItem singleEvent={events[i]} key={i} num={i} />);
+      for (var i = start; i < end && i < events.length; i++) {
+        eventArray.push(events[i].name);
+        eventArray.push(events[i].description);
+        eventArray.push(events[i].distance);
+        eventArray.push(<ListItem singleEvent={eventArray} key={i} num={i} />);
       }
       return eventArray;
     }
