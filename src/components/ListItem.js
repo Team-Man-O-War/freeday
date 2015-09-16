@@ -20,7 +20,7 @@ var ListItem = React.createClass({
           {this.props.children}Event {this.props.num}
         </a>
       </div>
-      <div>{meetupEventItem}</div>
+      
       )
     }
 });

@@ -14,6 +14,7 @@ var CreateEvent = React.createClass({
     },     
 
     openModal: function() {
+      
       this.setState({modalIsOpen: true});
     },
 
