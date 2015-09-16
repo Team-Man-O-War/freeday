@@ -9,26 +9,36 @@ var Map = React.createClass({
     return{
       center: [39.1000, 84.5167],
       zoom: 9,
-      map: ''
+      map: '',
+      eventLocation: null
     };
   },
 
   componentDidMount: function() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
+        var self = this;
         var pos = {
           lat: position.coords.latitude,
-          lng: position.coords.longitude
+          lon: position.coords.longitude
         };
+
         $(document).ready(function() {
-          console.log(pos);
           $.post('/mylocation', pos, function (data) {
+            
           });
         });
 
+        $.get('/meetup', function (data) {
+          console.log(data);
+          self.setState({
+            eventLocation: data.results
+          });
+        });
+        console.log(eventLocation);
         if (this.isMounted()) {
           this.setState({
-            center: [pos.lat, pos.lng]
+            center: [pos.lat, pos.lon]
           });
         }
       }.bind(this));
@@ -38,6 +48,11 @@ var Map = React.createClass({
   componentWillUnmount: function() {
       navigator.geolocation.clearWatch(this.watchID);
      },
+
+  grabEventLocations: function () {
+    var location = this.state.eventLocation;
+    console.log(location);
+  },
 
   render: function(){
 
@@ -51,7 +66,7 @@ var Map = React.createClass({
                 style={styles.map}
                 center={this.state.center}
                 zoom={this.state.zoom}>
-                <div lat={this.state.center[0]} lng={this.state.center[1]} style={styles.youreHere}> YOU ARE HERE</div>
+                <div lat={this.state.center[0]} lon={this.state.center[1]} style={styles.youreHere}> YOU ARE HERE</div>
               </GoogleMap>
             </div>
           </div>
