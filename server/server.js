@@ -11,7 +11,8 @@ var passport = require('passport');
 var session = require('express-session');
 
 require('./db/db');
-
+var lat;
+var lon;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -44,6 +45,15 @@ app.get('/event', function(req, res) {
       res.json(JSON.parse(body));
     });
 });
+var pos;
+var self = this;
+app.post('/mylocation', function(req, res) {
+ self.pos = req.body;
+ // console.log(self.pos);
+ 
+});
+var posA = pos;
+console.log(posA);
 
 app.get('/meetup', function(req, res) {
   request.get('https://api.meetup.com/2/open_events?sign=true&photo-host=public&lat=33.97906&lon=-118.4228&page=20&key=' + config.meetupApi.key,

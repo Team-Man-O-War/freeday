@@ -17,8 +17,9 @@ var List = React.createClass({
 
   componentDidMount: function() {
     var self = this;
-    $.get('/meetup', function (data) {
 
+    
+    $.get('/meetup', function (data) {
         self.setState({
           events: data.results
         });
@@ -31,8 +32,7 @@ var List = React.createClass({
   buildElements: function(start, end) {
     var eventArray = [];
     var events = this.state.events;
-
-    if (this.state.events.length > 0)  {
+    if (events.length > 0)  {
       for (var i = start; i < end && i < events.length; i++) {
         eventArray.push(events[i].name);
         eventArray.push(events[i].description);
