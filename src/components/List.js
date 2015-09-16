@@ -35,12 +35,19 @@ var List = React.createClass({
     console.log(this.state.events);
     var filtered =  this.state.events.filter(function(e) {
       var newEvent = {};
+        var d = new Date(e.time);
+        // var hours = date.getHours();
+        // var minutes = date.getMinutes();
+        // var time = hours + " hours, " + minutes + " minutes."
+
         newEvent.name = e.name;
-        newEvent.description = e.description;
+        newEvent.description = e.description.substring(0,300) + " ...";
         newEvent.url = e.event_url;
         newEvent.distance = Math.round(e.distance) + " miles";
         newEvent.urlName = e.group.urlname;
         newEvent.stockImage = "http://lorempixel.com/400/200/";
+        newEvent.time = d.toLocaleString();
+        console.log(newEvent.time);
         newEvent.category;
     
       events.push(newEvent);
@@ -85,7 +92,7 @@ var List = React.createClass({
         return (
           <Infinite elementHeight={300}
              containerHeight={450}
-             infiniteLoadBeginBottomOffset={350}
+             infiniteLoadBeginBottomOffset={200}
              onInfiniteLoad={this.handleInfiniteLoad}
              loadingSpinnerDelegate={this.elementInfiniteLoad()}
              isInfiniteLoading={this.state.isInfiniteLoading}>

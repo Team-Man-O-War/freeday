@@ -23,7 +23,10 @@ var ListItem = React.createClass({
         {console.log(this.props.singleEvent.description)}
           {this.props.children}
            <h4>{this.props.singleEvent.name}</h4>
+           <br></br>
+           <div dangerouslySetInnerHTML={{__html: this.props.singleEvent.description}} />
            <img src={this.props.singleEvent.stockImage} style={styles.image}/>
+           <h4>{this.props.singleEvent.time}</h4>
            <h4>Distance: {this.props.singleEvent.distance}</h4>
         </a>
       </div>     
@@ -33,32 +36,22 @@ var ListItem = React.createClass({
 
 var styles = {
   base: {
-    background: 'orangered',
-    decoration: 'none',
-    overflow: 'auto',
+    background: 'peachpuff',
+    display: 'inline-block',
     border: '3px solid black',
     borderRadius: 8,
     color: 'black',
-    padding: '1% 70% 1% 3%',
-    margin: '5px 200px 5px 30px',
+    padding: '1% 100px 1% 3%',
+    margin: '5px 300px 5px 30px',
     ':hover': {
-      backgroundColor: 'firebrick'
+      backgroundColor: 'orangered'
     },
   },
   image: {
-    float: 'left',
-    borderRadius: 30,
+    borderRadius: 40,
     margin: '0 10px 0 800px',
     padding: '0 10px 0 0',
-    overflow: 'auto',
   },
-  text: {
-    overflow: 'ellipsis',
-    textOverflow: 'ellipsis',
-    float: 'left',
-    maxlength: 20,
-    maxlLength: 20,
-  }
 };
 
 module.exports = Radium(ListItem);
