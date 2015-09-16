@@ -2,7 +2,6 @@ var React = require('react');
 var TopBox = require('./components/TopBox');
 var CategoryBar = require('./components/CategoryBar');
 var SearchBar = require('./components/SearchBar');
-var ListItem = require('./components/ListItem');
 var BottomBox = require('./components/BottomBox');
 var List = require('./components/List');
 var Map = require('./components/Map');

@@ -12,7 +12,8 @@ var passport = require('passport');
 var session = require('express-session');
 
 require('./db/db');
-
+var lat;
+var lon;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -45,14 +46,29 @@ app.get('/map', function(req, res) {
 app.get('/event', function(req, res) {
   request.get('https://www.eventbriteapi.com/v3/events/search/?q=popular=true&location.latitude=34.0500&location.longitude=118.2500&location.within=2mi&token=' + config.eventBriteApi.token,
     function(err, response, body) {
-      res.send(body);
+
+      res.json(JSON.parse(body));
     });
 });
+var pos;
+var self = this;
+app.post('/mylocation', function(req, res) {
+ self.pos = req.body;
+ // console.log(self.pos);
+ 
+});
+var posA = pos;
+console.log(posA);
 
 
 app.get('/meetup', function(req, res) {
   request.get('https://api.meetup.com/2/open_events?sign=true&photo-host=public&lat=33.97906&lon=-118.4228&page=20&key=' + config.meetupApi.key,
     function(err, response, body) {
+      if (!response.headers['content-type']) {
+        res.set('Content-Type', 'application/json');
+      } else {
+        res.set('Content-Type', response.headers['content-type']);
+      }
       res.send(body);
     });
 });

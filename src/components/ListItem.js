@@ -12,13 +12,16 @@ var ListItem = React.createClass({
   },
 
   render: function() {
-    // console.log(this.props.meetupEvent, 'hellodjfsldjfj');
-    // console.log(meetupEventItem);
+    var singleEvent = this.props.singleEvent;
+
+
     return (
       <div className="infinite-list-item">
-        <a href={this.props.num} style={styles.base}>
-          {this.props.children}Event {this.props.num}
+        <a href={this.props.num} >
+       
+          {this.props.children}Event 
         </a>
+        <div style={styles.base} dangerouslySetInnerHTML={{__html: singleEvent}} />
       </div>
       
       )
@@ -28,12 +31,12 @@ var ListItem = React.createClass({
 var styles = {
   base: {
     background: 'orangered',
-    border: '1px solid black',
+    border: '3px solid black',
     borderRadius: 8,
     color: 'black',
-    padding: '.08em 5em .08em 1em',
-    margin: '4em',
-    overflow: 'auto',
+    padding: '1% 75% 1% 10px',
+    margin: '1px 20% 1px 20px',
+    
 
     ':hover': {
       backgroundColor: 'firebrick'

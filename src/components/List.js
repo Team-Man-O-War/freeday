@@ -8,39 +8,50 @@ var $ = require('jquery');
 var List = React.createClass({
   getInitialState: function() {
     return {
-      elements: this.buildElements(1, 15),
+      elements: [],
       isInfiniteLoading: false,
-      events: []
+      events: null,
+      meetupJSON: []
     };
-  },
+  }, 
 
   componentDidMount: function() {
     var self = this;
+
+    
     $.get('/meetup', function (data) {
-      if (self.isMounted()) {
         self.setState({
-          events: [data]
+          events: data.results
         });
-      }
+        self.setState({
+          elements: self.buildElements(0, 30)
+        });
     });
   },
 
   buildElements: function(start, end) {
-    var elements = [];
-    for (var i = start; i < end; i++) {
-      elements.push(<ListItem key={i} num={i}/>)
+    var eventArray = [];
+    var events = this.state.events;
+    if (events.length > 0)  {
+      for (var i = start; i < end && i < events.length; i++) {
+        eventArray.push(events[i].name);
+        eventArray.push(events[i].description);
+        eventArray.push(events[i].distance);
+        eventArray.push(<ListItem singleEvent={eventArray} key={i} num={i} />);
+      }
+      return eventArray;
     }
-    return elements;
   },
 
   handleInfiniteLoad: function() {
     var that = this;
+
     this.setState({
         isInfiniteLoading: true
     });
     setTimeout(function() {
       var elemLength = that.state.elements.length,
-        newElements = that.buildElements(elemLength, elemLength + 1000);
+        newElements = that.buildElements(elemLength, elemLength + 10);
       that.setState({
         isInfiniteLoading: false,
         elements: that.state.elements.concat(newElements)
@@ -57,10 +68,11 @@ var List = React.createClass({
     },
 
     render: function() {
-      var meetupEventList = this.state.events;
-      console.log(meetupEventList);
+      // var meetupEventList = this.state.events;
+      // console.log(meetupEventList);
+      
         return (
-          
+
           <Infinite elementHeight={20}
              containerHeight={250}
              infiniteLoadBeginBottomOffset={200}
