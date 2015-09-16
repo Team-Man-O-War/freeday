@@ -72,6 +72,7 @@ var List = React.createClass({
       // console.log(meetupEventList);
       
         return (
+
           <Infinite elementHeight={20}
              containerHeight={250}
              infiniteLoadBeginBottomOffset={200}

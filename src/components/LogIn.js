@@ -1,7 +1,44 @@
+
 var React = require('react');
 var Radium = require('radium');
+var $ = require('jquery');
+
 
 var LogIn = React.createClass({//For users logging into app. Will feed into TopBox component. Needs authorization/authentication.
+  handleSubmit:function(e){
+    e.preventDefault();
+    var userInput = {};
+    var signUpDom = React.findDOMNode(this);
+    
+    userInput.username = signUpDom.firstChild.children[1].value;
+    userInput.password = signUpDom.firstChild.children[2].value;
+    
+    var jsonifiedInput = JSON.stringify(userInput);
+
+    $.ajax({
+      url:"/login",
+      type:"POST",
+      data:jsonifiedInput,
+      datatype:'json' ,
+      contentType:'application/json',
+      success: function(something){
+        //send something from server to client on successful transaction
+        //i think this is where i need to pass the token to the user's header
+        console.log("this is the something that i am looking for: ",something);
+
+        
+      },
+      error: function(xhr,ajaxOptions,err){
+        alert("error",err);
+        console.log(err);
+        console.log(xhr.status);
+      }
+    })
+
+
+
+    
+   }, 
 	render: function(){
 		return (
       <div> 

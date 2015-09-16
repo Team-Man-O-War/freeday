@@ -5,6 +5,7 @@ var connect = require('./db/connection');
 var bodyParser = require('body-parser');
 var request = require('request');
 var config = require('./config/config.js');
+
 var router = require('./router');//sequelize must be loaded before router
 var User = require('./db/models/user');
 var passport = require('passport');
@@ -16,10 +17,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // require('./router')(passport);
 
-app.use(session({secret: config.secret.shh }));
+app.use(session({secret: "config.secret.shh" }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 app.use(router);
+app.use(passport.initialize());
+app.use(express.static('client'));//should serve index.html page.
+require('./db/passport');
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
@@ -50,6 +55,7 @@ app.post('/mylocation', function(req, res) {
 });
 
 
+
 app.get('/meetup', function(req, res) {
   console.log(pos);
   if (pos !== undefined) {
@@ -67,9 +73,6 @@ app.get('/meetup', function(req, res) {
 
 app.use('/', express.static('client'));//should serve index.html page.
 
-// router.post('/login',function(req,res,done){
-//   //user.findOne() do i need this here since i have it in passport.js??
-// });
 
 
 
