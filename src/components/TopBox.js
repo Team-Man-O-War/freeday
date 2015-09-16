@@ -8,8 +8,6 @@ var Radium = require('radium');
 // Top of the page, with CreateEvent, login/user & logo/title. 
 //Will pull from createevent/login/register components. 
 
-var loggedIn = true;
-
 var TopBox = React.createClass({
 	render: function(){
 		return (

@@ -25,10 +25,8 @@ var ListItem = React.createClass({
            <h4>{this.props.singleEvent.name}</h4>
            <img src={this.props.singleEvent.stockImage} style={styles.image}/>
            <h4>Distance: {this.props.singleEvent.distance}</h4>
-          <div dangerouslySetInnerHTML={{__html: this.props.singleEvent}} />
         </a>
-      </div>
-      
+      </div>     
       )
     }
 });

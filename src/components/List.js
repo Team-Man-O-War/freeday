@@ -41,6 +41,7 @@ var List = React.createClass({
         newEvent.distance = Math.round(e.distance) + " miles";
         newEvent.urlName = e.group.urlname;
         newEvent.stockImage = "http://lorempixel.com/400/200/";
+        newEvent.category;
     
       events.push(newEvent);
     });

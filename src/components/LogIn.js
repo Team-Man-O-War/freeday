@@ -49,12 +49,12 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
           <input type="password" placeholder= "password" style={styles.input2}>
             {this.props.children}
             </input>
-            <button style={styles.base} onClick={loggedIn=false}>
+            <button style={styles.base}>
             {this.props.children}Submit</button>
             <br></br>
-            <button style={styles.facebook} onClick={loggedIn=false}>
+            <button style={styles.facebook}>
             {this.props.children}Facebook</button>
-            <button style={styles.gmail} onClick={loggedIn=false}>
+            <button style={styles.gmail}>
             {this.props.children}G-Mail</button>
       </div>
 		)

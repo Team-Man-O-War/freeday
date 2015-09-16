@@ -6,11 +6,10 @@ var BottomBox = require('./components/BottomBox');
 var List = require('./components/List');
 var Map = require('./components/Map');
 var EventInfo = require('./components/EventInfo');
+// var Tab = require('./components/Tab');
 var Radium = require('radium');
 
-
 var App = React.createClass({
-
   render: function(){
     return (
       <div style={styles.base}>
@@ -31,7 +30,7 @@ var App = React.createClass({
         <div>
           <Map/>
         </div>
-
+        
         <div>
           <SearchBar/>
           <br></br>

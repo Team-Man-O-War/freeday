@@ -14,12 +14,7 @@ var CreateEvent = React.createClass({
     },     
 
     openModal: function() {
-      if (loggedIn === false){
         this.setState({modalIsOpen: true});
-      }
-      else {
-        location.reload();
-      }
     },
 
     closeModal: function() {
