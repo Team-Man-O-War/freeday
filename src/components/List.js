@@ -32,27 +32,23 @@ var List = React.createClass({
   buildElements: function(start, end) {
     var events = [];
     var eventArray = [];
-    console.log(this.state.events);
+    // console.log(this.state.events);
     var filtered =  this.state.events.filter(function(e) {
       var newEvent = {};
         var d = new Date(e.time);
-        // var hours = date.getHours();
-        // var minutes = date.getMinutes();
-        // var time = hours + " hours, " + minutes + " minutes."
-
         newEvent.name = e.name;
         newEvent.description = e.description.substring(0,300) + " ...";
         newEvent.url = e.event_url;
         newEvent.distance = Math.round(e.distance) + " miles";
-        newEvent.urlName = e.group.urlname;
+        // newEvent.urlName = e.group.urlname;
         newEvent.stockImage = "http://lorempixel.com/400/200/";
         newEvent.time = d.toLocaleString();
-        console.log(newEvent.time);
+        newEvent.confirmed = e.yes_rsvp_count;
         newEvent.category;
     
       events.push(newEvent);
     });
-    console.log(events);
+    // console.log(events);
     if (this.state.events.length > 0)  {
       for (var i = start; i < end; i++) {
         eventArray.push(<ListItem singleEvent={events[i]} key={i} num={i} />);
@@ -90,7 +86,7 @@ var List = React.createClass({
       // console.log(meetupEventList);
       
         return (
-          <Infinite elementHeight={300}
+          <Infinite elementHeight={350}
              containerHeight={450}
              infiniteLoadBeginBottomOffset={200}
              onInfiniteLoad={this.handleInfiniteLoad}

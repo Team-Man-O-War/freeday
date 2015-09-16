@@ -25,14 +25,17 @@ var ListItem = React.createClass({
            <h4>{this.props.singleEvent.name}</h4>
            <br></br>
            <div dangerouslySetInnerHTML={{__html: this.props.singleEvent.description}} />
-           <img src={this.props.singleEvent.stockImage} style={styles.image}/>
+           
            <h4>{this.props.singleEvent.time}</h4>
            <h4>Distance: {this.props.singleEvent.distance}</h4>
+           <h4>Confirmed Attending: {this.props.singleEvent.confirmed}</h4>
         </a>
       </div>     
       )
     }
 });
+
+// <img src={this.props.singleEvent.stockImage} style={styles.image}/>
 
 var styles = {
   base: {
