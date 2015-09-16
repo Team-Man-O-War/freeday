@@ -1,5 +1,5 @@
 var React = require('react');
-// var Pin = require('./Pin');
+var Pin = require('./Pin');
 var GoogleMap = require('google-map-react');
 var Radium = require('radium');
 var $ = require('jquery');
@@ -8,9 +8,8 @@ var Map = React.createClass({
   getInitialState: function() {
     return{
       center: [39.1000, 84.5167],
-      zoom: 9,
+      zoom: 10,
       map: '',
-      pin: [48.8582, 2.2945]
     };
   },
 
@@ -45,8 +44,7 @@ var Map = React.createClass({
               <GoogleMap 
                 center={this.state.center}
                 zoom={this.state.zoom}>
-                <div lat={this.state.center[0]} lng={this.state.center[1]} style={styles.youreHere}> YOU ARE HERE</div>
-                <div lat={this.state.pin[0]} lng={this.state.pin[1]}> PIN TEST/div>
+                <div lat={this.state.center[0]} lng={this.state.center[1]}> YOU ARE HERE</div>
               </GoogleMap>
             </div>
           </div>
@@ -64,16 +62,6 @@ var styles = {
     color: 'black',
     padding: '1em',
     fontFamily: 'Verdana',
-
-    youreHere: {
-      position: 'absolute',
-      height: '20',
-      width: '50',
-      color: 'white',
-      textAlign: 'center',
-      backgroundColor: 'black',
-      borderRadius: '50%'
-    },
   },
 };
 

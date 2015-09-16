@@ -29,6 +29,7 @@
     "google-map-react": "^0.4.1",
     "jquery": "^2.1.4",
     "jsonwebtoken": "^5.0.5",
+    "moment": "^2.10.6",
     "morgan": "^1.6.1",
     "passport": "^0.3.0",
     "passport-facebook": "^2.0.0",

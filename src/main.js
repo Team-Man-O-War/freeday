@@ -2,12 +2,10 @@ var React = require('react');
 var TopBox = require('./components/TopBox');
 var CategoryBar = require('./components/CategoryBar');
 var SearchBar = require('./components/SearchBar');
-var ListItem = require('./components/ListItem');
 var BottomBox = require('./components/BottomBox');
 var List = require('./components/List');
 var Map = require('./components/Map');
 var EventInfo = require('./components/EventInfo');
-// var StyleSheet = require('react-style');
 var Radium = require('radium');
 
 
@@ -39,8 +37,8 @@ var App = React.createClass({
           <br></br>
         </div> 
 
-        <h3>List: //(Contains Event components)
-        </h3>
+        <h1> Event List
+        </h1>
         <div>
           <List/>
         </div>

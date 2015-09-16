@@ -12,14 +12,23 @@ var ListItem = React.createClass({
   },
 
   render: function() {
-    // console.log(this.props.meetupEvent, 'hellodjfsldjfj');
-    // console.log(meetupEventItem);
+    
+    // for (var i = 0; i < singleEvent.length; i+=1) {
+    //   singleEvent[i]
+    // }
+    console.log(this.props.singleEvent)
     return (
-      <div className="infinite-list-item">
-        <a href={this.props.num} style={styles.base}>
-          {this.props.children}Event {this.props.num}
+      <div className="infinite-list-item" style={styles.base}>
+        <a href={this.props.singleEvent.url}>
+        {console.log(this.props.singleEvent.description)}
+          {this.props.children}
+           <h2>{this.props.singleEvent.name}</h2>
+
+           <h3>Distance: {this.props.singleEvent.distance}</h3>
+          <div dangerouslySetInnerHTML={{__html: this.props.singleEvent}} />
         </a>
       </div>
+      
       )
     }
 });
@@ -27,18 +36,30 @@ var ListItem = React.createClass({
 var styles = {
   base: {
     background: 'orangered',
-    border: '1px solid black',
+    decoration: 'none',
+    overflow: 'auto',
+    border: '3px solid black',
     borderRadius: 8,
     color: 'black',
-    padding: '.08em 5em .08em 1em',
-    margin: '4em',
-    overflow: 'auto',
-    fontFamily: 'Verdana',
-
+    padding: '1% 75% 1% 3%',
+    margin: '1px 200px 1px 30px',
     ':hover': {
       backgroundColor: 'firebrick'
     },
   },
+  image: {
+    float: 'left',
+    borderRadius: 20,
+    margin: '5px 10px 5px 800px',
+    padding: '10px 10px 10px 0',
+  },
+  text: {
+    overflow: 'ellipsis',
+    textOverflow: 'ellipsis',
+    float: 'left',
+    maxlength: 20,
+    maxlLength: 20,
+  }
 };
 
 module.exports = Radium(ListItem);
