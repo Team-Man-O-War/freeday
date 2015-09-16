@@ -5,6 +5,7 @@ var connect = require('./db/connection');
 var bodyParser = require('body-parser');
 var request = require('request');
 var config = require('./config/config.js');
+
 var router = require('./router');//sequelize must be loaded before router
 var User = require('./db/models/user');
 var passport = require('passport');
@@ -12,15 +13,18 @@ var session = require('express-session');
 
 require('./db/db');
 
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // require('./router')(passport);
 
-app.use(session({secret: config.secret.shh }));
+app.use(session({secret: "config.secret.shh" }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 app.use(router);
+app.use(passport.initialize());
+app.use(express.static('client'));//should serve index.html page.
+require('./db/passport');
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
@@ -45,8 +49,17 @@ app.get('/event', function(req, res) {
     });
 });
 
+var pos;
+app.post('/mylocation', function(req, res) {
+ pos = req.body;
+});
+
+
+
 app.get('/meetup', function(req, res) {
-  request.get('https://api.meetup.com/2/open_events?sign=true&photo-host=public&lat=33.97906&lon=-118.4228&page=20&key=' + config.meetupApi.key,
+  console.log(pos);
+  if (pos !== undefined) {
+  request.get('https://api.meetup.com/2/open_events?sign=true&photo-host=public&lat=' + pos.lat + '&lon=' + pos.lon + '&page=20&key=' + config.meetupApi.key,
     function(err, response, body) {
       if (!response.headers['content-type']) {
         res.set('Content-Type', 'application/json');
@@ -55,13 +68,11 @@ app.get('/meetup', function(req, res) {
       }
       res.send(body);
     });
+  }
 });
 
 app.use('/', express.static('client'));//should serve index.html page.
 
-// router.post('/login',function(req,res,done){
-//   //user.findOne() do i need this here since i have it in passport.js??
-// });
 
 
 

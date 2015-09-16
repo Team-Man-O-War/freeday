@@ -17,13 +17,14 @@ var List = React.createClass({
 
   componentDidMount: function() {
     var self = this;
-    $.get('/meetup', function (data) {
 
+    
+    $.get('/meetup', function (data) {
         self.setState({
           events: data.results
         });
         self.setState({
-          elements: self.buildElements(0, 20)
+          elements: self.buildElements(0, 15)
         });
     });
   },
@@ -42,8 +43,6 @@ var List = React.createClass({
         newEvent.stockImage = "http://lorempixel.com/400/200/";
     
       events.push(newEvent);
-      // events.push(e.created);
-      // events.push(e.description);
     });
     console.log(events);
     if (this.state.events.length > 0)  {
@@ -62,12 +61,12 @@ var List = React.createClass({
     });
     setTimeout(function() {
       var elemLength = that.state.elements.length,
-        newElements = that.buildElements(elemLength, elemLength + 15);
+        newElements = that.buildElements(elemLength, elemLength + 10);
       that.setState({
         isInfiniteLoading: false,
         elements: that.state.elements.concat(newElements)
       });
-    }, 2000);
+    }, 1500);
   },
 
     elementInfiniteLoad: function() {
@@ -83,9 +82,9 @@ var List = React.createClass({
       // console.log(meetupEventList);
       
         return (
-          <Infinite elementHeight={50}
-             containerHeight={300}
-             infiniteLoadBeginBottomOffset={200}
+          <Infinite elementHeight={300}
+             containerHeight={450}
+             infiniteLoadBeginBottomOffset={350}
              onInfiniteLoad={this.handleInfiniteLoad}
              loadingSpinnerDelegate={this.elementInfiniteLoad()}
              isInfiniteLoading={this.state.isInfiniteLoading}>

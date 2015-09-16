@@ -1,3 +1,4 @@
+
 var React = require('react');
 var Radium = require('radium');
 var $ = require('jquery');
@@ -13,6 +14,7 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
     
     userInput.username = signUpDom.firstChild.children[1].value;
     userInput.password = signUpDom.firstChild.children[2].value;
+    
     var jsonifiedInput = JSON.stringify(userInput);
     //the json.stringify sends the correct form
    

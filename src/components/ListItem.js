@@ -22,9 +22,9 @@ var ListItem = React.createClass({
         <a href={this.props.singleEvent.url}>
         {console.log(this.props.singleEvent.description)}
           {this.props.children}
-           <h2>{this.props.singleEvent.name}</h2>
-
-           <h3>Distance: {this.props.singleEvent.distance}</h3>
+           <h4>{this.props.singleEvent.name}</h4>
+           <img src={this.props.singleEvent.stockImage} style={styles.image}/>
+           <h4>Distance: {this.props.singleEvent.distance}</h4>
           <div dangerouslySetInnerHTML={{__html: this.props.singleEvent}} />
         </a>
       </div>
@@ -41,17 +41,18 @@ var styles = {
     border: '3px solid black',
     borderRadius: 8,
     color: 'black',
-    padding: '1% 75% 1% 3%',
-    margin: '1px 200px 1px 30px',
+    padding: '1% 70% 1% 3%',
+    margin: '5px 200px 5px 30px',
     ':hover': {
       backgroundColor: 'firebrick'
     },
   },
   image: {
     float: 'left',
-    borderRadius: 20,
-    margin: '5px 10px 5px 800px',
-    padding: '10px 10px 10px 0',
+    borderRadius: 30,
+    margin: '0 10px 0 800px',
+    padding: '0 10px 0 0',
+    overflow: 'auto',
   },
   text: {
     overflow: 'ellipsis',
