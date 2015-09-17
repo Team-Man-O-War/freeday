@@ -2,7 +2,6 @@ var React = require('react');
 var Dropzone = require('react-dropzone');
 
 var ImageUpload = React.createClass({
-
     getInitialState: function() {
       return {
         files: []

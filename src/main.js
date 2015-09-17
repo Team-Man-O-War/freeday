@@ -5,7 +5,6 @@ var SearchBar = require('./components/SearchBar');
 var BottomBox = require('./components/BottomBox');
 var List = require('./components/List');
 var Map = require('./components/Map');
-var EventInfo = require('./components/EventInfo');
 // var Tab = require('./components/Tab');
 var Radium = require('radium');
 
@@ -19,9 +18,6 @@ var App = React.createClass({
         </div>
 
         <br></br>
-        <div>
-          <EventInfo/>
-        </div>
 
         <div>
           <CategoryBar/>

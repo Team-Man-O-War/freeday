@@ -31,8 +31,8 @@ var Event = React.createClass({
     render: function(){
       return (
         <div>
-          <button type="default-primary" onClick={this.openModal} style={styles.base}>
-      {this.props.children}Event Info Modal</button>
+          <button onClick={this.openModal} style={styles.base}>
+      {this.props.children}Event Information</button>
           <Modal
             isOpen={this.state.modalIsOpen}
             onRequestClose={this.closeModal} 
@@ -69,11 +69,13 @@ var Event = React.createClass({
 var styles = {
   base: {
     background: 'steelblue',
+    display: 'inline',
+    float: 'right',
     border: 0,
     borderRadius: 14,
     color: 'black',
-    padding: '3em',
-    margin: '-.5em 1em 1em 46%',
+    padding: '4em',
+    margin: '-7em 0 1em 46%',
     fontFamily: 'Verdana',
 
     ':hover': {

@@ -1,10 +1,7 @@
-
 var React = require('react');
 var Radium = require('radium');
 var $ = require('jquery');
 //require jquery and use it to send post request
-
-
 
 var SignUp = React.createClass({//For users signing up for app. Will feed into TopBox component. Needs authentication/authorization.
   handleSubmit:function(e){
@@ -93,7 +90,6 @@ var styles = {
     borderRadius: 6,
     padding: '.3em',
   }
-
 };
 
 module.exports = Radium(SignUp);

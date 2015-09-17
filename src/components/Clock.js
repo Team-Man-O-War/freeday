@@ -2,13 +2,13 @@ var React = require('react');
 var moment = require('moment');
 var Radium = require('radium');
 
+
 var Clock = React.createClass({
   render: function(){
-    this.handleUpdate;
     return (
       <div style={styles.base}>
       {this.props.children}
-        {moment().format('MMM Do YYYY h:mm a')}
+        {moment().format('MMM Do YYYY, h:mm a')}
       </div>
     )
   }

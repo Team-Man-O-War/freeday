@@ -2,7 +2,7 @@ var React = require('react');
 var Radium = require('radium');
 
 var CategoryItem = React.createClass({//individual categories that will fit into CategoryBar component and apply filters to Pins.
-	render: function(){//will likely be an array
+	render: function(){
 		return (
       <div>
       <button style={styles.featured}>

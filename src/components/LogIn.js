@@ -1,4 +1,3 @@
-
 var React = require('react');
 var Radium = require('radium');
 var $ = require('jquery');
@@ -35,9 +34,6 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
       }
     })
 
-
-
-    
    }, 
 	render: function(){
 		return (
