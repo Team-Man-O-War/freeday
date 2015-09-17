@@ -1,5 +1,6 @@
 var React = require('react');
 var Pin = require('./Pin');
+var Marker = require('./Marker');
 var GoogleMap = require('google-map-react');
 // var Radium = require('radium');
 var $ = require('jquery');
@@ -10,11 +11,13 @@ var Map = React.createClass({
       center: [39.1000, 84.5167],
       zoom: 9,
       map: '',
-      eventLocation: null
+      eventLocation: [],
+      coords: []
     };
   },
 
   componentDidMount: function() {
+    this.grabEventLocations();
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
         var self = this;
@@ -30,11 +33,11 @@ var Map = React.createClass({
         });
 
         $.get('/meetup', function (data) {
-          console.log(data);
           self.setState({
             eventLocation: data.results
           });
         });
+
         if (this.isMounted()) {
           this.setState({
             center: [pos.lat, pos.lon]
@@ -49,23 +52,43 @@ var Map = React.createClass({
      },
 
   grabEventLocations: function () {
-    var location = this.state.eventLocation;
-    console.log(location);
+    var locations = this.state.eventLocation;
+    var coords;
+    for (var i = 0; i < locations.length; i+=1) {
+      coords = {};
+      coords.lat = locations[i].group.group_lat;
+      coords.lng = locations[i].group.group_lon;
+      this.state.coords.push(coords);
+    }
   },
 
-  render: function(){
+  render: function() {
 
-    return(
+    if (this.state.eventLocation.length > 0) {
+      this.grabEventLocations();
+    }
+
+    var array = [];
+    for (var i = 0; i < this.state.coords.length; i+=1) {
+      lat = this.state.coords[i].lat;
+      lng = this.state.coords[i].lng;
+      array.push(<div lat={lat} lng={lng}> HEY!</div>)
+    }
+    
+
+    return (
       <div style={styles.base}>
       {this.props.children}
         <div className="container-fluid">
           <div className="row">
             <div className="col-xs-12 col-sm-8 col-sm-offset-2">
               <GoogleMap 
+
                 style={styles.map}
                 center={this.state.center}
                 zoom={this.state.zoom}>
-                <div lat={this.state.center[0]} lon={this.state.center[1]} style={styles.youreHere}> YOU ARE HERE</div>
+                <div lat={this.state.center[0]} lng={this.state.center[1]}> YOU ARE HERE</div>
+                {array}
               </GoogleMap>
             </div>
           </div>
@@ -87,16 +110,7 @@ var styles = {
     borderRadius: 50,
     color: 'black',
     padding: '1em',
-
-    youreHere: {
-      position: 'absolute',
-      height: '20',
-      width: '50',
-      color: 'white',
-      textAlign: 'center',
-      backgroundColor: 'black',
-      borderRadius: '50%'
-    },
+    fontFamily: 'Verdana',
   },
 };
 
