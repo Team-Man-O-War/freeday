@@ -35,7 +35,6 @@ var Map = React.createClass({
             eventLocation: data.results
           });
         });
-        console.log(eventLocation);
         if (this.isMounted()) {
           this.setState({
             center: [pos.lat, pos.lon]
