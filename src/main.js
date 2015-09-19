@@ -5,13 +5,10 @@ var SearchBar = require('./components/SearchBar');
 var BottomBox = require('./components/BottomBox');
 var List = require('./components/List');
 var Map = require('./components/Map');
-var EventInfo = require('./components/EventInfo');
-// var StyleSheet = require('react-style');
+// var Tab = require('./components/Tab');
 var Radium = require('radium');
 
-
 var App = React.createClass({
-
   render: function(){
     return (
       <div style={styles.base}>
@@ -21,9 +18,6 @@ var App = React.createClass({
         </div>
 
         <br></br>
-        <div>
-          <EventInfo/>
-        </div>
 
         <div>
           <CategoryBar/>
@@ -32,14 +26,14 @@ var App = React.createClass({
         <div>
           <Map/>
         </div>
-
+        
         <div>
           <SearchBar/>
           <br></br>
         </div> 
 
-        <h3>List: //(Contains Event components)
-        </h3>
+        <h1 style={styles.event}> Event List
+        </h1>
         <div>
           <List/>
         </div>
@@ -53,11 +47,18 @@ var App = React.createClass({
   }
 });
 
+App = Radium(App);
+
 var styles = {
   base: {
     backgroundColor: 'whitesmoke',
+    fontFamily: 'Verdana'
   },
+  event: {
+    padding: '0 0 25px 0',
+    margin: '0 0 0 100px'
+  }
 };
 
-Radium(React.render(<App/>, document.getElementById('main')));
+React.render(<App/>, document.getElementById('main'));
 

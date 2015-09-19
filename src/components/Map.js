@@ -2,7 +2,7 @@ var React = require('react');
 var Pin = require('./Pin');
 var Marker = require('./Marker');
 var GoogleMap = require('google-map-react');
-// var Radium = require('radium');
+var Radium = require('radium');
 var $ = require('jquery');
 
 var Map = React.createClass({
@@ -88,6 +88,7 @@ var Map = React.createClass({
                 center={this.state.center}
                 zoom={this.state.zoom}>
                 <div lat={this.state.center[0]} lng={this.state.center[1]}> YOU ARE HERE</div>
+
                 {array}
               </GoogleMap>
             </div>
@@ -107,7 +108,10 @@ var styles = {
   base: {
     background: 'steelblue',
     border: 0,
-    borderRadius: 50,
+    borderTopRightRadius: 8,
+    borderTopLeftRadius: 8,
+    borderBottomLeftRadius: 50,
+    borderBottomRightRadius: 50,
     color: 'black',
     padding: '1em',
     fontFamily: 'Verdana',

@@ -24,20 +24,34 @@ var List = React.createClass({
           events: data.results
         });
         self.setState({
-          elements: self.buildElements(0, 30)
+          elements: self.buildElements(0, 15)
         });
     });
   },
 
   buildElements: function(start, end) {
+    var events = [];
     var eventArray = [];
-    var events = this.state.events;
-    if (events.length > 0)  {
-      for (var i = start; i < end && i < events.length; i++) {
-        eventArray.push(events[i].name);
-        eventArray.push(events[i].description);
-        eventArray.push(events[i].distance);
-        eventArray.push(<ListItem singleEvent={eventArray} key={i} num={i} />);
+    // console.log(this.state.events);
+    var filtered =  this.state.events.filter(function(e) {
+      var newEvent = {};
+        var d = new Date(e.time);
+        newEvent.name = e.name;
+        newEvent.description = e.description;//.substring stopped working
+        newEvent.url = e.event_url;
+        newEvent.distance = Math.round(e.distance) + " miles";
+        // newEvent.urlName = e.group.urlname;
+        newEvent.stockImage = "http://lorempixel.com/400/200/";
+        newEvent.time = d.toLocaleString();
+        newEvent.confirmed = e.yes_rsvp_count;
+        newEvent.category;
+    
+      events.push(newEvent);
+    });
+    // console.log(events);
+    if (this.state.events.length > 0)  {
+      for (var i = start; i < end; i++) {
+        eventArray.push(<ListItem singleEvent={events[i]} key={i} num={i} />);
       }
       return eventArray;
     }
@@ -72,9 +86,8 @@ var List = React.createClass({
       // console.log(meetupEventList);
       
         return (
-
-          <Infinite elementHeight={20}
-             containerHeight={250}
+          <Infinite elementHeight={350}
+             containerHeight={450}
              infiniteLoadBeginBottomOffset={200}
              onInfiniteLoad={this.handleInfiniteLoad}
              loadingSpinnerDelegate={this.elementInfiniteLoad()}

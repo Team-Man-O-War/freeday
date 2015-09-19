@@ -27,8 +27,10 @@ var styles = {
   base: {
     background: 'lightsteelblue',
     padding: '2em',
-    borderRadius: 8,
-    margin: '1em 0 0 0',
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
+    margin: '0 0 .2em 0',
+    fontFamily: 'Verdana'
   },
 };
 

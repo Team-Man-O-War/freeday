@@ -25,24 +25,28 @@ var SearchBar = React.createClass({
 var styles = {
   base: {
     background: 'steelblue',
-    borderRadius: 4,
+    borderBottomRightRadius: 8,
+    borderBottomLeftRadius: 8,
     color: 'black',
-    padding: '1em',
+    padding: '.5em 1em .5em 1em',
     float: 'right',
     margin: '0 20em 0 20em',
+    fontFamily: 'Verdana',
   },
   search: {
     backgroundColor: 'seashell',
     color: 'black',
     borderRadius: 6,
-    padding: '.3em',
+    padding: '.3em 15em .3em 1em',
+    fontFamily: 'Verdana'
   },
   button: {
     backgroundColor: 'orangered',
     color: 'seashell',
-    padding: '.3em .5em .3em .5em',
+    padding: '.3em .7em .3em .7em',
     borderRadius: 8,
-    margin: '0 0 0 .2em',
+    margin: '0 0 0 .3em',
+    fontFamily: 'Verdana',
 
     ':hover': {
       backgroundColor: 'crimson'

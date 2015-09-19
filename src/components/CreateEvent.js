@@ -14,8 +14,7 @@ var CreateEvent = React.createClass({
     },     
 
     openModal: function() {
-      
-      this.setState({modalIsOpen: true});
+        this.setState({modalIsOpen: true});
     },
 
     closeModal: function() {
@@ -86,6 +85,7 @@ var styles = {
     float: 'right',
     overflow: 'auto',
     margin: '-2em 1em 0 0',
+    fontFamily: 'Verdana',
 
     ':hover': {
       backgroundColor: 'powderblue'

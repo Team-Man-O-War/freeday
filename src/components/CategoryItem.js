@@ -2,11 +2,13 @@ var React = require('react');
 var Radium = require('radium');
 
 var CategoryItem = React.createClass({//individual categories that will fit into CategoryBar component and apply filters to Pins.
-	render: function(){//will likely be an array
+	render: function(){
 		return (
       <div>
-      <button style={styles.featured}>
-      {this.props.children}Featured</button>
+      <button style={styles.meetup}>
+      {this.props.children}Meetup</button>
+      <button style={styles.eventbrite}>
+      {this.props.children}Eventbrite</button>
       <button style={styles.music}>
       {this.props.children}Music</button>
       <button style={styles.videoGames}>
@@ -29,67 +31,78 @@ var CategoryItem = React.createClass({//individual categories that will fit into
 });
 
 var styles = {
-  featured: {
+   meetup: {
     background: 'red',
-    borderRadius: 14,
     color: 'snow',
-    padding: '3em',
+    padding: '3.5em 3.2em 3.5em 3.2em',
+    fontFamily: 'Verdana',
+    borderTopLeftRadius: 14,
+    borderBottomLeftRadius: 14
   },
 
-    music: {
-    background: 'blue',
-    borderRadius: 14,
-    color: 'snow',
-    padding: '3em',
-  },
-
-     videoGames: {
-    background: 'green',
-    borderRadius: 14,
-    color: 'snow',
-    padding: '3em',
-  },
-
-     social: {
-    background: 'purple',
-    borderRadius: 14,
-    color: 'snow',
-    padding: '3em',
-  },
-
-       boardGames: {
+   eventbrite: {
     background: 'orange',
-    borderRadius: 14,
     color: 'snow',
-    padding: '3em',
+    padding: '3.5em 3.2em 3.5em 3.2em',
+    fontFamily: 'Verdana',
   },
 
-      educational: {
-    background: 'gold',
-    borderRadius: 14,
+   music: {
+    background: 'blue',
     color: 'snow',
-    padding: '3em',
+    padding: '3.5em 3.2em 3.5em 3.2em',
+    fontFamily: 'Verdana',
   },
 
-    romance: {
-    background: 'pink',
-    borderRadius: 14,
+   videoGames: {
+    background: 'green',
     color: 'snow',
-    padding: '3em',
+    padding: '3.5em 3.2em 3.5em 3.2em',
+    fontFamily: 'Verdana',
   },
 
-     athletic: {
+   social: {
     background: 'lightskyblue',
-    borderRadius: 14,
     color: 'snow',
-    padding: '3em',
+    padding: '3.5em 3.2em 3.5em 3.2em',
+    fontFamily: 'Verdana',
+  },
+
+   boardGames: {
+    background: 'purple',
+    color: 'snow',
+    padding: '3.5em 3.2em 3.5em 3.2em',
+    fontFamily: 'Verdana',
+  },
+
+   educational: {
+    background: 'gold',
+    color: 'snow',
+    padding: '3.5em 3.2em 3.5em 3.2em',
+    fontFamily: 'Verdana',
+  },
+
+   romance: {
+    background: 'pink',
+    color: 'snow',
+    padding: '3.5em 3.2em 3.5em 3.2em',
+    fontFamily: 'Verdana',
+  },
+
+   athletic: {
+    background: 'limegreen',
+    color: 'snow',
+    padding: '3.5em 3.2em 3.5em 3.2em',
+    fontFamily: 'Verdana',
   },
 
    other: {
     background: 'teal',
-    borderRadius: 14,
     color: 'snow',
-    padding: '3em',
+    padding: '3.5em 3.2em 3.5em 3.2em',
+    fontFamily: 'Verdana',
+    borderTopRightRadius: 14,
+    borderBottomRightRadius: 14,
   },
 };
 
