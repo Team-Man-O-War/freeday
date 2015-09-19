@@ -1,7 +1,7 @@
 var React = require('react');
 var Pin = require('./Pin');
 var GoogleMap = require('google-map-react');
-// var Radium = require('radium');
+var Radium = require('radium');
 var $ = require('jquery');
 
 var Map = React.createClass({
@@ -85,7 +85,10 @@ var styles = {
   base: {
     background: 'steelblue',
     border: 0,
-    borderRadius: 50,
+    borderTopRightRadius: 8,
+    borderTopLeftRadius: 8,
+    borderBottomLeftRadius: 50,
+    borderBottomRightRadius: 50,
     color: 'black',
     padding: '1em',
     fontFamily: 'Verdana',

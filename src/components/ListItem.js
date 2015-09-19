@@ -38,13 +38,13 @@ var styles = {
   base: {
     background: 'peachpuff',
     display: 'inline-block',
-    border: '3px solid black',
+    border: '2px solid black',
     borderRadius: 8,
     color: 'black',
     padding: '1% 100px 1% 3%',
-    margin: '5px 125px 5px 125px',
+    margin: '3px 100px 3px 100px',
     ':hover': {
-      opacity: 0.85
+      opacity: 0.80
     },
   },
   image: {

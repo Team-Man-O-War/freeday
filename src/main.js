@@ -56,7 +56,7 @@ var styles = {
   },
   event: {
     padding: '0 0 25px 0',
-    margin: '0 0 0 125px'
+    margin: '0 0 0 100px'
   }
 };
 

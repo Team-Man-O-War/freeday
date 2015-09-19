@@ -34,7 +34,7 @@ var styles = {
    meetup: {
     background: 'red',
     color: 'snow',
-    padding: '3em',
+    padding: '3.5em 3.2em 3.5em 3.2em',
     fontFamily: 'Verdana',
     borderTopLeftRadius: 14,
     borderBottomLeftRadius: 14
@@ -43,63 +43,63 @@ var styles = {
    eventbrite: {
     background: 'orange',
     color: 'snow',
-    padding: '3em',
+    padding: '3.5em 3.2em 3.5em 3.2em',
     fontFamily: 'Verdana',
   },
 
    music: {
     background: 'blue',
     color: 'snow',
-    padding: '3em',
+    padding: '3.5em 3.2em 3.5em 3.2em',
     fontFamily: 'Verdana',
   },
 
    videoGames: {
     background: 'green',
     color: 'snow',
-    padding: '3em',
+    padding: '3.5em 3.2em 3.5em 3.2em',
     fontFamily: 'Verdana',
   },
 
    social: {
     background: 'lightskyblue',
     color: 'snow',
-    padding: '3em',
+    padding: '3.5em 3.2em 3.5em 3.2em',
     fontFamily: 'Verdana',
   },
 
    boardGames: {
     background: 'purple',
     color: 'snow',
-    padding: '3em',
+    padding: '3.5em 3.2em 3.5em 3.2em',
     fontFamily: 'Verdana',
   },
 
    educational: {
     background: 'gold',
     color: 'snow',
-    padding: '3em',
+    padding: '3.5em 3.2em 3.5em 3.2em',
     fontFamily: 'Verdana',
   },
 
    romance: {
     background: 'pink',
     color: 'snow',
-    padding: '3em',
+    padding: '3.5em 3.2em 3.5em 3.2em',
     fontFamily: 'Verdana',
   },
 
    athletic: {
     background: 'limegreen',
     color: 'snow',
-    padding: '3em',
+    padding: '3.5em 3.2em 3.5em 3.2em',
     fontFamily: 'Verdana',
   },
 
    other: {
     background: 'teal',
     color: 'snow',
-    padding: '3em',
+    padding: '3.5em 3.2em 3.5em 3.2em',
     fontFamily: 'Verdana',
     borderTopRightRadius: 14,
     borderBottomRightRadius: 14,
