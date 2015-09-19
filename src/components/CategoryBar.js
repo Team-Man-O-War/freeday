@@ -17,8 +17,7 @@ var styles = {
     background: 'lightsteelblue',
     border: 0,
     borderRadius: 14,
-    padding: '0 1em 0 1em',
-    margin: '0 1% 1% 1%',
+    margin: '0 1% 0 1%',
     fontFamily: 'Verdana'
   },
 };

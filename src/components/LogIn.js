@@ -101,7 +101,7 @@ facebook: {
   backgroundColor: '#3b5998',
   color: 'white',
   borderRadius: 4,
-  margin: '1.3em .5em 0 11.4em',
+  margin: '1.3em .5em 0 12.6em',
   padding: '.6em',
   fontFamily: 'Verdana'
 },

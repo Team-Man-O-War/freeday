@@ -5,8 +5,6 @@ var CategoryItem = React.createClass({//individual categories that will fit into
 	render: function(){
 		return (
       <div>
-      <button style={styles.featured}>
-      {this.props.children}Featured</button>
       <button style={styles.meetup}>
       {this.props.children}Meetup</button>
       <button style={styles.eventbrite}>
@@ -33,103 +31,78 @@ var CategoryItem = React.createClass({//individual categories that will fit into
 });
 
 var styles = {
-  featured: {
-    background: 'red',
-    borderRadius: 14,
-    color: 'snow',
-    padding: '2em',
-    fontFamily: 'Verdana',
-    margin: '.5em'
-  },
-
    meetup: {
-    background: 'limegreen',
-    borderRadius: 14,
+    background: 'red',
     color: 'snow',
-    padding: '2em',
+    padding: '3em',
     fontFamily: 'Verdana',
-    margin: '.5em'
+    borderTopLeftRadius: 14,
+    borderBottomLeftRadius: 14
   },
 
    eventbrite: {
-    background: 'darkred',
-    borderRadius: 14,
-    color: 'snow',
-    padding: '2em',
-    fontFamily: 'Verdana',
-    margin: '.5em'
-  },
-
-    music: {
-    background: 'blue',
-    borderRadius: 14,
-    color: 'snow',
-    padding: '2em',
-    fontFamily: 'Verdana',
-    margin: '.5em'
-  },
-
-     videoGames: {
-    background: 'green',
-    borderRadius: 14,
-    color: 'snow',
-    padding: '2em',
-    fontFamily: 'Verdana',
-    margin: '.5em'
-  },
-
-     social: {
-    background: 'purple',
-    borderRadius: 14,
-    color: 'snow',
-    padding: '2em',
-    fontFamily: 'Verdana',
-    margin: '.5em'
-  },
-
-       boardGames: {
     background: 'orange',
-    borderRadius: 14,
     color: 'snow',
-    padding: '2em',
+    padding: '3em',
     fontFamily: 'Verdana',
-    margin: '.5em'
   },
 
-      educational: {
-    background: 'gold',
-    borderRadius: 14,
+   music: {
+    background: 'blue',
     color: 'snow',
-    padding: '2em',
+    padding: '3em',
     fontFamily: 'Verdana',
-    margin: '.5em'
   },
 
-    romance: {
-    background: 'pink',
-    borderRadius: 14,
+   videoGames: {
+    background: 'green',
     color: 'snow',
-    padding: '2em',
+    padding: '3em',
     fontFamily: 'Verdana',
-    margin: '.5em'
   },
 
-     athletic: {
+   social: {
     background: 'lightskyblue',
-    borderRadius: 14,
     color: 'snow',
-    padding: '2em',
+    padding: '3em',
     fontFamily: 'Verdana',
-    margin: '.5em'
+  },
+
+   boardGames: {
+    background: 'purple',
+    color: 'snow',
+    padding: '3em',
+    fontFamily: 'Verdana',
+  },
+
+   educational: {
+    background: 'gold',
+    color: 'snow',
+    padding: '3em',
+    fontFamily: 'Verdana',
+  },
+
+   romance: {
+    background: 'pink',
+    color: 'snow',
+    padding: '3em',
+    fontFamily: 'Verdana',
+  },
+
+   athletic: {
+    background: 'limegreen',
+    color: 'snow',
+    padding: '3em',
+    fontFamily: 'Verdana',
   },
 
    other: {
     background: 'teal',
-    borderRadius: 14,
     color: 'snow',
-    padding: '2em',
+    padding: '3em',
     fontFamily: 'Verdana',
-    margin: '.5em'
+    borderTopRightRadius: 14,
+    borderBottomRightRadius: 14,
   },
 };
 
