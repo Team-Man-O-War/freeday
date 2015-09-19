@@ -26,10 +26,10 @@ var TopBox = React.createClass({
 var styles = {
   base: {
     background: 'lightsteelblue',
-    padding: '2em',
+    padding: '2%',
     borderBottomLeftRadius: 8,
     borderBottomRightRadius: 8,
-    margin: '0 0 .2em 0',
+    margin: '0 0 .2% 0',
     fontFamily: 'Verdana'
   },
 };

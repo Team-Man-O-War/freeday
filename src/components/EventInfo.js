@@ -74,8 +74,8 @@ var styles = {
     border: 0,
     borderRadius: 14,
     color: 'black',
-    padding: '4em',
-    margin: '-7em 0 1em 46%',
+    padding: '5%',
+    margin: '-7% 0 1% 46%',
     fontFamily: 'Verdana',
 
     ':hover': {

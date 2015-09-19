@@ -33,8 +33,9 @@ var CategoryItem = React.createClass({//individual categories that will fit into
 var styles = {
    meetup: {
     background: 'red',
+    display: 'inline-table',
     color: 'snow',
-    padding: '3.5em 3.2em 3.5em 3.2em',
+    padding: '3%',
     fontFamily: 'Verdana',
     borderTopLeftRadius: 14,
     borderBottomLeftRadius: 14
@@ -42,64 +43,73 @@ var styles = {
 
    eventbrite: {
     background: 'orange',
+    display: 'inline-table',
     color: 'snow',
-    padding: '3.5em 3.2em 3.5em 3.2em',
+    padding: '3% 2.8% 3% 2.8%',
     fontFamily: 'Verdana',
   },
 
    music: {
     background: 'blue',
+    display: 'inline-table',
     color: 'snow',
-    padding: '3.5em 3.2em 3.5em 3.2em',
+    padding: '3% 2.8% 3% 2.8%',
     fontFamily: 'Verdana',
   },
 
    videoGames: {
     background: 'green',
+    display: 'inline-table',
     color: 'snow',
-    padding: '3.5em 3.2em 3.5em 3.2em',
+    padding: '3% 2.8% 3% 2.8%',
     fontFamily: 'Verdana',
   },
 
    social: {
     background: 'lightskyblue',
+    display: 'inline-table',
     color: 'snow',
-    padding: '3.5em 3.2em 3.5em 3.2em',
+    padding: '3% 2.8% 3% 2.8%',
     fontFamily: 'Verdana',
   },
 
    boardGames: {
     background: 'purple',
+    display: 'inline-table',
     color: 'snow',
-    padding: '3.5em 3.2em 3.5em 3.2em',
+    padding: '3% 2.8% 3% 2.8%',
     fontFamily: 'Verdana',
   },
 
    educational: {
     background: 'gold',
+    display: 'inline-table',
     color: 'snow',
-    padding: '3.5em 3.2em 3.5em 3.2em',
+    padding: '3% 2.8% 3% 2.8%',
     fontFamily: 'Verdana',
   },
 
    romance: {
     background: 'pink',
+    display: 'inline-table',
     color: 'snow',
-    padding: '3.5em 3.2em 3.5em 3.2em',
+    padding: '3% 2.8% 3% 2.8%',
     fontFamily: 'Verdana',
   },
 
    athletic: {
     background: 'limegreen',
+    display: 'inline-table',
     color: 'snow',
-    padding: '3.5em 3.2em 3.5em 3.2em',
+    padding: '3% 2.8% 3% 2.8%',
     fontFamily: 'Verdana',
   },
 
    other: {
     background: 'teal',
+    display: 'inline-table',
     color: 'snow',
-    padding: '3.5em 3.2em 3.5em 3.2em',
+    padding: '3% 3% 3% 2.8%',
     fontFamily: 'Verdana',
     borderTopRightRadius: 14,
     borderBottomRightRadius: 14,

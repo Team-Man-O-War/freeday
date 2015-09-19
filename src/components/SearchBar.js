@@ -30,7 +30,7 @@ var styles = {
     color: 'black',
     padding: '.5em 1em .5em 1em',
     float: 'right',
-    margin: '0 20em 0 20em',
+    margin: '0 17.5% 0 15%',
     fontFamily: 'Verdana',
   },
   search: {
@@ -43,9 +43,9 @@ var styles = {
   button: {
     backgroundColor: 'orangered',
     color: 'seashell',
-    padding: '.3em .7em .3em .7em',
+    padding: '1% 2% 1% 2%',
     borderRadius: 8,
-    margin: '0 0 0 .3em',
+    margin: '0 0 0 .4em',
     fontFamily: 'Verdana',
 
     ':hover': {

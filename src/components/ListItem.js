@@ -41,8 +41,8 @@ var styles = {
     border: '2px solid black',
     borderRadius: 8,
     color: 'black',
-    padding: '1% 100px 1% 3%',
-    margin: '3px 100px 3px 100px',
+    padding: '1% 5% 1% 3%',
+    margin: '.5% 5% .5% 5%',
     ':hover': {
       opacity: 0.80
     },
@@ -53,8 +53,8 @@ var styles = {
     padding: '0 10px 0 0',
   },
   link: {
-    padding: '0 300px 0 0',
-    margin: '0 150px 0 0'
+    padding: '0 30% 0 0',
+    margin: '0 20% 0 0'
   }
 };
 

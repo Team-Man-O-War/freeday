@@ -113,7 +113,7 @@ var styles = {
     borderBottomLeftRadius: 50,
     borderBottomRightRadius: 50,
     color: 'black',
-    padding: '1em',
+    padding: '.5%',
     fontFamily: 'Verdana',
   },
 };

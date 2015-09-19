@@ -86,7 +86,7 @@ var List = React.createClass({
       // console.log(meetupEventList);
       
         return (
-          <Infinite elementHeight={250}
+          <Infinite elementHeight={1000}
              containerHeight={450}
              infiniteLoadBeginBottomOffset={5}
              onInfiniteLoad={this.handleInfiniteLoad}
