@@ -24,7 +24,7 @@ var List = React.createClass({
           events: data.results
         });
         self.setState({
-          elements: self.buildElements(0, 15)
+          elements: self.buildElements(0, 20)
         });
     });
   },
@@ -65,7 +65,7 @@ var List = React.createClass({
     });
     setTimeout(function() {
       var elemLength = that.state.elements.length,
-        newElements = that.buildElements(elemLength, elemLength + 10);
+        newElements = that.buildElements(elemLength, elemLength + 15);
       that.setState({
         isInfiniteLoading: false,
         elements: that.state.elements.concat(newElements)
@@ -86,9 +86,9 @@ var List = React.createClass({
       // console.log(meetupEventList);
       
         return (
-          <Infinite elementHeight={350}
+          <Infinite elementHeight={250}
              containerHeight={450}
-             infiniteLoadBeginBottomOffset={200}
+             infiniteLoadBeginBottomOffset={5}
              onInfiniteLoad={this.handleInfiniteLoad}
              loadingSpinnerDelegate={this.elementInfiniteLoad()}
              isInfiniteLoading={this.state.isInfiniteLoading}>

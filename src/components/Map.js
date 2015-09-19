@@ -9,7 +9,7 @@ var Map = React.createClass({
   getInitialState: function() {
     return{
       center: [39.1000, 84.5167],
-      zoom: 9,
+      zoom: 11,
       map: '',
       eventLocation: [],
       coords: []
@@ -72,7 +72,7 @@ var Map = React.createClass({
     for (var i = 0; i < this.state.coords.length; i+=1) {
       lat = this.state.coords[i].lat;
       lng = this.state.coords[i].lng;
-      array.push(<div lat={lat} lng={lng}> HEY!</div>)
+      array.push(<div lat={lat} lng={lng}><img src="http://www.clipartbest.com/cliparts/dc7/oMd/dc7oMdjGi.png" alt="EVENT" height="30" width="30"/></div>)
     }
     
 
@@ -87,7 +87,7 @@ var Map = React.createClass({
                 style={styles.map}
                 center={this.state.center}
                 zoom={this.state.zoom}>
-                <div lat={this.state.center[0]} lng={this.state.center[1]}> YOU ARE HERE</div>
+                <div lat={this.state.center[0]} lng={this.state.center[1]}><img src="http://icons.iconarchive.com/icons/icons-land/vista-map-markers/256/Map-Marker-Marker-Outside-Azure-icon.png" height="30" width="30"/></div>
 
                 {array}
               </GoogleMap>
