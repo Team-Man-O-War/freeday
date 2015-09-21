@@ -37,8 +37,9 @@ var styles = {
     color: 'snow',
     padding: '3%',
     fontFamily: 'Verdana',
+    opacity: 0.8,
     borderTopLeftRadius: 14,
-    borderBottomLeftRadius: 14
+    borderBottomLeftRadius: 14,
   },
 
    eventbrite: {
@@ -47,6 +48,7 @@ var styles = {
     color: 'snow',
     padding: '3% 2.8% 3% 2.8%',
     fontFamily: 'Verdana',
+    opacity: 0.8,
   },
 
    music: {
@@ -55,6 +57,7 @@ var styles = {
     color: 'snow',
     padding: '3% 2.8% 3% 2.8%',
     fontFamily: 'Verdana',
+    opacity: 0.8,
   },
 
    videoGames: {
@@ -63,6 +66,7 @@ var styles = {
     color: 'snow',
     padding: '3% 2.8% 3% 2.8%',
     fontFamily: 'Verdana',
+    opacity: 0.8,
   },
 
    social: {
@@ -71,6 +75,7 @@ var styles = {
     color: 'snow',
     padding: '3% 2.8% 3% 2.8%',
     fontFamily: 'Verdana',
+    opacity: 0.8,
   },
 
    boardGames: {
@@ -79,6 +84,7 @@ var styles = {
     color: 'snow',
     padding: '3% 2.8% 3% 2.8%',
     fontFamily: 'Verdana',
+    opacity: 0.8,
   },
 
    educational: {
@@ -87,6 +93,7 @@ var styles = {
     color: 'snow',
     padding: '3% 2.8% 3% 2.8%',
     fontFamily: 'Verdana',
+    opacity: 0.8,
   },
 
    romance: {
@@ -95,6 +102,7 @@ var styles = {
     color: 'snow',
     padding: '3% 2.8% 3% 2.8%',
     fontFamily: 'Verdana',
+    opacity: 0.8,
   },
 
    athletic: {
@@ -103,6 +111,7 @@ var styles = {
     color: 'snow',
     padding: '3% 2.8% 3% 2.8%',
     fontFamily: 'Verdana',
+    opacity: 0.8,
   },
 
    other: {
@@ -113,6 +122,7 @@ var styles = {
     fontFamily: 'Verdana',
     borderTopRightRadius: 14,
     borderBottomRightRadius: 14,
+    opacity: 0.8,
   },
 };
 

@@ -42,7 +42,7 @@ var styles = {
     borderRadius: 8,
     color: 'black',
     padding: '1% 5% 1% 3%',
-    margin: '.5% 5% .5% 5%',
+    margin: '.3% 5% .3% 5%',
     ':hover': {
       opacity: 0.80
     },

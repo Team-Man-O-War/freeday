@@ -17,6 +17,7 @@ var styles = {
     background: 'lightsteelblue',
     display: 'run-in',
     borderRadius: 14,
+    float: 'center',
     margin: '-1.3% 0 .2% 0',
     fontFamily: 'Verdana'
   },
