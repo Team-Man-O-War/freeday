@@ -72,15 +72,15 @@ router.post('/signup', function (req, res, next) {
            var token = jwt.sign({username: user.username}, secret);
            console.log(token);
            //here the token is generated and sent to the client side
-          res.send(token)
+          res.send(token);
         });   
     } 
   });
 });
 
 router.get('/test', function(req,res,next){
-  console.log(req.headers)
-})
+  console.log(req.headers);
+});
 
 
 

@@ -13,6 +13,7 @@ var reload = browsersync.reload;
 //	.pipe(gulp.dest('path'));
 //});
 
+
 gulp.task('watch', function() {
 	var start = Date.now();
 	var watcher = watchify(browserify({
@@ -89,6 +90,6 @@ gulp.task('server', function(){
 
 // Default Task
 gulp.task('default', 
-	['server', 'build', 'watch']);
+	['server', 'sync', 'build', 'watch']);
 
 

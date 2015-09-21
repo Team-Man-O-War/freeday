@@ -4,9 +4,12 @@ var Marker = require('./Marker');
 var GoogleMap = require('google-map-react');
 var Radium = require('radium');
 var $ = require('jquery');
+var AppDispatcher = require('../flux/Dispatcher');
+var api = require('../flux/api');
 
 var Map = React.createClass({
   getInitialState: function() {
+
     return{
       center: [39.1000, 84.5167],
       zoom: 11,
@@ -31,8 +34,7 @@ var Map = React.createClass({
             
           });
         });
-
-        $.get('/meetup', function (data) {
+        AppDispatcher.getMeetupData(function(data) {
           self.setState({
             eventLocation: data.results
           });
@@ -53,6 +55,7 @@ var Map = React.createClass({
 
   grabEventLocations: function () {
     var locations = this.state.eventLocation;
+    console.log(this.state.eventLocation);
     var coords;
     for (var i = 0; i < locations.length; i+=1) {
       coords = {};
@@ -63,7 +66,6 @@ var Map = React.createClass({
   },
 
   render: function() {
-
     if (this.state.eventLocation.length > 0) {
       this.grabEventLocations();
     }
@@ -75,7 +77,6 @@ var Map = React.createClass({
       array.push(<div lat={lat} lng={lng}><img src="http://www.clipartbest.com/cliparts/dc7/oMd/dc7oMdjGi.png" alt="EVENT" height="30" width="30"/></div>)
     }
     
-
     return (
       <div style={styles.base}>
       {this.props.children}

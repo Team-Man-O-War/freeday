@@ -8,10 +8,10 @@ var User = sequelize.define('user',{
     type: Sequelize.STRING,
     field:'username'
   },
-  fbid: {
+  fbID: {
     type: Sequelize.STRING,
     unique: true,
-    field: 'fbid'
+    field: 'fbID'
   },
   password:{
     type: Sequelize.STRING,

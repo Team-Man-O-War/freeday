@@ -20,11 +20,11 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
       data:jsonifiedInput,
       datatype:'json' ,
       contentType:'application/json',
-      success: function(something){
+      success: function(jwt){
         //send something from server to client on successful transaction
         //i think this is where i need to pass the token to the user's header
-        console.log("this is the something that i am looking for: ",something);
-
+        window.localStorage.setItem('jwt', jwt);
+        console.log('jwt');
         
       },
       error: function(xhr,ajaxOptions,err){
@@ -32,26 +32,26 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
         console.log(err);
         console.log(xhr.status);
       }
-    })
+    });
 
    }, 
 	render: function(){
 		return (
       <div> 
         <label>Log In </label>
+        <form onSubmit={this.handleSubmit}>
           <input type="text" placeholder= "username" style={styles.input1}>
             {this.props.children}
-            </input>
+          </input>
           <input type="password" placeholder= "password" style={styles.input2}>
             {this.props.children}
-            </input>
-            <button style={styles.base}>
-            {this.props.children}Submit</button>
+          </input>
+        </form>
+
+            <button style={styles.base}> {this.props.children}Submit</button>
             <br></br>
-            <button style={styles.facebook}>
-            {this.props.children}Facebook</button>
-            <button style={styles.gmail}>
-            {this.props.children}G-Mail</button>
+            <button style={styles.facebook}> {this.props.children}Facebook</button>
+            <button style={styles.gmail}>{this.props.children}G-Mail</button>
       </div>
 		)
 	}

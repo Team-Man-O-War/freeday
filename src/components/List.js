@@ -19,12 +19,12 @@ var List = React.createClass({
     var self = this;
 
     
-    $.get('/meetup', function (data) {
-        self.setState({
-          events: data.results
-        });
-        self.setState({
-          elements: self.buildElements(0, 20)
+    AppDispatcher.getMeetupData(function(data) {
+      self.setState({
+        events: data.results
+      });
+      self.setState({
+        elements: self.buildElements(0, 20)
         });
     });
   },
