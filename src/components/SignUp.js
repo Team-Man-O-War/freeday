@@ -42,13 +42,9 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
       datatype:'json' ,
       contentType:'application/json',
 
-      success: function(token){
-        //send something from server to client on successful transaction
-       // this.headers.Authorization = "Bearer "+something;
-          _this.setState({ Authorization:"Bearer "+token });
-          
-          localStorage.Authorization = _this.state.Authorization
-        //here we place the authorization token in the users local storage
+      success: function(jwt){
+        localStorage.setItem('jwt', jwt);
+        location.reload();
       },
       error: function(xhr,ajaxOptions,err){
         alert("error",err);
