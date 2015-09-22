@@ -4,44 +4,44 @@ var Radium = require('radium');
 var CategoryItem = React.createClass({//individual categories that will fit into CategoryBar component and apply filters to Pins.
 	render: function(){
 		return (
-      <div className="col-xs-12 col-sm-12 col-sm-offset-1 col-md-12 col-lg-12 center-block">
-        <div className="col-xs-6 col-sm-1">
+      <div className="row">
+        <div className="categoryItem col-xs-5 col-sm-1 col-sm-offset-1">
           <button style={styles.meetup} >
           {this.props.children}Meetup</button>
         </div>
-        <div className="col-xs-6 col-sm-1">
+        <div className="categoryItem col-xs-5 col-sm-1">
           <button style={styles.eventbrite}>
           {this.props.children}Eventbrite</button>
         </div>
-        <div className="col-xs-6 col-sm-1">
+        <div className="categoryItem col-xs-5 col-sm-1">
           <button style={styles.music}>
           {this.props.children}Music</button>
         </div>
-        <div className="col-xs-6 col-sm-1">
+        <div className="categoryItem col-xs-5 col-sm-1">
           <button style={styles.videoGames}>
           {this.props.children}Video Gaming</button>
         </div>
-        <div className="col-xs-6 col-sm-1">
+        <div className="categoryItem col-xs-5 col-sm-1">
           <button style={styles.boardGames}>
           {this.props.children}Board Gaming</button>
         </div>
-        <div className="col-xs-6 col-sm-1">
+        <div className="categoryItem col-xs-5 col-sm-1">
           <button style={styles.social}>
           {this.props.children}Social</button>
         </div>
-        <div className="col-xs-6 col-sm-1">
+        <div className="categoryItem col-xs-5 col-sm-1">
           <button style={styles.educational}>
           {this.props.children}Educational</button>
         </div>
-        <div className="col-xs-6 col-sm-1">
+        <div className="categoryItem col-xs-5 col-sm-1">
           <button style={styles.romance}>
           {this.props.children}Romantic</button>
         </div>
-        <div className="col-xs-6 col-sm-1">
+        <div className="categoryItem col-xs-5 col-sm-1">
           <button style={styles.athletic}>
           {this.props.children}Athletic</button>
         </div>
-        <div className="col-xs-6 col-sm-1">
+        <div className="categoryItem col-xs-5 col-sm-1">
           <button style={styles.other}>
           {this.props.children}Other</button>
         </div>
@@ -53,96 +53,96 @@ var CategoryItem = React.createClass({//individual categories that will fit into
 var styles = {
    meetup: {
     background: 'red',
-    display: 'inline-block',
     color: 'snow',
     fontFamily: 'Verdana',
     opacity: 0.8,
-    borderTopLeftRadius: 14,
-    borderBottomLeftRadius: 14,
-    padding: '50px 25% 50px 25%',
+    borderTopLeftRadius: 8,
+    borderBottomLeftRadius: 8,
+    width: '100%',
+    height: 120
   },
 
    eventbrite: {
     background: 'orange',
-    display: 'inline-block',
     color: 'snow',
     fontFamily: 'Verdana',
     opacity: 0.8,
-    padding: '50px 2.5% 50px 2.5%',
+    width: '100%',
+    height: 120
   },
 
    music: {
     background: 'blue',
-    display: 'inline-block',
     color: 'snow',
     fontFamily: 'Verdana',
     opacity: 0.8,
-    padding: '50px 2.5% 50px 2.5%',
+    width: '100%',
+    height: 120
   },
 
    videoGames: {
     background: 'green',
-    display: 'inline-block',
     color: 'snow',
     fontFamily: 'Verdana',
     opacity: 0.8,
-    padding: '50px 2.5% 50px 2.5%',
+    width: '100%',
+    height: 120
   },
 
    social: {
     background: 'lightskyblue',
-    display: 'inline-block',
     color: 'snow',
     fontFamily: 'Verdana',
     opacity: 0.8,
-    padding: '50px 2.5% 50px 2.5%',
+    width: '100%',
+    height: 120
   },
 
    boardGames: {
     background: 'purple',
-    display: 'inline-block',
     color: 'snow',
     fontFamily: 'Verdana',
     opacity: 0.8,
-    padding: '50px 2.5% 50px 2.5%',
+    width: '100%',
+    height: 120
   },
 
    educational: {
     background: 'gold',
-    display: 'inline-block',
     color: 'snow',
     fontFamily: 'Verdana',
     opacity: 0.8,
-    padding: '50px 2.5% 50px 2.5%',
+    width: '100%',
+    height: 120
   },
 
    romance: {
     background: 'pink',
-    display: 'inline-block',
     color: 'snow',
     fontFamily: 'Verdana',
     opacity: 0.8,
-    padding: '50px 2.5% 50px 2.5%',
+    width: '100%',
+    height: 120
   },
 
    athletic: {
     background: 'limegreen',
-    display: 'inline-block',
     color: 'snow',
     fontFamily: 'Verdana',
     opacity: 0.8,
-    padding: '50px 2.5% 50px 2.5%',
+    width: '100%',
+    height: 120
   },
 
    other: {
     background: 'teal',
-    display: 'inline-block',
     color: 'snow',
     fontFamily: 'Verdana',
-    borderTopRightRadius: 14,
-    borderBottomRightRadius: 14,
+    borderTopRightRadius: 8,
+    borderBottomRightRadius: 8,
     opacity: 0.8,
-    padding: '50px 2.5% 50px 2.5%',
+    width: '100%',
+    height: 120
   },
 };
 

@@ -38,7 +38,7 @@ var styles = {
     border: '2px solid black',
     borderRadius: 8,
     color: 'black',
-    maxWidth: '80%',
+    maxWidth: '76%',
     float: 'left',
     padding: '1% 50% 1% 3%',
     margin: '.3% 5% .3% 8%',

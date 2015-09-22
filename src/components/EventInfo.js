@@ -73,9 +73,9 @@ var styles = {
   base: {
     background: 'steelblue',
     border: 0,
-    borderRadius: 14,
+    borderRadius: 8,
     float: 'left',
-    margin: '0 0 0 400px',
+    margin: '0 0 0 250px',
     color: 'black',
     height: '150px',
     width: '100%',
@@ -115,7 +115,7 @@ var styles = {
   close: {
     fontSize: 28,
     background: 'crimson',
-    borderRadius: 14,
+    borderRadius: 8,
     float: 'right',
     color: 'black',
     fontFamily: 'Verdana',

@@ -79,7 +79,9 @@ var CreateEvent = React.createClass({
 
           </Modal>
         </div>
-      );}else{
+      );}
+else
+{
   return(<div></div>)
       }
     }

@@ -51,7 +51,6 @@ App = Radium(App);
 
 var styles = {
   base: {
-    backgroundColor: 'whitesmoke',
     fontFamily: 'Verdana'
   },
   event: {

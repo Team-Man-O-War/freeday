@@ -6,13 +6,7 @@ var CategoryBar = React.createClass({//will contain individual category items fr
   render: function(){//may need .map or loop later
 		return (
       <div style={styles.base}>
-        <div className="container-fluid">
-          <div className="row center-block">
-            <div className="col-sm-12col-sm-offset-1 center-block">
               <CategoryItem/>
-            </div>
-          </div>
-        </div>
       </div>
 		)
 	}
@@ -21,9 +15,9 @@ var CategoryBar = React.createClass({//will contain individual category items fr
 var styles = {
   base: {
     background: 'lightsteelblue',
-    display: 'block',
-    borderRadius: 14,
-    fontFamily: 'Verdana'
+    borderRadius: 8,
+    fontFamily: 'Verdana',
+    margin:'-1.25% 2% .25% 2%',
   },
 };
 

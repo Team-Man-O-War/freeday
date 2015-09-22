@@ -122,10 +122,7 @@ var styles = {
   base: {
     background: 'steelblue',
     border: 0,
-    borderTopRightRadius: 8,
-    borderTopLeftRadius: 8,
-    borderBottomLeftRadius: 50,
-    borderBottomRightRadius: 50,
+    borderRadius: 8,
     color: 'black',
     padding: '.5%',
     fontFamily: 'Verdana',
