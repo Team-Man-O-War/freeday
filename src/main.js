@@ -51,12 +51,11 @@ App = Radium(App);
 
 var styles = {
   base: {
-    backgroundColor: 'whitesmoke',
     fontFamily: 'Verdana'
   },
   event: {
-    padding: '0 0 25px 0',
-    margin: '0 0 0 100px'
+    padding: '0 0 1% 0',
+    margin: '0 0 0 8%'
   }
 };
 

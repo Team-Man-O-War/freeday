@@ -2,7 +2,6 @@ var React = require('react');
 var moment = require('moment');
 var Radium = require('radium');
 
-
 var Clock = React.createClass({
   render: function(){
     return (
@@ -21,8 +20,8 @@ var styles = {
     color: 'slategray',
     margin: '0 0 0 80%',
     backgroundColor: 'seashell',
-    padding: '.5em .5em .5em 2em',
-    borderRadius: 14,
+    padding: '1% 0 1% 1.8%',
+    borderRadius: 8,
   },
 };
 

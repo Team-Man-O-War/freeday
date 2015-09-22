@@ -14,6 +14,7 @@ var CreateEvent = React.createClass({
     },     
 
     openModal: function() {
+
         this.setState({modalIsOpen: true});
     },
 
@@ -26,6 +27,10 @@ var CreateEvent = React.createClass({
     },
 
     render: function(){
+      console.log('im running')
+
+      if(window.localStorage.Authorization){
+      console.log('running')//arash just added this 9/21
       return (
         <div>
           <button type="default-primary" onClick={this.openModal} style={[
@@ -44,6 +49,8 @@ var CreateEvent = React.createClass({
             <h4>Event Name: </h4>
             <input type ='text' placeholder='Event Name'/>
               <button onClick={this.handleChange}>Submit</button>
+              <br></br>
+              <br></br>
             <input type ='text' placeholder='Event Address'/>
               <button onClick={this.handleChange}>Submit</button>
                 <br></br>
@@ -54,7 +61,7 @@ var CreateEvent = React.createClass({
                 <br></br>
 
                 <form>
-                <input type="number" name="attendees" min="1" max="25"/> Maximum Attendance
+                  <input type="number" name="attendees" min="1" max="25"/> Maximum Attendance
                 </form>
 
               <br></br>
@@ -72,7 +79,11 @@ var CreateEvent = React.createClass({
 
           </Modal>
         </div>
-      );
+      );}
+else
+{
+  return(<div></div>)
+      }
     }
 });
 
@@ -81,10 +92,10 @@ var styles = {
     background: 'steelblue',
     borderRadius: 100,
     color: 'black',
-    padding: '4em',
+    padding: '4%',
     float: 'right',
     overflow: 'auto',
-    margin: '-2em 1em 0 0',
+    margin: '-3% 2.5% 0 0',
     fontFamily: 'Verdana',
 
     ':hover': {

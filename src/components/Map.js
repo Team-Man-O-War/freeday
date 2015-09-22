@@ -7,7 +7,20 @@ var $ = require('jquery');
 var AppDispatcher = require('../flux/Dispatcher');
 var api = require('../flux/api');
 
+var userMarker = "http://icons.iconarchive.com/icons/icons-land/vista-map-markers/256/Map-Marker-Marker-Outside-Azure-icon.png";
+var meetupMarker = "http://www.clipartbest.com/cliparts/dc7/oMd/dc7oMdjGi.png";
+var eventBriteMarker;
+var freedayMarker;
+
 var Map = React.createClass({
+  userClick: function(){
+      alert("You are here:\n" + this.state.center);
+  },
+
+  eventClick: function(){
+    alert('hello');
+  },
+
   getInitialState: function() {
 
     return{
@@ -74,9 +87,9 @@ var Map = React.createClass({
     for (var i = 0; i < this.state.coords.length; i+=1) {
       lat = this.state.coords[i].lat;
       lng = this.state.coords[i].lng;
-      array.push(<div lat={lat} lng={lng}><img src="http://www.clipartbest.com/cliparts/dc7/oMd/dc7oMdjGi.png" alt="EVENT" height="30" width="30"/></div>)
+      array.push(<div lat={lat} lng={lng} onClick={this.eventClick}><img src={meetupMarker} alt="EVENT" height="30" width="30"/></div>)
     }
-    
+
     return (
       <div style={styles.base}>
       {this.props.children}
@@ -88,8 +101,9 @@ var Map = React.createClass({
                 style={styles.map}
                 center={this.state.center}
                 zoom={this.state.zoom}>
-                <div lat={this.state.center[0]} lng={this.state.center[1]}><img src="http://icons.iconarchive.com/icons/icons-land/vista-map-markers/256/Map-Marker-Marker-Outside-Azure-icon.png" height="30" width="30"/></div>
-
+                <div lat={this.state.center[0]} lng={this.state.center[1]}>
+                  <img src={userMarker} height="30" width="30" onClick={this.userClick}/>
+                </div>
                 {array}
               </GoogleMap>
             </div>
@@ -109,14 +123,12 @@ var styles = {
   base: {
     background: 'steelblue',
     border: 0,
-    borderTopRightRadius: 8,
-    borderTopLeftRadius: 8,
-    borderBottomLeftRadius: 50,
-    borderBottomRightRadius: 50,
+    borderRadius: 8,
     color: 'black',
-    padding: '1em',
+    padding: '.5%',
     fontFamily: 'Verdana',
   },
+
 };
 
 module.exports = Map;

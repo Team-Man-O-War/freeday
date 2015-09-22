@@ -6,6 +6,7 @@ var AppDispatcher = require('../flux/Dispatcher');
 
 var SignUp = React.createClass({//For users signing up for app. Will feed into TopBox component. Needs authentication/authorization.
   
+
   getInitialState: function () {
     return {
       userInput: ''
@@ -32,6 +33,7 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
     var jsonifiedInput = JSON.stringify(userInput);
     //the json.stringify sends the correct form
    
+    var _this = this;
 
     $.ajax({
       url:"/signup",
@@ -39,12 +41,14 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
       data:jsonifiedInput,
       datatype:'json' ,
       contentType:'application/json',
-      success: function(jwt){
-        //send something from server to client on successful transaction
-        location.reload();
-        window.localStorage.setItem('jwt', jwt);
-        
 
+      success: function(token){
+        //send something from server to client on successful transaction
+       // this.headers.Authorization = "Bearer "+something;
+          _this.setState({ Authorization:"Bearer "+token });
+          
+          localStorage.Authorization = _this.state.Authorization
+        //here we place the authorization token in the users local storage
       },
       error: function(xhr,ajaxOptions,err){
         alert("error",err);
@@ -99,8 +103,8 @@ var styles = {
     border: 0,
     borderRadius: 8,
     color: 'black',
-    padding: '.3em .5em .3em .5em',
-    margin: '0 0 0 .2em',
+    padding: '.4% .8% .4% .8%',
+    margin: '0 0 0 .5%',
     fontFamily: 'Verdana',
 
     ':hover': {
@@ -120,15 +124,15 @@ var styles = {
     backgroundColor: 'seashell',
     color: 'black',
     borderRadius: 6,
-    margin: '.5em',
-    padding: '.3em',
+    margin: '.2% .7% .2% .7%',
+    padding: '.3%',
   },
 
     input2: {
     backgroundColor: 'seashell',
     color: 'black',
     borderRadius: 6,
-    padding: '.3em',
+    padding: '.3%',
   }
 };
 

@@ -43,6 +43,9 @@ gulp.task('build', function() {
 		debug: true,
 		cache: {}, packageCache: {}, fullPaths: true
 		}).bundle()
+		.on('error',function(err){
+			console.log(err.message);
+		})
 		.pipe(source('bundle.js'))
 		.pipe(gulp.dest('./client/build'));
 });

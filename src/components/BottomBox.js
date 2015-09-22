@@ -6,8 +6,6 @@ var BottomBox = React.createClass({//Bottom of the page div for additional infor
 		return (
       <div style={styles.base}>
       {this.props.children}
-      <h2>Bottom Box:</h2>
-        //(Contains any additional info/functionality)
       </div>
 		)
 	}
@@ -16,7 +14,7 @@ var BottomBox = React.createClass({//Bottom of the page div for additional infor
 var styles = {
   base: {
     background: 'lightsteelblue',
-    padding: '2em',
+    padding: '3%',
     borderTopRightRadius: 8,
     borderTopLeftRadius: 8,
     fontFamily: 'Verdana'

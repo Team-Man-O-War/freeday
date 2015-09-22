@@ -2,17 +2,18 @@ var React = require('react');
 var Radium = require('radium');
 var $ = require('jquery');
 
-
 var LogIn = React.createClass({//For users logging into app. Will feed into TopBox component. Needs authorization/authentication.
   handleSubmit:function(e){
     e.preventDefault();
     var userInput = {};
-    var signUpDom = React.findDOMNode(this);
+    var LoginDom = React.findDOMNode(this);
     
-    userInput.username = signUpDom.firstChild.children[1].value;
-    userInput.password = signUpDom.firstChild.children[2].value;
+    userInput.username = LoginDom.firstChild.children[1].value;
+    userInput.password = LoginDom.firstChild.children[2].value;
     
     var jsonifiedInput = JSON.stringify(userInput);
+
+    var _this = this;
 
     $.ajax({
       url:"/login",
@@ -20,11 +21,14 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
       data:jsonifiedInput,
       datatype:'json' ,
       contentType:'application/json',
-      success: function(jwt){
-        //send something from server to client on successful transaction
-        //i think this is where i need to pass the token to the user's header
-        window.localStorage.setItem('jwt', jwt);
-        location.reload();
+
+      success: function(token){
+        
+        _this.setState({Authorization:"Bearer "+token})
+
+        localStorage.Authorization = _this.state.Authorization
+
+        console.log("this is the something that i am looking for: ",token);
         
       },
       error: function(xhr,ajaxOptions,err){
@@ -60,6 +64,7 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
 
 
 	render: function(){
+
     console.log(localStorage);
     if (!localStorage.token && !localStorage.jwt) {
 
@@ -89,7 +94,6 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
         </div>
       )
     }
-
 	}
 });
 
@@ -99,8 +103,8 @@ var styles = {
     border: 0,
     borderRadius: 8,
     color: 'black',
-    padding: '.3em .5em .3em .5em',
-    margin: '0 0 0 .2em',
+    padding: '.4% .8% .4% .8%',
+    margin: '0 0 0 .5%',
     fontFamily: 'Verdana',
 
     ':hover': {
@@ -120,8 +124,8 @@ var styles = {
     backgroundColor: 'seashell',
     color: 'black',
     borderRadius: 6,
-    margin: '0 .5em 0 1.2em',
-    padding: '.3em',
+    margin: '0 .8% 0 1.2%',
+    padding: '.3%',
     fontFamily: 'Verdana'
   },
 
@@ -137,8 +141,8 @@ facebook: {
   backgroundColor: '#3b5998',
   color: 'white',
   borderRadius: 4,
-  margin: '1.3em .5em 0 12.6em',
-  padding: '.6em',
+  margin: '1% .5% 0 11.8%',
+  padding: '.6%',
   fontFamily: 'Verdana'
 },
 
@@ -146,8 +150,8 @@ gmail: {
   backgroundColor: 'crimson',
   color: 'white',
   borderRadius: 4,
-  margin: '1.3em 0 0 0',
-  padding: '.6em',
+  margin: '1% 0 0 0',
+  padding: '.6%',
   fontFamily: 'Verdana'
 },
 };

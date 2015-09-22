@@ -13,7 +13,7 @@ var TopBox = React.createClass({
 		return (
       <div style={styles.base}>
       {this.props.children}
-      <h1><a href=''>freeday</a></h1>
+      <h1 style={styles.logo}><a href=''>freeday</a></h1>
         <CreateEvent/> 
         <SignUp/>
         <LogIn/> 
@@ -26,12 +26,17 @@ var TopBox = React.createClass({
 var styles = {
   base: {
     background: 'lightsteelblue',
-    padding: '2em',
+    padding: '2%',
     borderBottomLeftRadius: 8,
     borderBottomRightRadius: 8,
-    margin: '0 0 .2em 0',
+    margin: '0 0 .2% 0',
     fontFamily: 'Verdana'
   },
+  logo: {
+    fontSize: 80,
+    fontFamily: 'Papyrus',
+    margin: '0 0 .3% 8.8%'
+  }
 };
 
 module.exports = Radium(TopBox);

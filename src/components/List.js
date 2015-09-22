@@ -4,7 +4,6 @@ var Infinite = require('react-infinite');
 var meetup = require('../meetup.json');
 var $ = require('jquery');
 
-
 var List = React.createClass({
   getInitialState: function() {
     return {
@@ -86,8 +85,8 @@ var List = React.createClass({
       // console.log(meetupEventList);
       
         return (
-          <Infinite elementHeight={250}
-             containerHeight={450}
+          <Infinite elementHeight={150}
+             containerHeight={400}
              infiniteLoadBeginBottomOffset={5}
              onInfiniteLoad={this.handleInfiniteLoad}
              loadingSpinnerDelegate={this.elementInfiniteLoad()}
