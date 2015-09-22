@@ -11,8 +11,12 @@ var eventBriteMarker;
 var freedayMarker;
 
 var Map = React.createClass({
-  handleClick: function(){
-    location.reload();
+  userClick: function(){
+      alert("You are here:\n" + this.state.center);
+  },
+
+  eventClick: function(){
+    alert('hello');
   },
 
   getInitialState: function() {
@@ -81,9 +85,9 @@ var Map = React.createClass({
     for (var i = 0; i < this.state.coords.length; i+=1) {
       lat = this.state.coords[i].lat;
       lng = this.state.coords[i].lng;
-      array.push(<div lat={lat} lng={lng}><img src={meetupMarker} alt="EVENT" height="30" width="30"/></div>)
+      array.push(<div lat={lat} lng={lng} onClick={this.eventClick}><img src={meetupMarker} alt="EVENT" height="30" width="30"/></div>)
     }
-    
+    console.log(this.props);
 
     return (
       <div style={styles.base}>
@@ -97,7 +101,7 @@ var Map = React.createClass({
                 center={this.state.center}
                 zoom={this.state.zoom}>
                 <div lat={this.state.center[0]} lng={this.state.center[1]}>
-                  <img src={userMarker} height="30" width="30" onClick={this.handleClick} onMouseover="cursor:pointer"/>
+                  <img src={userMarker} height="30" width="30" onClick={this.userClick}/>
                 </div>
                 {array}
               </GoogleMap>
@@ -126,6 +130,7 @@ var styles = {
     padding: '.5%',
     fontFamily: 'Verdana',
   },
+
 };
 
 module.exports = Map;

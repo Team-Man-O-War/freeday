@@ -4,7 +4,7 @@ var Radium = require('radium');
 var CategoryItem = React.createClass({//individual categories that will fit into CategoryBar component and apply filters to Pins.
 	render: function(){
 		return (
-      <div className="col-xs-12 col-sm-10 col-sm-offset-1 center-block">
+      <div className="col-xs-12 col-sm-12 col-sm-offset-1 col-md-12 col-lg-12 center-block">
         <div className="col-xs-6 col-sm-1">
           <button style={styles.meetup} >
           {this.props.children}Meetup</button>

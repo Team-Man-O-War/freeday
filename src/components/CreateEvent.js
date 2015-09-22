@@ -44,6 +44,8 @@ var CreateEvent = React.createClass({
             <h4>Event Name: </h4>
             <input type ='text' placeholder='Event Name'/>
               <button onClick={this.handleChange}>Submit</button>
+              <br></br>
+              <br></br>
             <input type ='text' placeholder='Event Address'/>
               <button onClick={this.handleChange}>Submit</button>
                 <br></br>

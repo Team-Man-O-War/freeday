@@ -8,7 +8,7 @@ var CategoryBar = React.createClass({//will contain individual category items fr
       <div style={styles.base}>
         <div className="container-fluid">
           <div className="row center-block">
-            <div className="col-sm-10 col-sm-offset-1 center-block">
+            <div className="col-sm-12col-sm-offset-1 center-block">
               <CategoryItem/>
             </div>
           </div>

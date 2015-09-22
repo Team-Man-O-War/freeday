@@ -116,6 +116,7 @@ var styles = {
     fontSize: 28,
     background: 'crimson',
     borderRadius: 14,
+    float: 'right',
     color: 'black',
     fontFamily: 'Verdana',
   }

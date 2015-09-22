@@ -21,7 +21,7 @@ var styles = {
     color: 'slategray',
     margin: '0 0 0 80%',
     backgroundColor: 'seashell',
-    padding: '1% 2% 1% 4%',
+    padding: '1% 0 1% 2.5%',
     borderRadius: 14,
   },
 };

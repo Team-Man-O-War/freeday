@@ -4,7 +4,6 @@ var Infinite = require('react-infinite');
 var meetup = require('../meetup.json');
 var $ = require('jquery');
 
-
 var List = React.createClass({
   getInitialState: function() {
     return {
