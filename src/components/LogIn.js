@@ -7,12 +7,14 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
   handleSubmit:function(e){
     e.preventDefault();
     var userInput = {};
-    var signUpDom = React.findDOMNode(this);
+    var LoginDom = React.findDOMNode(this);
     
-    userInput.username = signUpDom.firstChild.children[1].value;
-    userInput.password = signUpDom.firstChild.children[2].value;
+    userInput.username = LoginDom.firstChild.children[1].value;
+    userInput.password = LoginDom.firstChild.children[2].value;
     
     var jsonifiedInput = JSON.stringify(userInput);
+
+    var _this = this;
 
     $.ajax({
       url:"/login",
@@ -20,10 +22,13 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
       data:jsonifiedInput,
       datatype:'json' ,
       contentType:'application/json',
-      success: function(something){
-        //send something from server to client on successful transaction
-        //i think this is where i need to pass the token to the user's header
-        console.log("this is the something that i am looking for: ",something);
+      success: function(token){
+        
+        _this.setState({Authorization:"Bearer "+token})
+
+        localStorage.Authorization = _this.state.Authorization
+
+        console.log("this is the something that i am looking for: ",token);
 
         
       },
@@ -38,20 +43,25 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
 	render: function(){
 		return (
       <div> 
+        <form onSubmit={this.handleSubmit}>
         <label>Log In </label>
           <input type="text" placeholder= "username" style={styles.input1}>
             {this.props.children}
-            </input>
+          </input>
           <input type="password" placeholder= "password" style={styles.input2}>
             {this.props.children}
-            </input>
-            <button style={styles.base}>
-            {this.props.children}Submit</button>
+          </input>
+          <button style={styles.base}>
+            {this.props.children}Submit
+          </button>
+        </form>
             <br></br>
-            <button style={styles.facebook}>
-            {this.props.children}Facebook</button>
-            <button style={styles.gmail}>
-            {this.props.children}G-Mail</button>
+          <button style={styles.facebook}>
+            {this.props.children}Facebook
+          </button>
+          <button style={styles.gmail}>
+            {this.props.children}G-Mail
+          </button>
       </div>
 		)
 	}

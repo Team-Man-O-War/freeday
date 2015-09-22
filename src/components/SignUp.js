@@ -4,6 +4,8 @@ var $ = require('jquery');
 //require jquery and use it to send post request
 
 var SignUp = React.createClass({//For users signing up for app. Will feed into TopBox component. Needs authentication/authorization.
+  
+
   handleSubmit:function(e){
     e.preventDefault();
     var userInput = {};
@@ -15,6 +17,7 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
     var jsonifiedInput = JSON.stringify(userInput);
     //the json.stringify sends the correct form
    
+    var _this = this;
 
     $.ajax({
       url:"/signup",
@@ -22,9 +25,13 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
       data:jsonifiedInput,
       datatype:'json' ,
       contentType:'application/json',
-      success: function(something){
+      success: function(token){
         //send something from server to client on successful transaction
-        console.log("this is the something that i am looking for: ",something);
+       // this.headers.Authorization = "Bearer "+something;
+          _this.setState({ Authorization:"Bearer "+token })
+          
+          localStorage.Authorization = _this.state.Authorization
+        //here we place the authorization token in the users local storage
       },
       error: function(xhr,ajaxOptions,err){
         alert("error",err);
