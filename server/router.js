@@ -16,7 +16,6 @@ var secret = config.secret.shh;
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    // User.findOrCreate wont fire unless data is sent back
     User.find({where: {username: username}})
       .then(function(user) {
         if (!user) {
@@ -29,10 +28,8 @@ passport.use(new LocalStrategy(
         } 
         console.log('all good dog');
        // var token = jwt.sign({username: user.username}, secret);
-       //i belive the token should be passed in router.post/login below
-       // commented out above on 9/15/2015 
-        console.log(user, 'user logged in');
-        return done(null, user);//where does token go once its returned
+      
+        return done(null, user);
       });
     }
 ));
@@ -40,8 +37,9 @@ passport.use(new LocalStrategy(
 //  successRedirect : '/', // redirect to the secure profile section
 //  failureRedirect : '/login', // redirect back to the signup page if 
 
-router.post('/login',function(req,res,next){
- passport.authenticate('local',function(req,res,info) {
+router.post('/login',function (req, res, next){
+ passport.authenticate('local', function (err, user, info) {
+  console.log("looking for me", info);//info is undefined
   if(err){
     return next(err);
   }
@@ -49,8 +47,8 @@ router.post('/login',function(req,res,next){
     return res.json(401,{error:'message'});
   }
   var token = jwt.sign({username: user.username}, secret);
-  res.json({ token : token });
-  //here the token should be passed into the response header
+ 
+  res.send(token);
 
 })(req,res,next);
 });
@@ -70,7 +68,6 @@ router.post('/signup', function (req, res, next) {
         .create({username: req.body.username, password: req.body.password, address: req.body.address})
         .then(function (user) {
            var token = jwt.sign({username: user.username}, secret);
-           console.log(token);
            //here the token is generated and sent to the client side
           res.send(token)
         });   

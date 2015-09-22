@@ -57,7 +57,7 @@ app.post('/mylocation', function(req, res) {
 
 
 app.get('/meetup', function(req, res) {
-  console.log(pos);
+ // console.log(pos);
   if (pos !== undefined) {
   request.get('https://api.meetup.com/2/open_events?sign=true&photo-host=public&lat=' + pos.lat + '&lon=' + pos.lon + '&page=20&key=' + config.meetupApi.key,
     function(err, response, body) {
