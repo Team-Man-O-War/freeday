@@ -12,8 +12,6 @@ var jwt = require('jsonwebtoken');
 var config = require('./config/config.js');
 var secret = config.secret.shh;
 
-
-
 passport.use(new LocalStrategy(
   function(username, password, done) {
     User.find({where: {username: username}})

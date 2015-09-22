@@ -16,8 +16,7 @@ var List = React.createClass({
 
   componentDidMount: function() {
     var self = this;
-
-    
+ 
     $.get('/meetup', function (data) {
         self.setState({
           events: data.results

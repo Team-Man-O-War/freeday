@@ -5,7 +5,6 @@ var $ = require('jquery');
 
 var SignUp = React.createClass({//For users signing up for app. Will feed into TopBox component. Needs authentication/authorization.
   
-
   handleSubmit:function(e){
     e.preventDefault();
     var userInput = {};
