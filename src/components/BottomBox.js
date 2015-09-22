@@ -16,8 +16,9 @@ var BottomBox = React.createClass({//Bottom of the page div for additional infor
 var styles = {
   base: {
     background: 'lightsteelblue',
-    padding: '2em',
-    borderRadius: 8,
+    padding: '3%',
+    borderTopRightRadius: 8,
+    borderTopLeftRadius: 8,
     fontFamily: 'Verdana'
   },
 };

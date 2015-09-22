@@ -66,8 +66,8 @@ var styles = {
     border: 0,
     borderRadius: 8,
     color: 'black',
-    padding: '.3em .5em .3em .5em',
-    margin: '0 0 0 .2em',
+    padding: '.4% .8% .4% .8%',
+    margin: '0 0 0 .5%',
     fontFamily: 'Verdana',
 
     ':hover': {
@@ -87,15 +87,15 @@ var styles = {
     backgroundColor: 'seashell',
     color: 'black',
     borderRadius: 6,
-    margin: '.5em',
-    padding: '.3em',
+    margin: '.2% .7% .2% .7%',
+    padding: '.3%',
   },
 
     input2: {
     backgroundColor: 'seashell',
     color: 'black',
     borderRadius: 6,
-    padding: '.3em',
+    padding: '.3%',
   }
 };
 

@@ -4,132 +4,145 @@ var Radium = require('radium');
 var CategoryItem = React.createClass({//individual categories that will fit into CategoryBar component and apply filters to Pins.
 	render: function(){
 		return (
-      <div>
-      <button style={styles.featured}>
-      {this.props.children}Featured</button>
-      <button style={styles.meetup}>
-      {this.props.children}Meetup</button>
-      <button style={styles.eventbrite}>
-      {this.props.children}Eventbrite</button>
-      <button style={styles.music}>
-      {this.props.children}Music</button>
-      <button style={styles.videoGames}>
-      {this.props.children}Video Gaming</button>
-      <button style={styles.boardGames}>
-      {this.props.children}Board Gaming</button>
-      <button style={styles.social}>
-      {this.props.children}Social</button>
-      <button style={styles.educational}>
-      {this.props.children}Educational</button>
-      <button style={styles.romance}>
-      {this.props.children}Romantic</button>
-      <button style={styles.athletic}>
-      {this.props.children}Athletic</button>
-      <button style={styles.other}>
-      {this.props.children}Other</button>
+      <div className="col-xs-12 col-sm-10 col-sm-offset-1 center-block">
+        <div className="col-xs-6 col-sm-1">
+          <button style={styles.meetup} >
+          {this.props.children}Meetup</button>
+        </div>
+        <div className="col-xs-6 col-sm-1">
+          <button style={styles.eventbrite}>
+          {this.props.children}Eventbrite</button>
+        </div>
+        <div className="col-xs-6 col-sm-1">
+          <button style={styles.music}>
+          {this.props.children}Music</button>
+        </div>
+        <div className="col-xs-6 col-sm-1">
+          <button style={styles.videoGames}>
+          {this.props.children}Video Gaming</button>
+        </div>
+        <div className="col-xs-6 col-sm-1">
+          <button style={styles.boardGames}>
+          {this.props.children}Board Gaming</button>
+        </div>
+        <div className="col-xs-6 col-sm-1">
+          <button style={styles.social}>
+          {this.props.children}Social</button>
+        </div>
+        <div className="col-xs-6 col-sm-1">
+          <button style={styles.educational}>
+          {this.props.children}Educational</button>
+        </div>
+        <div className="col-xs-6 col-sm-1">
+          <button style={styles.romance}>
+          {this.props.children}Romantic</button>
+        </div>
+        <div className="col-xs-6 col-sm-1">
+          <button style={styles.athletic}>
+          {this.props.children}Athletic</button>
+        </div>
+        <div className="col-xs-6 col-sm-1">
+          <button style={styles.other}>
+          {this.props.children}Other</button>
+        </div>
       </div>
 		)
 	}
 });
 
 var styles = {
-  featured: {
-    background: 'red',
-    borderRadius: 14,
-    color: 'snow',
-    padding: '2em',
-    fontFamily: 'Verdana',
-    margin: '.5em'
-  },
-
    meetup: {
-    background: 'limegreen',
-    borderRadius: 14,
+    background: 'red',
+    display: 'inline-block',
     color: 'snow',
-    padding: '2em',
     fontFamily: 'Verdana',
-    margin: '.5em'
+    opacity: 0.8,
+    borderTopLeftRadius: 14,
+    borderBottomLeftRadius: 14,
+    padding: '50px 25% 50px 25%',
   },
 
    eventbrite: {
-    background: 'darkred',
-    borderRadius: 14,
-    color: 'snow',
-    padding: '2em',
-    fontFamily: 'Verdana',
-    margin: '.5em'
-  },
-
-    music: {
-    background: 'blue',
-    borderRadius: 14,
-    color: 'snow',
-    padding: '2em',
-    fontFamily: 'Verdana',
-    margin: '.5em'
-  },
-
-     videoGames: {
-    background: 'green',
-    borderRadius: 14,
-    color: 'snow',
-    padding: '2em',
-    fontFamily: 'Verdana',
-    margin: '.5em'
-  },
-
-     social: {
-    background: 'purple',
-    borderRadius: 14,
-    color: 'snow',
-    padding: '2em',
-    fontFamily: 'Verdana',
-    margin: '.5em'
-  },
-
-       boardGames: {
     background: 'orange',
-    borderRadius: 14,
+    display: 'inline-block',
     color: 'snow',
-    padding: '2em',
     fontFamily: 'Verdana',
-    margin: '.5em'
+    opacity: 0.8,
+    padding: '50px 2.5% 50px 2.5%',
   },
 
-      educational: {
-    background: 'gold',
-    borderRadius: 14,
+   music: {
+    background: 'blue',
+    display: 'inline-block',
     color: 'snow',
-    padding: '2em',
     fontFamily: 'Verdana',
-    margin: '.5em'
+    opacity: 0.8,
+    padding: '50px 2.5% 50px 2.5%',
   },
 
-    romance: {
-    background: 'pink',
-    borderRadius: 14,
+   videoGames: {
+    background: 'green',
+    display: 'inline-block',
     color: 'snow',
-    padding: '2em',
     fontFamily: 'Verdana',
-    margin: '.5em'
+    opacity: 0.8,
+    padding: '50px 2.5% 50px 2.5%',
   },
 
-     athletic: {
+   social: {
     background: 'lightskyblue',
-    borderRadius: 14,
+    display: 'inline-block',
     color: 'snow',
-    padding: '2em',
     fontFamily: 'Verdana',
-    margin: '.5em'
+    opacity: 0.8,
+    padding: '50px 2.5% 50px 2.5%',
+  },
+
+   boardGames: {
+    background: 'purple',
+    display: 'inline-block',
+    color: 'snow',
+    fontFamily: 'Verdana',
+    opacity: 0.8,
+    padding: '50px 2.5% 50px 2.5%',
+  },
+
+   educational: {
+    background: 'gold',
+    display: 'inline-block',
+    color: 'snow',
+    fontFamily: 'Verdana',
+    opacity: 0.8,
+    padding: '50px 2.5% 50px 2.5%',
+  },
+
+   romance: {
+    background: 'pink',
+    display: 'inline-block',
+    color: 'snow',
+    fontFamily: 'Verdana',
+    opacity: 0.8,
+    padding: '50px 2.5% 50px 2.5%',
+  },
+
+   athletic: {
+    background: 'limegreen',
+    display: 'inline-block',
+    color: 'snow',
+    fontFamily: 'Verdana',
+    opacity: 0.8,
+    padding: '50px 2.5% 50px 2.5%',
   },
 
    other: {
     background: 'teal',
-    borderRadius: 14,
+    display: 'inline-block',
     color: 'snow',
-    padding: '2em',
     fontFamily: 'Verdana',
-    margin: '.5em'
+    borderTopRightRadius: 14,
+    borderBottomRightRadius: 14,
+    opacity: 0.8,
+    padding: '50px 2.5% 50px 2.5%',
   },
 };
 

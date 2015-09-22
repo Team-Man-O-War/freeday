@@ -59,7 +59,7 @@ var CreateEvent = React.createClass({
                 <br></br>
 
                 <form>
-                <input type="number" name="attendees" min="1" max="25"/> Maximum Attendance
+                  <input type="number" name="attendees" min="1" max="25"/> Maximum Attendance
                 </form>
 
               <br></br>
@@ -88,10 +88,10 @@ var styles = {
     background: 'steelblue',
     borderRadius: 100,
     color: 'black',
-    padding: '4em',
+    padding: '4%',
     float: 'right',
     overflow: 'auto',
-    margin: '-2em 1em 0 0',
+    margin: '-3% 2.5% 0 0',
     fontFamily: 'Verdana',
 
     ':hover': {

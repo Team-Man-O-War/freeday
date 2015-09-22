@@ -32,7 +32,7 @@ var App = React.createClass({
           <br></br>
         </div> 
 
-        <h1> Event List
+        <h1 style={styles.event}> Event List
         </h1>
         <div>
           <List/>
@@ -54,6 +54,10 @@ var styles = {
     backgroundColor: 'whitesmoke',
     fontFamily: 'Verdana'
   },
+  event: {
+    padding: '0 0 1% 0',
+    margin: '0 0 0 8%'
+  }
 };
 
 React.render(<App/>, document.getElementById('main'));

@@ -1,32 +1,22 @@
 // var React = require('react');
-// var TabPanel = require('react-basic-tabs');
+// var Tabs = require('react-simpletabs');
+
 
 // var Tab = React.createClass({
-//  getInitialState: function(){
-//   return {
-//     activeIndex: 1
-//     }
-//   },
-
-//    handleChange: function(index){
-//     this.setState({
-//       activeIndex: index
-//     })
-//   },
-
-//   render: function(){
+//   render: function() {
 //     return (
-//       <div>
-//      <TabPanel activeIndex={this.state.activeIndex}
-//         onChange={this.handleChange}
-//         titleStyle={{padding:10}}
-//         >
-//           <div title="One">freeday</div>
-//           <div title="Two">Meetup</div>
-//           <div title="Three">Eventbrite</div>
-//       </TabPanel>
-//       </div>
-//     )
+//       <Tabs>
+//         <Tabs.Panel title='freeday'>
+//           <h2>freeday</h2>
+//         </Tabs.Panel>
+//         <Tabs.Panel title='Meetup'>
+//           <h2>Meetup</h2>
+//         </Tabs.Panel>
+//         <Tabs.Panel title='Eventbrite'>
+//           <h2>Eventbrite</h2>
+//         </Tabs.Panel>
+//       </Tabs>
+//     );
 //   }
 // });
 
