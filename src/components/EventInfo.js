@@ -32,34 +32,37 @@ var Event = React.createClass({
       return (
         <div>
           <button onClick={this.openModal} style={styles.base}>
-      {this.props.children}Event Information</button>
-          <Modal
-            isOpen={this.state.modalIsOpen}
-            onRequestClose={this.closeModal} 
-          >
-          <button onClick={this.closeModal}>Close</button>
-          <h1>Your Event</h1>
-            <div> Address: 100 Super Cool St. Los Angeles, CA 12345 </div>
-              <br></br>
-              <button >I Will Attend</button>
-              <button>I Might Attend</button>
-              <button>Hide Event</button>
-              <button>Request Info</button>
-              <br></br>
-              <div> 10/25 Attendees </div>
-            <br></br>
-            <div>
-            Event description: Yada yada yada Yada yada yada Yada yada yada
-            Yada yada yada Yada yada yada Yada yada yada
-            Yada yada yada Yada yada yada Yada yada yada etc etc etc...
-            </div>
-            <br></br>
-            <br></br>
-            <form id="comments">
-              <input type ='text' placeholder='Leave a Comment' onChange={this.handleChange}/>
-              <button onClick={this.handleChange}>Submit</button>
-              <div>{this.state.value}</div>
+          {this.props.children}Event Information</button>
+            <Modal
+              isOpen={this.state.modalIsOpen}
+              onRequestClose={this.closeModal} 
+            >
+            <button onClick={this.closeModal} style={styles.close}>Close</button>
+          <h1>{this.props.singleEvent.name}</h1>
+          <h2 style={styles.time}>{this.props.singleEvent.time}</h2>
+          <h3>Confirmed Attendance: {this.props.singleEvent.confirmed}</h3>
+          <h3 style={styles.distance}> Distance: {this.props.singleEvent.distance} <a href={this.props.singleEvent.url}>(Click link for address)</a></h3>
+                <br></br>
+                <br></br>
+                <br></br>
+              <div style={styles.buttons}> 
+                <button>I Will Attend</button>
+                <button>I Might Attend</button>
+                <button>Hide Event</button>
+              </div>
+                <br></br>
+                <br></br>
+            <div dangerouslySetInnerHTML={{__html: this.props.singleEvent.description}} />
+                <br></br>
+              <form id="comments" style={styles.comments}>
+                <input type ='text' placeholder='Leave a Comment' onChange={this.handleChange}/>
+                <button onClick={this.handleChange}>Submit</button>
+                <div>{this.state.value}</div>
             </form>
+            <h3><a href={this.props.singleEvent.url} style={styles.link}>{this.props.singleEvent.url}</a></h3>
+              <br></br>
+              <br></br>
+          
           </Modal>
         </div>
       );
@@ -69,13 +72,13 @@ var Event = React.createClass({
 var styles = {
   base: {
     background: 'steelblue',
-    display: 'inline',
-    float: 'right',
     border: 0,
     borderRadius: 14,
+    float: 'left',
+    margin: '0 0 0 400px',
     color: 'black',
-    padding: '5%',
-    margin: '-7% 0 1% 46%',
+    height: '150px',
+    width: '100%',
     fontFamily: 'Verdana',
 
     ':hover': {
@@ -83,13 +86,39 @@ var styles = {
     },
 
     ':focus': {
-      backgroundColor: 'steelblue'
+      backgroundColor: 'midnightblue'
     },
 
     ':active': {
       backgroundColor: 'midnightblue'
     },
   },
+  time: {
+    float:'right',
+    color: 'steelblue',
+  },
+  distance: {
+    float:'left',
+  },
+  buttons: {
+    float:'left',
+    margin: '0 1% 0 3%',
+    color: 'steelblue',
+    fontFamily: 'Verdana',
+  },
+  comments: {
+    float:'right',
+    padding: '2%',
+    margin:"0 150px 0 0",
+    fontSize: 20,
+  },
+  close: {
+    fontSize: 28,
+    background: 'crimson',
+    borderRadius: 14,
+    color: 'black',
+    fontFamily: 'Verdana',
+  }
 };
 
 module.exports = Radium(Event);

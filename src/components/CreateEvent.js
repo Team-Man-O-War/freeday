@@ -54,7 +54,7 @@ var CreateEvent = React.createClass({
                 <br></br>
 
                 <form>
-                <input type="number" name="attendees" min="1" max="25"/> Maximum Attendance
+                  <input type="number" name="attendees" min="1" max="25"/> Maximum Attendance
                 </form>
 
               <br></br>
