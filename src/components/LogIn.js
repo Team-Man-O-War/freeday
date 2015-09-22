@@ -24,7 +24,7 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
         //send something from server to client on successful transaction
         //i think this is where i need to pass the token to the user's header
         window.localStorage.setItem('jwt', jwt);
-        console.log('jwt');
+        location.reload();
         
       },
       error: function(xhr,ajaxOptions,err){
@@ -35,25 +35,61 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
     });
 
    }, 
-	render: function(){
-		return (
-      <div> 
-        <label>Log In </label>
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" placeholder= "username" style={styles.input1}>
-            {this.props.children}
-          </input>
-          <input type="password" placeholder= "password" style={styles.input2}>
-            {this.props.children}
-          </input>
-        </form>
 
-            <button style={styles.base}> {this.props.children}Submit</button>
-            <br></br>
-            <button style={styles.facebook}> {this.props.children}Facebook</button>
-            <button style={styles.gmail}>{this.props.children}G-Mail</button>
-      </div>
-		)
+   // handleFacebook: function () {
+
+   //  $.ajax({
+   //    url:"/auth/facebook",
+   //    type:"POST",
+   //    success: function(jwt){
+   //      console.log(jwt, 'sjfsdlkj');
+   //      //send something from server to client on successful transaction
+   //      //i think this is where i need to pass the token to the user's header
+   //      window.localStorage.setItem('jwt', jwt);
+   //      location.reload();
+        
+   //    },
+   //    error: function(xhr,ajaxOptions,err){
+   //      alert("error",err);
+   //      console.log(err);
+   //      console.log(xhr.status);
+   //    }
+   //  });
+
+   // }, 
+
+
+	render: function(){
+    console.log(localStorage);
+    if (!localStorage.token && !localStorage.jwt) {
+
+      return (
+        <div> 
+          <label>Log In </label>
+          <form onSubmit={this.handleSubmit}>
+            <input type="text" placeholder= "username" style={styles.input1}>
+              {this.props.children}
+            </input>
+            <input type="password" placeholder= "password" style={styles.input2}>
+              {this.props.children}
+            </input>
+          </form>
+
+              <button style={styles.base}> {this.props.children}Submit</button>
+              <br></br>
+              <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+              <button style={styles.gmail}>{this.props.children}G-Mail</button>
+        </div>
+      )
+    } else {
+
+      return (
+        <div>
+
+        </div>
+      )
+    }
+
 	}
 });
 

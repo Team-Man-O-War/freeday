@@ -12,8 +12,6 @@ var jwt = require('jsonwebtoken');
 var config = require('./config/config.js');
 var secret = config.secret.shh;
 
-
-
 passport.use(new LocalStrategy(
   function(username, password, done) {
     // User.findOrCreate wont fire unless data is sent back
@@ -57,22 +55,18 @@ router.post('/login',function(req,res,next){
 
 
 router.post('/signup', function (req, res, next) {
-  User.find({where: {username: req.body.username}}).then(function (err, user) {
-    if (err) {
-      throw(err);
-    }
-
+  User.find({where: {username: req.body.username}}).then(function (user, err) {
     if (user) {
-      res.send('username is taken');
+      res.json({message: 'username is taken'});
     } else {
       //var token = jwt.sign({username: user.username}, secret);
       User
         .create({username: req.body.username, password: req.body.password, address: req.body.address})
         .then(function (user) {
-           var token = jwt.sign({username: user.username}, secret);
+         var token = jwt.sign({username: user.username}, secret);  
            console.log(token);
            //here the token is generated and sent to the client side
-          res.send(token);
+          res.send(user, token);
         });   
     } 
   });
@@ -82,12 +76,8 @@ router.get('/test', function(req,res,next){
   console.log(req.headers);
 });
 
-
-
-
-
-
 router.get('/auth/facebook', passport.authenticate('facebook'));
+
 router.get('/auth/facebook/callback',
   passport.authenticate('facebook', {
     successRedirect: '/',
@@ -100,19 +90,22 @@ passport.use(new FacebookStrategy({
   callbackURL: config.fb.callbackURL
 },
   function(token, refreshToken, profile, done) {
+
     process.nextTick(function() {
-      User.findOne({where: {fbid: profile.id}}).then(function(err, user) {
-        //err
-        if (err)
-          return done(err);
+      User.find({where: {fbID: profile.id}}).then(function(user) {
+  
+        var token = jwt.sign({username: profile.name.givenName}, secret);
         if (user) {
-          return done(null, user);
+          console.log(token);
+          return done(null, user, token);
         } else {
+
         User
-          .create({fbid: profile.id, token: token, username: profile.name})
-          .save()
+          .create({fbID: profile.id, token: token, username: profile.name.givenName})
           .then(function(user) {
-            return done(null, user);
+            
+            console.log(token);
+            return done(null, user, token);
           });
         }
       });

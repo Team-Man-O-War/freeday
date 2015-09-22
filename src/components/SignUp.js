@@ -41,7 +41,9 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
       contentType:'application/json',
       success: function(jwt){
         //send something from server to client on successful transaction
+        location.reload();
         window.localStorage.setItem('jwt', jwt);
+        
 
       },
       error: function(xhr,ajaxOptions,err){
@@ -52,14 +54,20 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
     });
 
   },
+
+  handleLogout: function () {
+    delete localStorage.jwt;
+    location.reload();
+  },
+
 	render: function(){
 		
-    if (!localStorage.jwt) {
+    if (!localStorage.token && !localStorage.jwt) {
         return ( 
           <div>
 
             <form onSubmit={this.handleSubmit}>
-              <label>Sign Up </label>
+              <label>Sign Up</label>
 
               <input type="text" placeholder= "username" style={styles.input1}>
                 {this.props.children}
@@ -73,12 +81,10 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
 
           </div>  
         )
-      }
-
-    if (localStorage.jwt) {
+      }else{
       return (
         <div>
-          <button>Signout</button>
+          <button onClick={this.handleLogout}>Logout</button>
         </div>
       )
     }

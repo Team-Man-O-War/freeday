@@ -17,7 +17,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // require('./router')(passport);
 
-app.use(session({secret: "config.secret.shh" }));
+app.use(session({resave: false,
+  saveUnititialized: false,
+  secret: "config.secret.shh" }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -57,7 +59,6 @@ app.post('/mylocation', function(req, res) {
 
 
 app.get('/meetup', function(req, res) {
-  console.log(pos);
   if (pos !== undefined) {
   request.get('https://api.meetup.com/2/open_events?sign=true&photo-host=public&lat=' + pos.lat + '&lon=' + pos.lon + '&page=20&key=' + config.meetupApi.key,
     function(err, response, body) {
