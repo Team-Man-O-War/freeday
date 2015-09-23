@@ -8,7 +8,7 @@ var AppDispatcher = require('../flux/Dispatcher');
 var api = require('../flux/api');
 
 var userMarker = "http://icons.iconarchive.com/icons/icons-land/vista-map-markers/256/Map-Marker-Marker-Outside-Azure-icon.png";
-var meetupMarker = "http://www.clipartbest.com/cliparts/dc7/oMd/dc7oMdjGi.png";
+var meetupMarker = "https://upload.wikimedia.org/wikipedia/commons/7/73/Meetup_Logo_2015.png";
 var eventBriteMarker;
 var freedayMarker;
 
@@ -87,7 +87,7 @@ var Map = React.createClass({
     for (var i = 0; i < this.state.coords.length; i+=1) {
       lat = this.state.coords[i].lat;
       lng = this.state.coords[i].lng;
-      array.push(<div lat={lat} lng={lng} onClick={this.eventClick}><img src={meetupMarker} alt="EVENT" height="30" width="30"/></div>)
+      array.push(<div lat={lat} lng={lng} onClick={this.eventClick}><img src={meetupMarker} alt="EVENT" height="30" width="30" style={styles.meetup}/></div>)
     }
 
     return (
@@ -128,6 +128,10 @@ var styles = {
     padding: '.5%',
     fontFamily: 'Verdana',
   },
+  meetup:{
+    borderBottomRightRadius: 1000,
+    borderBottomLeftRadius: 1000
+  }
 
 };
 

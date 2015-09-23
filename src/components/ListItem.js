@@ -23,8 +23,6 @@ var ListItem = React.createClass({
            <h4>Confirmed Attendance: {this.props.singleEvent.confirmed}</h4>
            <br></br>
            <EventInfo singleEvent={this.props.singleEvent} />
-           <div>
-           </div>
       </div>     
       )
     }

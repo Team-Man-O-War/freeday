@@ -43,12 +43,11 @@ var App = React.createClass({
         </div>
 
       </div>
-    );
-  }
+    );  }
+
 });
 
 App = Radium(App);
-
 var styles = {
   base: {
     fontFamily: 'Verdana'

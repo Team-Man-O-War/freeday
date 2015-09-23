@@ -11,104 +11,109 @@ var bcrypt = require('bcrypt-nodejs');
 var jwt = require('jsonwebtoken');
 var config = require('./config/config.js');
 var secret = config.secret.shh;
+var flash = require('connect-flash');
 
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-    User.find({where: {username: username}})
-      .then(function(user) {
-        if (!user) {
-          console.log('user not found');
-          return done(null, false, {message: "The user is not exist"});
-        } 
-        if (!bcrypt.compareSync(password, user.password)) {
-          console.log('invalid pass...');
-          return done(null, false, {message: "Wrong password"});
-        } 
-        console.log('all good dog');
-       // var token = jwt.sign({username: user.username}, secret);
-      
-        return done(null, user);
-      });
-    }
-));
+// router.post(
+//   '/signup',
+//   passport.authenticate(
+//     'local',
+//     {
+//       successRedirect: '/',
+//       failureRedirect: '/',
+//       failureFlash: true,
+//     }
+//   )
+// );
+// passport.use(new LocalStrategy(
+//   function(username, password, done) {
+//     User.find({where: {username: req.body.username}})
+//       .then(function(user) {
+//         if (user) {
+//           console.log('user not found');
+//           return done(null, false, {message: "sorry"});
+//         } 
+//         if (!bcrypt.compareSync(password, user.password)) {
+//           console.log('invalid pass...');
+//           return done(null, false, {message: "Wrong password"});
+//         } 
+//         console.log('all good dog');
+//        var token = jwt.sign({username: user.username}, secret);
+     
+//         return done(null, user, token);
+//       });
+//     }
+// ));
 
 //  successRedirect : '/', // redirect to the secure profile section
-//  failureRedirect : '/login', // redirect back to the signup page if 
+//  failureRedirect : '/login', // redirect back to the signup page if
 
 router.post('/login',function (req, res, next){
- passport.authenticate('local', function (err, user, info) {
-  console.log("looking for me", info);//info is undefined
-  if(err){
-    return next(err);
-  }
-  if(!user){
-    return res.json(401,{error:'message'});
-  }
-  var token = jwt.sign({username: user.username}, secret);
- 
-  res.send(token);
+passport.authenticate('local', {session: false}, function (err, user, info) {
+ console.log("looking for me", info);//info is undefined
+ if(err){
+   return next(err);
+ }
+ if(!user){
+   return req.flash('user doesnt exist');
+ }
+ var token = jwt.sign({username: user.username}, secret);
+
+ res.send(token);
 
 })(req,res,next);
 });
 
 
 router.post('/signup', function (req, res, next) {
-  User.find({where: {username: req.body.username}}).then(function (user, err) {
-    if (user) {
-      res.json({message: 'username is taken'});
-    } else {
-      //var token = jwt.sign({username: user.username}, secret);
-      User
-        .create({username: req.body.username, password: req.body.password, address: req.body.address})
-        .then(function (user) {
-         var token = jwt.sign({username: user.username}, secret);  
-           console.log(token);
-           //here the token is generated and sent to the client side
-          res.send(user, token);
-        });   
-    } 
-  });
-});
-
-router.get('/test', function(req,res,next){
-  console.log(req.headers);
+ User.find({where: {username: req.body.username}}).then(function (user) {
+   console.log(user);
+   if (user) {
+     req.flash('username is taken');
+   } else {
+     //var token = jwt.sign({username: user.username}, secret);
+     User
+       .create({username: req.body.username, password: req.body.password, address: req.body.address})
+       .then(function (user) {
+        var token = jwt.sign({username: user.username}, secret);  
+         res.status(200).send(token);
+       });   
+   } 
+ });
 });
 
 router.get('/auth/facebook', passport.authenticate('facebook'));
 
 router.get('/auth/facebook/callback',
-  passport.authenticate('facebook', {
-    successRedirect: '/',
-    failureRedirect: '/'
-  }));
+ passport.authenticate('facebook', {
+   successRedirect: '/', 
+   failureRedirect: '/'
+ }));
 
 passport.use(new FacebookStrategy({
-  clientID : config.fb.clientID,
-  clientSecret: config.fb.clientSecret,
-  callbackURL: config.fb.callbackURL
+ clientID : config.fb.clientID,
+ clientSecret: config.fb.clientSecret,
+ callbackURL: config.fb.callbackURL
 },
-  function(token, refreshToken, profile, done) {
+ function(accessToken, refreshToken, profile, done) {
 
-    process.nextTick(function() {
-      User.find({where: {fbID: profile.id}}).then(function(user) {
-  
-        var token = jwt.sign({username: profile.name.givenName}, secret);
-        if (user) {
-          console.log(token);
-          return done(null, user, token);
-        } else {
+   
+     User.find({where: {fbID: profile.id}}).then(function(user) {
+ 
+       var token = jwt.sign({username: profile.name.givenName}, secret);
+       if (user) {
+         
+        done(null, user);
+       } else {
 
-        User
-          .create({fbID: profile.id, token: token, username: profile.name.givenName})
-          .then(function(user) {
-            
-            console.log(token);
-            return done(null, user, token);
-          });
-        }
-      });
-    });
-  }
+       User
+         .create({fbID: profile.id, token: token, username: profile.name.givenName})
+         .then(function(user) {
+           
+           done(null, user);
+         });
+       }
+     });
+ }
 ));
 
 

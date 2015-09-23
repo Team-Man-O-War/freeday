@@ -17,7 +17,6 @@ var List = React.createClass({
   componentDidMount: function() {
     var self = this;
 
-    
     AppDispatcher.getMeetupData(function(data) {
       self.setState({
         events: data.results
