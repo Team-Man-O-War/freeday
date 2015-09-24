@@ -17,7 +17,6 @@ var List = React.createClass({
   componentDidMount: function() {
     var self = this;
 
-    
     AppDispatcher.getMeetupData(function(data) {
       self.setState({
         events: data.results
@@ -40,7 +39,6 @@ var List = React.createClass({
         newEvent.url = e.event_url;
         newEvent.distance = Math.round(e.distance) + " miles";
         // newEvent.urlName = e.group.urlname;
-        newEvent.stockImage = "http://lorempixel.com/400/200/";
         newEvent.time = d.toLocaleString();
         newEvent.confirmed = e.yes_rsvp_count;
         newEvent.category;

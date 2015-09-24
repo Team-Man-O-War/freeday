@@ -1,9 +1,7 @@
 var Sequelize = require('sequelize');
 var sequelize = require('../connection');
 
-
 var Event = sequelize.define('event',{
-
   title:{
     type:Sequelize.STRING,
     field:'title'

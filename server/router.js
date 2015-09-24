@@ -38,56 +38,56 @@ var flash = require('connect-flash');
 //         } 
 //         console.log('all good dog');
 //        var token = jwt.sign({username: user.username}, secret);
-      
+
 //         return done(null, user, token);
 //       });
 //     }
 // ));
 
 //  successRedirect : '/', // redirect to the secure profile section
-//  failureRedirect : '/login', // redirect back to the signup page if 
+//  failureRedirect : '/login', // redirect back to the signup page if
 
 router.post('/login',function (req, res, next){
- passport.authenticate('local', {session: false}, function (err, user, info) {
-  console.log("looking for me", info);//info is undefined
-  if(err){
-    return next(err);
-  }
-  if(!user){
-    return req.flash('user doesnt exist');
-  }
-  var token = jwt.sign({username: user.username}, secret);
- 
-  res.send(token);
+
+passport.authenticate('local', {session: false}, function (err, user, info) {
+ // console.log("looking for me", info);//info is undefined
+ if(err){
+   return next(err);
+ }
+ if(!user){
+   return req.flash('user doesnt exist');
+ }
+ var token = jwt.sign({username: user.username}, secret);
+
+ res.send(token);
 
 })(req,res,next);
 });
 
 
 router.post('/signup', function (req, res, next) {
-  User.find({where: {username: req.body.username}}).then(function (user) {
-    console.log(user);
-    if (user) {
-      req.flash('username is taken');
-    } else {
-      //var token = jwt.sign({username: user.username}, secret);
-      User
-        .create({username: req.body.username, password: req.body.password, address: req.body.address})
-        .then(function (user) {
-         var token = jwt.sign({username: user.username}, secret);  
-          res.status(200).send(token);
-        });   
-    } 
-  });
+ User.find({where: {username: req.body.username}}).then(function (user) {
+   // console.log(user);
+   if (user) {
+     req.flash('username is taken');
+   } else {
+     //var token = jwt.sign({username: user.username}, secret);
+     User
+       .create({username: req.body.username, password: req.body.password, address: req.body.address})
+       .then(function (user) {
+        var token = jwt.sign({username: user.username}, secret);  
+         res.status(200).send(token);
+       });   
+   } 
+ });
 });
 
-
-
 passport.use(new FacebookStrategy({
-  clientID : config.fb.clientID,
-  clientSecret: config.fb.clientSecret,
-  callbackURL: config.fb.callbackURL
+ clientID : config.fb.clientID,
+ clientSecret: config.fb.clientSecret,
+ callbackURL: config.fb.callbackURL
 },
+
   function(accessToken, refreshToken, profile, done) {
 
       User.find({where: {fbID: profile.id}}).then(function(user) {
@@ -107,6 +107,7 @@ passport.use(new FacebookStrategy({
         }
       });
   }
+
 ));
 
 router.get('/auth/facebook', passport.authenticate('facebook'));

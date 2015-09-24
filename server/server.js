@@ -78,9 +78,8 @@ app.get('/meetup', function(req, res) {
 
 
 
-
-
 console.log('Connected');
+
 
 app.listen(3000);
 

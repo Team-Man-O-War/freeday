@@ -40,7 +40,7 @@ app.post('/login',
     // `req.user` contains the authenticated user.
    // res.redirect('./db/models/user.js/'+ req.user.username);
     //not sure if im supposed to point to user file, i think its right
-console.log('im here');
+// console.log('im here');
 });
 
 

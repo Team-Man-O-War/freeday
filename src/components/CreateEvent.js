@@ -14,7 +14,6 @@ var CreateEvent = React.createClass({
     },     
 
     openModal: function() {
-
         this.setState({modalIsOpen: true});
     },
 
@@ -27,10 +26,8 @@ var CreateEvent = React.createClass({
     },
 
     render: function(){
-      console.log('im running')
-
       if(window.localStorage.Authorization){
-      console.log('running')//arash just added this 9/21
+      // console.log('running')//arash just added this 9/21
       return (
         <div>
           <button type="default-primary" onClick={this.openModal} style={[

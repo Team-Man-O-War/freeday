@@ -3,7 +3,6 @@ var sequelize = require('../connection');
 var bcrypt = require('bcrypt-nodejs');
 
 var User = sequelize.define('user',{
-
   username:{
     type: Sequelize.STRING,
     field:'username'

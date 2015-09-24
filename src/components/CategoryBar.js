@@ -3,10 +3,10 @@ var CategoryItem = require('./CategoryItem');
 var Radium = require('radium');
 
 var CategoryBar = React.createClass({//will contain individual category items from CategoryItem.
-  render: function(){//may need .map or loop later
+  render: function(){
 		return (
       <div style={styles.base}>
-              <CategoryItem/>
+        <CategoryItem/>
       </div>
 		)
 	}

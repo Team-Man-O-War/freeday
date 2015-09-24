@@ -7,7 +7,6 @@ var Category = require('./models/Category');
 //here we have to set up user.sync, we sync our schemas to become tables
 
 
-
 //here we set up the many to many relationship, and name the table UserEvent.
 // User.sync({force: true}).then(function () {
 //   // Table created

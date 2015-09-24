@@ -5,6 +5,7 @@ var AppDispatcher = require('../flux/Dispatcher');
 //require jquery and use it to send post request
 
 var SignUp = React.createClass({//For users signing up for app. Will feed into TopBox component. Needs authentication/authorization.
+
   
 // hello world
 
@@ -88,49 +89,44 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
           <button onClick={this.handleLogout}>Logout</button>
         </div>
       )
-    }
-
-		
-	}
-});
 
 var styles = {
-  base: {
-    background: 'steelblue',
-    border: 0,
-    borderRadius: 8,
-    color: 'black',
-    padding: '.4% .8% .4% .8%',
-    margin: '0 0 0 .5%',
-    fontFamily: 'Verdana',
+ base: {
+   background: 'steelblue',
+   border: 0,
+   borderRadius: 8,
+   color: 'black',
+   padding: '.4% .8% .4% .8%',
+   margin: '0 0 0 .5%',
+   fontFamily: 'Verdana',
 
-    ':hover': {
-      backgroundColor: 'powderblue'
-    },
+   ':hover': {
+     backgroundColor: 'powderblue'
+   },
 
-    ':focus': {
-      backgroundColor: 'steelblue'
-    },
+   ':focus': {
+     backgroundColor: 'steelblue'
+   },
 
-    ':active': {
-      backgroundColor: 'midnightblue'
-    },
-  },
+   ':active': {
+     backgroundColor: 'midnightblue'
+   },
+ },
 
-  input1: {
-    backgroundColor: 'seashell',
-    color: 'black',
-    borderRadius: 6,
-    margin: '.2% .7% .2% .7%',
-    padding: '.3%',
-  },
+ input1: {
+   backgroundColor: 'seashell',
+   color: 'black',
+   borderRadius: 6,
+   margin: '.2% .7% .2% .7%',
+   padding: '.3%',
+ },
 
-    input2: {
-    backgroundColor: 'seashell',
-    color: 'black',
-    borderRadius: 6,
-    padding: '.3%',
-  }
+   input2: {
+   backgroundColor: 'seashell',
+   color: 'black',
+   borderRadius: 6,
+   padding: '.3%',
+ }
 };
 
 module.exports = Radium(SignUp);

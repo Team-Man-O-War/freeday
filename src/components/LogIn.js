@@ -65,7 +65,7 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
 
 	render: function(){
 
-    console.log(localStorage);
+    // console.log(localStorage);
     if (!localStorage.token && !localStorage.jwt) {
 
       return (
