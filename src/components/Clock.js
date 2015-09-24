@@ -2,6 +2,7 @@ var React = require('react');
 var moment = require('moment');
 var Radium = require('radium');
 
+// Time-keeper in TopBox.
 var Clock = React.createClass({
   render: function(){
     return (

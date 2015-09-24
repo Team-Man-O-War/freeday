@@ -1,12 +1,12 @@
-var React = require('react');
+// var React = require('react');
 
-var Marker = React.createClass({
-  render: function() {
-    return (
-      <div />
-    );
-  }
+// var Marker = React.createClass({
+//   render: function() {
+//     return (
+//       <div />
+//     );
+//   }
 
-});
+// });
 
-module.exports = Marker;
+// module.exports = Marker;

@@ -7,9 +7,7 @@ var appElement = document.getElementById('main');
 Modal.setAppElement(appElement);
 Modal.injectCSS();
 
-
 // Has full information on events and allows users to create new events.
-// Will be a modal and include react-dropzone for file upload of image/pdf
 
 var Event = React.createClass({
     getInitialState: function(){

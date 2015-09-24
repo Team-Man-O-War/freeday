@@ -4,11 +4,8 @@ var $ = require('jquery');
 var AppDispatcher = require('../flux/Dispatcher');
 //require jquery and use it to send post request
 
-var SignUp = React.createClass({//For users signing up for app. Will feed into TopBox component. Needs authentication/authorization.
-
-  
-// hello world
-
+//For users signing up for app.
+var SignUp = React.createClass({
   getInitialState: function () {
     return {
       userInput: ''
@@ -36,7 +33,6 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
     //the json.stringify sends the correct form
    
     var _this = this;
-
     $.ajax({
       url:"/signup",
       type:"POST",
@@ -54,7 +50,6 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
         console.log(xhr.status);
       }
     });
-
   },
 
   handleLogout: function () {
@@ -67,10 +62,8 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
     if (!localStorage.token && !localStorage.jwt) {
         return ( 
           <div>
-
             <form onSubmit={this.handleSubmit}>
               <label>Sign Up</label>
-
               <input type="text" placeholder= "username" style={styles.input1}>
                 {this.props.children}
                 </input>
@@ -80,7 +73,6 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
               <button style={styles.base}>
                 {this.props.children}Submit</button>
             </form>   
-
           </div>  
         )
       }else{

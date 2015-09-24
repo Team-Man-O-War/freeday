@@ -12,7 +12,6 @@ var ListItem = React.createClass({
   },
 
   render: function() {
-    // console.log(this.props.singleEvent)
     return (
       <div className="infinite-list-item" style={styles.base}>
         {this.props.children}

@@ -2,7 +2,8 @@ var React = require('react');
 var Radium = require('radium');
 var $ = require('jquery');
 
-var LogIn = React.createClass({//For users logging into app. Will feed into TopBox component. Needs authorization/authentication.
+//For users logging into app.
+var LogIn = React.createClass({
   handleSubmit:function(e){
     e.preventDefault();
     var userInput = {};
@@ -41,7 +42,6 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
    }, 
 
    handleFacebook: function () {
-
     // $.ajax({
     //   url:"/auth/facebook",
     //   type:"GET",
@@ -81,8 +81,8 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
           </form>
 
               <button style={styles.base}> {this.props.children}Submit</button>
-              <br></br>
-              <a href="/auth/facebook" class="btn btn-primary" ><span class="fa fa-facebook"></span> Facebook</a>
+                  <br></br>
+                <a href="/auth/facebook" class="btn btn-primary" ><span class="fa fa-facebook"></span> Facebook</a>
               <button style={styles.gmail}>{this.props.children}G-Mail</button>
         </div>
       )
@@ -90,7 +90,6 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
 
       return (
         <div>
-
         </div>
       )
     }

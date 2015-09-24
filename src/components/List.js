@@ -30,7 +30,6 @@ var List = React.createClass({
   buildElements: function(start, end) {
     var events = [];
     var eventArray = [];
-    // console.log(this.state.events);
     var filtered =  this.state.events.filter(function(e) {
       var newEvent = {};
         var d = new Date(e.time);
@@ -45,7 +44,6 @@ var List = React.createClass({
     
       events.push(newEvent);
     });
-    // console.log(events);
     if (this.state.events.length > 0)  {
       for (var i = start; i < end; i++) {
         eventArray.push(<ListItem singleEvent={events[i]} key={i} num={i} />);

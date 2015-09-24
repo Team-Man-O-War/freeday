@@ -1,7 +1,8 @@
 var React = require('react');
 var Radium = require('radium');
 
-var BottomBox = React.createClass({//Bottom of the page div for additional information/options.
+//Bottom of the page div for additional information/options.
+var BottomBox = React.createClass({
 	render: function(){
 		return (
       <div style={styles.base}>
