@@ -81,43 +81,50 @@ router.post('/signup', function (req, res, next) {
   });
 });
 
-router.get('/auth/facebook', passport.authenticate('facebook'), function () {
-  console.log('hello');
-});
-router.get('/auth/facebook/callback',
-  passport.authenticate('facebook', {
-    successRedirect: '/', 
-    failureRedirect: '/'
-  }));
+
 
 passport.use(new FacebookStrategy({
   clientID : config.fb.clientID,
   clientSecret: config.fb.clientSecret,
   callbackURL: config.fb.callbackURL
 },
-  function(token, refreshToken, profile, done) {
+  function(accessToken, refreshToken, profile, done) {
 
-    process.nextTick(function() {
       User.find({where: {fbID: profile.id}}).then(function(user) {
   
         var token = jwt.sign({username: profile.name.givenName}, secret);
-        if (user) {
+        if (user) { 
+
+          done(null, token);
           
-          return done(null, user);
         } else {
 
         User
-          .create({fbID: profile.id, token: token, username: profile.name.givenName})
+          .create({fbID: profile.id, username: profile.name.givenName})
           .then(function(user) {
-            
-            
-            return done(null, user);
+            done(null, token);
           });
         }
       });
-    });
   }
 ));
 
+router.get('/auth/facebook', passport.authenticate('facebook'));
+
+router.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { 
+    session: false, 
+    successRedirect: '/',
+    failureRedirect: '/' }));
+// router.get('/auth/facebook/callback',
+//   passport.authenticate('facebook',{session: false,
+//     }),
+//       function(req, res) {
+//         var token = jwt.sign({username: req.user.username}, secret);  
+//         res.cookie('jwt', token);
+//         res.redirect('/');
+
+//     }
+//   );
 
 module.exports = router;
