@@ -13,8 +13,9 @@ var session = require('express-session');
 
 var eventCtrl =  require('./controllers/event.controller');
 
-router.post('/postevent', eventCtrl.postEvent);
-
+router.post('/post', eventCtrl.postEvent);
+router.get('/get', eventCtrl.getEvents);
+router.put('/update', eventCtrl.editEvent);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // require('./router')(passport);

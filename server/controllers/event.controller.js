@@ -16,8 +16,19 @@ exports.postEvent = function (req, res) {
 exports.editEvent = function (req, res) {
   console.log(req.body);
   Event
-    .find({where: {id: req.body.id} }, include: [{User}])
-    .success(function(events) {
-
-    }); 
+    .update({ 
+      include:[{
+        model: User, 
+        where: {id: req.body.id} 
+    }]
+  });
 };  
+
+exports.getEvents = function (req, res) {
+  console.log(req.body);
+  Event
+    .findAll()
+    .then(function (events) {
+      res.json(events);
+    });
+};
