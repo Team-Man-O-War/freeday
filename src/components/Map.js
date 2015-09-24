@@ -14,7 +14,7 @@ var freedayMarker;
 
 var Map = React.createClass({
   userClick: function(){
-      alert("You are here");
+      alert("You are here.");
   },
 
   getInitialState: function() {
@@ -34,7 +34,6 @@ var Map = React.createClass({
       self.setState({
         events: data.results
       });
-      console.log(self.state)
     });
   
     this.grabEventLocations();
@@ -157,7 +156,6 @@ var styles = {
   meetup:{
     borderRadius: 100,
   }
-
 };
 
 module.exports = Map;
