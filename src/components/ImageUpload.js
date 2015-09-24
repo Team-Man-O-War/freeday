@@ -9,7 +9,7 @@ var ImageUpload = React.createClass({
     },
 
     onDrop: function (files) {
-      console.log('Received files: ', files);
+      // console.log('Received files: ', files);
       var req = request.post('/upload');
         files.forEach((file)=> {
           req.attach(file.name, file);
@@ -22,7 +22,7 @@ var ImageUpload = React.createClass({
     },
 
     render: function () {
-      console.log(this.state.files);
+      // console.log(this.state.files);
         return (
             <div>
                 <Dropzone ref="dropzone" onDrop={this.onDrop} onClick={this.onOpenClick}>

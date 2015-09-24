@@ -75,9 +75,6 @@ app.get('/meetup', function(req, res) {
 app.use('/', express.static('client'));//should serve index.html page.
 
 
-
-
 console.log('Connected');
 
 app.listen(3000);
-

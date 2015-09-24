@@ -49,7 +49,7 @@ var flash = require('connect-flash');
 
 router.post('/login',function (req, res, next){
 passport.authenticate('local', {session: false}, function (err, user, info) {
- console.log("looking for me", info);//info is undefined
+ // console.log("looking for me", info);//info is undefined
  if(err){
    return next(err);
  }
@@ -66,7 +66,7 @@ passport.authenticate('local', {session: false}, function (err, user, info) {
 
 router.post('/signup', function (req, res, next) {
  User.find({where: {username: req.body.username}}).then(function (user) {
-   console.log(user);
+   // console.log(user);
    if (user) {
      req.flash('username is taken');
    } else {

@@ -15,8 +15,8 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
  },
 
  componentDidMount: function() {
-   console.log(AppDispatcher.handleLogin());
-   console.log(localStorage.jwt);
+   // console.log(AppDispatcher.handleLogin());
+   // console.log(localStorage.jwt);
  },
 
  handleSubmit:function(e){
@@ -29,7 +29,7 @@ var SignUp = React.createClass({//For users signing up for app. Will feed into T
    this.setState({
      userInput: userInput
    });
-   console.log(userInput);
+   // console.log(userInput);
    
    var jsonifiedInput = JSON.stringify(userInput);
    //the json.stringify sends the correct form

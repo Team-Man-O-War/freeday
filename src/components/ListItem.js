@@ -15,14 +15,14 @@ var ListItem = React.createClass({
     // console.log(this.props.singleEvent)
     return (
       <div className="infinite-list-item" style={styles.base}>
-          {this.props.children}
-           <h2>{this.props.singleEvent.name}</h2>
-           <br></br>
-           <h4>{this.props.singleEvent.time}</h4>
-           <h4>Distance: {this.props.singleEvent.distance}</h4>
-           <h4>Confirmed Attendance: {this.props.singleEvent.confirmed}</h4>
-           <br></br>
-           <EventInfo singleEvent={this.props.singleEvent} />
+        {this.props.children}
+         <h2>{this.props.singleEvent.name}</h2>
+          <br></br>
+         <h4>{this.props.singleEvent.time}</h4>
+         <h4>Distance: {this.props.singleEvent.distance}</h4>
+         <h4>Confirmed Attendance: {this.props.singleEvent.confirmed}</h4>
+          <br></br>
+         <EventInfo singleEvent={this.props.singleEvent}/>
       </div>     
       )
     }
