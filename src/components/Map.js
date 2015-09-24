@@ -82,27 +82,29 @@ var Map = React.createClass({
   },
 
   render: function() {
+    var that = this;
     if (this.state.eventLocation.length > 0) {
       this.grabEventLocations();
     }
 
     var events = [];
     var eventArray = [];
-
-    // var filtered =  this.state.events.filter(function(e) {
-      // var newEvent = {};
-      //   var d = new Date(e.time);
-      //   newEvent.name = e.name;
-      //   newEvent.description = e.description;//.substring stopped working
-      //   newEvent.url = e.event_url;
-      //   newEvent.distance = Math.round(e.distance) + " miles";
-      //   // newEvent.urlName = e.group.urlname;
-      //   newEvent.time = d.toLocaleString();
-      //   newEvent.confirmed = e.yes_rsvp_count;
-      //   newEvent.category;
-      // events.push(newEvent);
-    // });
-
+    if (this.state.events !== null){
+      var filtered =  this.state.events.filter(function(e) {
+      var newEvent = {};
+        var d = new Date(e.time);
+        newEvent.name = e.name;
+        newEvent.description = e.description;//.substring stopped working
+        newEvent.url = e.event_url;
+        newEvent.distance = Math.round(e.distance) + " miles";
+        // newEvent.urlName = e.group.urlname;
+        newEvent.time = d.toLocaleString();
+        newEvent.confirmed = e.yes_rsvp_count;
+        newEvent.category;
+      events.push(newEvent);
+      });
+    }
+    
     for (var i = 0; i < this.state.coords.length; i+=1) {
       lat = this.state.coords[i].lat;
       lng = this.state.coords[i].lng;
