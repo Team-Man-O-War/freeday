@@ -5,14 +5,17 @@ var connect = require('./db/connection');
 var bodyParser = require('body-parser');
 var request = require('request');
 var config = require('./config/config.js');
-
 var router = require('./router');//sequelize must be loaded before router
 var User = require('./db/models/user');
 var passport = require('passport');
 var session = require('express-session');
 
-require('./db/db');
 
+var eventCtrl =  require('./controllers/event.controller');
+
+router.post('/post', eventCtrl.postEvent);
+router.get('/get', eventCtrl.getEvents);
+router.put('/update', eventCtrl.editEvent);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // require('./router')(passport);
@@ -27,14 +30,14 @@ app.use(router);
 app.use(passport.initialize());
 app.use(express.static('client'));//should serve index.html page.
 require('./db/passport');
+require('./db/db');
+// passport.serializeUser(function(user, done) {
+//   done(null, user.id);
+// });
 
-passport.serializeUser(function(user, done) {
-  done(null, user.id);
-});
-
-passport.deserializeUser(function(user, done) {
-  done(null, user);
-});
+// passport.deserializeUser(function(user, done) {
+//   done(null, user);
+// });
 
 app.get('/map', function(req, res) {
   request.get('https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=' + config.googleMapApi.key, 
@@ -72,9 +75,13 @@ app.get('/meetup', function(req, res) {
   }
 });
 
-app.use('/', express.static('client'));//should serve index.html page.
+
 
 
 console.log('Connected');
 
+
 app.listen(3000);
+
+module.exports = router;
+

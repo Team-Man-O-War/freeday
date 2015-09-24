@@ -38,7 +38,7 @@ var flash = require('connect-flash');
 //         } 
 //         console.log('all good dog');
 //        var token = jwt.sign({username: user.username}, secret);
-     
+
 //         return done(null, user, token);
 //       });
 //     }
@@ -48,6 +48,7 @@ var flash = require('connect-flash');
 //  failureRedirect : '/login', // redirect back to the signup page if
 
 router.post('/login',function (req, res, next){
+
 passport.authenticate('local', {session: false}, function (err, user, info) {
  // console.log("looking for me", info);//info is undefined
  if(err){
@@ -81,40 +82,50 @@ router.post('/signup', function (req, res, next) {
  });
 });
 
-router.get('/auth/facebook', passport.authenticate('facebook'));
-
-router.get('/auth/facebook/callback',
- passport.authenticate('facebook', {
-   successRedirect: '/', 
-   failureRedirect: '/'
- }));
-
 passport.use(new FacebookStrategy({
  clientID : config.fb.clientID,
  clientSecret: config.fb.clientSecret,
  callbackURL: config.fb.callbackURL
 },
- function(accessToken, refreshToken, profile, done) {
 
-   
-     User.find({where: {fbID: profile.id}}).then(function(user) {
- 
-       var token = jwt.sign({username: profile.name.givenName}, secret);
-       if (user) {
-         
-        done(null, user);
-       } else {
+  function(accessToken, refreshToken, profile, done) {
 
-       User
-         .create({fbID: profile.id, token: token, username: profile.name.givenName})
-         .then(function(user) {
-           
-           done(null, user);
-         });
-       }
-     });
- }
+      User.find({where: {fbID: profile.id}}).then(function(user) {
+  
+        var token = jwt.sign({username: profile.name.givenName}, secret);
+        if (user) { 
+
+          done(null, token);
+          
+        } else {
+
+        User
+          .create({fbID: profile.id, username: profile.name.givenName})
+          .then(function(user) {
+            done(null, token);
+          });
+        }
+      });
+  }
+
 ));
 
+router.get('/auth/facebook', passport.authenticate('facebook'));
+
+router.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { 
+    session: false, 
+    successRedirect: '/',
+    failureRedirect: '/' }));
+// router.get('/auth/facebook/callback',
+//   passport.authenticate('facebook',{session: false,
+//     }),
+//       function(req, res) {
+//         var token = jwt.sign({username: req.user.username}, secret);  
+//         res.cookie('jwt', token);
+//         res.redirect('/');
+
+//     }
+//   );
 
 module.exports = router;

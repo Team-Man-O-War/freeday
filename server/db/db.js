@@ -30,6 +30,7 @@ var db = {
   Event: Event,
   Category: Category
 };
+
 //this code above bundles together the db as an object to be exported below but it is useless at the moment
 
 

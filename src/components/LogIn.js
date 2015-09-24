@@ -40,27 +40,27 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
 
    }, 
 
-   // handleFacebook: function () {
+   handleFacebook: function () {
 
-   //  $.ajax({
-   //    url:"/auth/facebook",
-   //    type:"POST",
-   //    success: function(jwt){
-   //      console.log(jwt, 'sjfsdlkj');
-   //      //send something from server to client on successful transaction
-   //      //i think this is where i need to pass the token to the user's header
-   //      window.localStorage.setItem('jwt', jwt);
-   //      location.reload();
+    // $.ajax({
+    //   url:"/auth/facebook",
+    //   type:"GET",
+    //   success: function(jwt){
+    //     console.log(jwt, 'sjfsdlkj');
+    //     //send something from server to client on successful transaction
+    //     //i think this is where i need to pass the token to the user's header
+    //     window.localStorage.setItem('jwt', jwt);
+    //     location.reload();
         
-   //    },
-   //    error: function(xhr,ajaxOptions,err){
-   //      alert("error",err);
-   //      console.log(err);
-   //      console.log(xhr.status);
-   //    }
-   //  });
+    //   },
+    //   error: function(xhr,ajaxOptions,err){
+    //     alert("error",err);
+    //     console.log(err);
+    //     console.log(xhr.status);
+    //   }
+    // });
 
-   // }, 
+   }, 
 
 
 	render: function(){
@@ -82,7 +82,7 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
 
               <button style={styles.base}> {this.props.children}Submit</button>
               <br></br>
-              <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+              <a href="/auth/facebook" class="btn btn-primary" ><span class="fa fa-facebook"></span> Facebook</a>
               <button style={styles.gmail}>{this.props.children}G-Mail</button>
         </div>
       )

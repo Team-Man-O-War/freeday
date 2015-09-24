@@ -3,13 +3,21 @@ var EventEmitter = require('events').EventEmitter;
 var Dispatcher = require('flux').Dispatcher;
 AppDispatcher = new Dispatcher();
 
-
+function getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
 // onload fetch api
 
 AppDispatcher.getMeetupData = function (cb) {
-  $.get('/meetup', function (data) {
-    cb(data);
-  }.bind(this));
+  // $.ajax({
+  //   url: '/meetup',
+  //   headers: {'Authorization': getCookie('jwt')},
+  //   success: function (data) {
+  //     cb(data);
+  //   }
+  // });
 };
 // checks for authenticated user
 AppDispatcher.handleLogin = function() {
