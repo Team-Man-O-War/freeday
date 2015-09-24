@@ -34,6 +34,7 @@ var Map = React.createClass({
       self.setState({
         events: data.results
       });
+      console.log(this.state.events);
     });
   
     this.grabEventLocations();
@@ -156,6 +157,7 @@ var styles = {
   meetup:{
     borderRadius: 100,
   }
+
 };
 
 module.exports = Map;

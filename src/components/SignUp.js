@@ -13,8 +13,8 @@ var SignUp = React.createClass({
   },
 
   componentDidMount: function() {
-    console.log(AppDispatcher.handleLogin());
-    console.log(localStorage.jwt);
+    // console.log(AppDispatcher.handleLogin());
+    // console.log(localStorage.jwt);
   },
 
   handleSubmit:function(e){
@@ -81,6 +81,9 @@ var SignUp = React.createClass({
           <button onClick={this.handleLogout}>Logout</button>
         </div>
       )
+    }
+  }
+});
 
 var styles = {
  base: {
@@ -118,7 +121,7 @@ var styles = {
    color: 'black',
    borderRadius: 6,
    padding: '.3%',
- }
+  }
 };
 
 module.exports = Radium(SignUp);
