@@ -18,64 +18,65 @@ var SignUp = React.createClass({
   },
 
   handleSubmitEvent: function () {
-   var userEvent = {};
-   userEvent.name = $('#name').val();
-   userEvent.description = $('#description').val();
-   userEvent.location = $('#location').val();
-   $.post('/post', userEvent, function () {
-     userEvent = {};
-   });
- },
+    var userEvent = {};
+    userEvent.name = $('#name').val();
+    userEvent.description = $('#description').val();
+    userEvent.location = $('#location').val();
+    userEvent.time = Date.now();
+    $.post('/post', userEvent, function () {
+      userEvent = {};
+    });
+  },
 
   handleLogout: function () {
     delete localStorage.jwt;
     location.reload();
   },
 
-render: function(){
-        
-   // if (!localStorage.token && !localStorage.jwt) {
-       return ( 
-         <div>
-           <form onSubmit={this.handleSubmit}>
-             <label>Sign Up</label>
-             <input type="text" placeholder= "username" style={styles.input1}>
-               {this.props.children}
-               </input>
-             <input type="password" placeholder= "password" style={styles.input2}>
-               {this.props.children}
-               </input>
-             <button style={styles.base}>
-               {this.props.children}Submit</button>
-           </form>   
-           <form onSubmit={this.handleSubmitEvent}>
-              <input type ='text' placeholder='Event Name' id='name'/>
-                <br></br>
-                <br></br>
-                <input type ='text' placeholder='Event Description' id='description'/>
-                <br></br>
-                <br></br>
-              <input type ='text' placeholder='Event Address' id='location'/>
-                  <br></br>
-                  <h4>Event Time: </h4>
-                  <input type="datetime-local" name="eventtime" id='time'/>
-                  <br></br>
-                  <br></br>
-                <br></br>
-                  <button type="submit">
-                  Create Event
-                  </button>
-           </form>
-         </div>  
-       )
-   //   }else{
-   //   return (
-   //     <div>
-   //       <button onClick={this.handleLogout}>Logout</button>
-   //     </div>
-   //   )
-   // }
- }
+	render: function(){
+		
+    // if (!localStorage.token && !localStorage.jwt) {
+        return ( 
+          <div>
+            <form onSubmit={this.handleSubmit}>
+              <label>Sign Up</label>
+              <input type="text" placeholder= "username" style={styles.input1}>
+                {this.props.children}
+                </input>
+              <input type="password" placeholder= "password" style={styles.input2}>
+                {this.props.children}
+                </input>
+              <button style={styles.base}>
+                {this.props.children}Submit</button>
+            </form>   
+            <form onSubmit={this.handleSubmitEvent}>
+                       <input type ='text' placeholder='Event Name' id='name'/>
+                         <br></br>
+                         <br></br>
+                         <input type ='text' placeholder='Event Description' id='description'/>
+                         <br></br>
+                         <br></br>
+                       <input type ='text' placeholder='Event Address' id='location'/>
+                           <br></br>
+                           <h4>Event Time: </h4>
+                           <input type="datetime-local" name="eventtime" id='time'/>
+                           <br></br>
+                           <br></br>
+                         <br></br>
+                           <button type="submit">
+                           Create Event
+                           </button>
+            </form>
+          </div>  
+        )
+    //   }else{
+    //   return (
+    //     <div>
+    //       <button onClick={this.handleLogout}>Logout</button>
+    //     </div>
+    //   )
+    // }
+  }
 });
 
 var styles = {
