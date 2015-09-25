@@ -15,13 +15,15 @@ var TopBox = React.createClass({
       {this.props.children}
       <h1 style={styles.logo}><a href=''>freeday</a></h1>
         <CreateEvent/> 
-        <SignUp/>
-        <LogIn/> 
+
         <Clock/>
       </div>
 		)
 	}
 });
+
+  // <SignUp/>
+  // <LogIn/> 
 
 var styles = {
   base: {

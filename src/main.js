@@ -19,20 +19,15 @@ var App = React.createClass({
 
         <br></br>
 
-        <div>
-          <CategoryBar/>
-        </div>
+
 
         <div>
           <Map/>
         </div>
         
-        <div>
-          <SearchBar/>
-          <br></br>
-        </div> 
 
-        <h1 style={styles.event}> Event List
+
+        <h1 style={styles.eventList}>Event List
         </h1>
         <div>
           <List/>
@@ -47,14 +42,22 @@ var App = React.createClass({
 
 });
 
+        // <div>
+        //   <CategoryBar/>
+        // </div>
+
+        // <div>
+        //   <SearchBar/>
+        //   <br></br>
+        // </div> 
 App = Radium(App);
 var styles = {
   base: {
     fontFamily: 'Verdana'
   },
-  event: {
-    padding: '0 0 1% 0',
-    margin: '0 0 0 8%'
+  eventList: {
+    padding: '1% 0',
+    margin: '0 0 0 45%'
   }
 };
 

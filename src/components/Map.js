@@ -152,6 +152,7 @@ var styles = {
   },
   meetup:{
     borderRadius: 100,
+    background: '#e51937'
   }
 
 };

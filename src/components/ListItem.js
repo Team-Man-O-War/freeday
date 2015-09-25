@@ -35,9 +35,9 @@ var styles = {
     border: '2px solid black',
     borderRadius: 8,
     color: 'black',
-    maxWidth: '76%',
+    maxWidth: '83%',
     float: 'left',
-    padding: '1% 50% 1% 3%',
+    padding: '1% 60% 1% 3%',
     margin: '.3% 5% .3% 8%',
     ':hover': {
       opacity: 0.80
