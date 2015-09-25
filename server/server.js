@@ -57,6 +57,7 @@ app.get('/event', function(req, res) {
 var pos;
 app.post('/mylocation', function(req, res) {
  pos = req.body;
+ res.sendStatus(200);
 });
 
 

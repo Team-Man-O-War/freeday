@@ -30,13 +30,6 @@ var Map = React.createClass({
 
   componentDidMount: function() {
     var self = this;
-  $.get('/meetup', function (data) {
-      self.setState({
-        events: data.results
-      });
-      console.log(this.state.events);
-    });
-  
     this.grabEventLocations();
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
@@ -63,6 +56,12 @@ var Map = React.createClass({
         }
       }.bind(this));
     }
+  $.get('/meetup', function (data) {
+    console.log('this is in map.js');
+      self.setState({
+        events: data.results
+      });
+    });
   },
   
   componentWillUnmount: function() {
@@ -87,11 +86,10 @@ var Map = React.createClass({
       this.grabEventLocations();
     }
 
-    var events = [];
     var eventArray = [];
-    if (this.state.events !== null){
-      var filtered =  this.state.events.filter(function(e) {
-      var newEvent = {};
+    if(this.state.events){
+      var events =  this.state.events.map(function(e) {
+        var newEvent = {};
         var d = new Date(e.time);
         newEvent.name = e.name;
         newEvent.description = e.description;//.substring stopped working
@@ -100,11 +98,8 @@ var Map = React.createClass({
         // newEvent.urlName = e.group.urlname;
         newEvent.time = d.toLocaleString();
         newEvent.confirmed = e.yes_rsvp_count;
-        newEvent.category;
-      events.push(newEvent);
+        return newEvent;
       });
-    }
-    
     for (var i = 0; i < this.state.coords.length; i+=1) {
       lat = this.state.coords[i].lat;
       lng = this.state.coords[i].lng;
@@ -116,6 +111,7 @@ var Map = React.createClass({
 
       </div>)
     }
+  }
 
     return (
       <div style={styles.base}>

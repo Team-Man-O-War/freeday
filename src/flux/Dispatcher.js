@@ -11,13 +11,13 @@ function getCookie(name) {
 // onload fetch api
 
 AppDispatcher.getMeetupData = function (cb) {
-  // $.ajax({
-  //   url: '/meetup',
-  //   headers: {'Authorization': getCookie('jwt')},
-  //   success: function (data) {
-  //     cb(data);
-  //   }
-  // });
+  $.ajax({
+    url: '/meetup',
+    headers: {'Authorization': getCookie('jwt')},
+    success: function (data) {
+      cb(data);
+    }
+  });
 };
 // checks for authenticated user
 AppDispatcher.handleLogin = function() {
