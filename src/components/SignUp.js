@@ -57,9 +57,22 @@ var SignUp = React.createClass({
     location.reload();
   },
 
+
+
+  handleSubmitEvent: function () {
+    var userEvent = {};
+    userEvent.name = $('#name').val();
+    userEvent.description = $('#description').val();
+    userEvent.location = $('#location').val();
+    userEvent.time = Date.now() + 360000;
+    $.post('/post', userEvent, function () {
+      userEvent = {};
+    });
+  },
+
 	render: function(){
 		
-    if (!localStorage.token && !localStorage.jwt) {
+    // if (!localStorage.token && !localStorage.jwt) {
         return ( 
           <div>
             <form onSubmit={this.handleSubmit}>
@@ -73,15 +86,33 @@ var SignUp = React.createClass({
               <button style={styles.base}>
                 {this.props.children}Submit</button>
             </form>   
+            <form onSubmit={this.handleSubmitEvent}>
+                       <input type ='text' placeholder='Event Name' id='name'/>
+                         <br></br>
+                         <br></br>
+                         <input type ='text' placeholder='Event Description' id='description'/>
+                         <br></br>
+                         <br></br>
+                       <input type ='text' placeholder='Event Address' id='location'/>
+                           <br></br>
+                           <h4>Event Time: </h4>
+                           <input type="datetime-local" name="eventtime" id='time'/>
+                           <br></br>
+                           <br></br>
+                         <br></br>
+                           <button type="submit">
+                           Create Event
+                           </button>
+            </form>
           </div>  
         )
-      }else{
-      return (
-        <div>
-          <button onClick={this.handleLogout}>Logout</button>
-        </div>
-      )
-    }
+    //   }else{
+    //   return (
+    //     <div>
+    //       <button onClick={this.handleLogout}>Logout</button>
+    //     </div>
+    //   )
+    // }
   }
 });
 

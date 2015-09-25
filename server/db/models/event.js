@@ -2,9 +2,9 @@ var Sequelize = require('sequelize');
 var sequelize = require('../connection');
 
 var Event = sequelize.define('event',{
-  title:{
+  name:{
     type:Sequelize.STRING,
-    field:'title'
+    field:'name'
   },
   category:{
     type:Sequelize.STRING,

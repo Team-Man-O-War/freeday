@@ -66,7 +66,7 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
 	render: function(){
 
     // console.log(localStorage);
-    if (!localStorage.token && !localStorage.jwt) {
+    // if (!localStorage.token && !localStorage.jwt) {
 
       return (
         <div> 
@@ -86,14 +86,14 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
               <button style={styles.gmail}>{this.props.children}G-Mail</button>
         </div>
       )
-    } else {
+    // } else {
 
-      return (
-        <div>
+    //   return (
+    //     <div>
 
-        </div>
-      )
-    }
+    //     </div>
+    //   )
+    // }
 	}
 });
 
