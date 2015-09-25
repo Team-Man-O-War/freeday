@@ -11,7 +11,7 @@ var List = React.createClass({
       isInfiniteLoading: false,
       events: null,
       meetupJSON: [],
-      userEvents: []
+      userEvents: null
     };
   }, 
 
@@ -36,7 +36,10 @@ var List = React.createClass({
   buildElements: function(start, end) {
     var events = [];
     var eventArray = [];
-    events.push(this.state.userEvents);
+    for (var i = 0; i < this.state.userEvents.length; i+=1) {
+      events.push(this.state.userEvents[i]);
+    }
+    
     var filtered =  this.state.events.filter(function(e) {
       var newEvent = {};
         var d = new Date(e.time);
@@ -50,6 +53,7 @@ var List = React.createClass({
         newEvent.category;
     
       events.push(newEvent);
+      console.log(events);
     });
     if (this.state.events.length > 0)  {
       for (var i = start; i < end; i++) {
@@ -84,6 +88,7 @@ var List = React.createClass({
     },
 
     render: function() {
+
       // var meetupEventList = this.state.events;
       // console.log(meetupEventList);
       

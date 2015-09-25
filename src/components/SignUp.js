@@ -64,7 +64,7 @@ var SignUp = React.createClass({
     userEvent.name = $('#name').val();
     userEvent.description = $('#description').val();
     userEvent.location = $('#location').val();
-    userEvent.time = Date.now() + 360000;
+    userEvent.time = Date.now();
     $.post('/post', userEvent, function () {
       userEvent = {};
     });
