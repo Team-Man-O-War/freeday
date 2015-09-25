@@ -24,45 +24,59 @@ var flash = require('connect-flash');
 //     }
 //   )
 // );
-// passport.use(new LocalStrategy(
-//   function(username, password, done) {
-//     User.find({where: {username: req.body.username}})
-//       .then(function(user) {
-//         if (user) {
-//           console.log('user not found');
-//           return done(null, false, {message: "sorry"});
-//         } 
-//         if (!bcrypt.compareSync(password, user.password)) {
-//           console.log('invalid pass...');
-//           return done(null, false, {message: "Wrong password"});
-//         } 
-//         console.log('all good dog');
-//        var token = jwt.sign({username: user.username}, secret);
 
-//         return done(null, user, token);
-//       });
-//     }
-// ));
+router.post('/login', passport.authenticate('local', {
+    session: false,
+    successRedirect : '/',
+    failureRedirect : '/',
+    failureFlash : true 
+}));
+
+
+
+passport.use('local', new LocalStrategy({
+  usernameField : 'username',
+  passwordField : 'password',
+  passReqToCallback : true 
+},
+  function(req, username, password, done) {
+    User.find({where: {'username': req.body.username}})
+      .then(function(user) {
+        console.log('here');
+        if (!user) {
+          console.log('user doesnt exist');
+          return done(null, false);
+        } 
+        if (!bcrypt.compareSync(password, user.password)) {
+          console.log('invalid pass...');
+          return done(null, false, {message: "Wrong password"});
+        } 
+        console.log('all good dog');
+       var token = jwt.sign({username: user.username}, secret);
+
+        return done(null, user, token);
+      });
+    }
+));
 
 //  successRedirect : '/', // redirect to the secure profile section
 //  failureRedirect : '/login', // redirect back to the signup page if
 
-router.post('/login',function (req, res, next){
+// router.post('/login', function (req, res, next){
+//   passport.authenticate('local', {session: false}, function (err, user, info) {
+//    console.log("looking for me");//info is undefined
+//    if(err){
+//      return next(err);
+//    }
+//    if(!user){
+//      return done('user doesnt exist');
+//    }
+//      var token = jwt.sign({username: user.username}, secret);
 
-passport.authenticate('local', {session: false}, function (err, user, info) {
- // console.log("looking for me", info);//info is undefined
- if(err){
-   return next(err);
- }
- if(!user){
-   return req.flash('user doesnt exist');
- }
- var token = jwt.sign({username: user.username}, secret);
+//      res.send(token);
 
- res.send(token);
-
-})(req,res,next);
-});
+//     })(req,res,next);
+// });
 
 
 router.post('/signup', function (req, res, next) {

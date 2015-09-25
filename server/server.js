@@ -15,7 +15,7 @@ var eventCtrl =  require('./controllers/event.controller');
 
 router.post('/post', eventCtrl.postEvent);
 router.get('/get', eventCtrl.getEvents);
-router.put('/update', eventCtrl.editEvent);
+router.put('/update/:id', eventCtrl.editEvent);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // require('./router')(passport);
@@ -49,7 +49,7 @@ app.get('/map', function(req, res) {
 app.get('/event', function(req, res) {
   request.get('https://www.eventbriteapi.com/v3/events/search/?q=popular=true&location.latitude=34.0500&location.longitude=118.2500&location.within=2mi&token=' + config.eventBriteApi.token,
     function(err, response, body) {
-
+      console.log(body);
       res.json(JSON.parse(body));
     });
 });
@@ -70,6 +70,7 @@ app.get('/meetup', function(req, res) {
       } else {
         res.set('Content-Type', response.headers['content-type']);
       }
+      
       res.send(body);
     });
   }

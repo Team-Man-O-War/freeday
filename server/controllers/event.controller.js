@@ -16,12 +16,12 @@ exports.postEvent = function (req, res) {
 exports.editEvent = function (req, res) {
   console.log(req.body);
   Event
-    .update({ 
-      include:[{
-        model: User, 
-        where: {id: req.body.id} 
-    }]
-  });
+    .update(
+    {where: {id: req.body.id}    
+    })
+    .then(function (events) {
+      res.send(events);
+    });
 };  
 
 exports.getEvents = function (req, res) {
