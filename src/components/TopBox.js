@@ -37,7 +37,7 @@ var styles = {
   logo: {
     fontSize: 80,
     fontFamily: 'Papyrus',
-    margin: '0 0 .3% 8.8%'
+    margin: '2.5% 0 0 7%'
   }
 };
 

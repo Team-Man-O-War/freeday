@@ -23,7 +23,7 @@ var List = React.createClass({
         events: data.results
       });
       self.setState({
-        elements: self.buildElements(0, 20)
+        elements: self.buildElements(0, 100)
         });
     });
     $.get('/get', function (data) {
@@ -95,8 +95,8 @@ var List = React.createClass({
       
         return (
           <Infinite elementHeight={150}
-             containerHeight={400}
-             infiniteLoadBeginBottomOffset={5}
+             containerHeight={500}
+             infiniteLoadBeginBottomOffset={15}
              onInfiniteLoad={this.handleInfiniteLoad}
              loadingSpinnerDelegate={this.elementInfiniteLoad()}
              isInfiniteLoading={this.state.isInfiniteLoading}>

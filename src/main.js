@@ -56,8 +56,8 @@ var styles = {
     fontFamily: 'Verdana'
   },
   eventList: {
-    padding: '1% 0',
-    margin: '0 0 0 45%'
+    padding: '1% 0 1% 0',
+    margin: '0 0 0 43%'
   }
 };
 
