@@ -19,14 +19,10 @@ var App = React.createClass({
 
         <br></br>
 
-
-
         <div>
           <Map/>
         </div>
         
-
-
         <h1 style={styles.eventList}>Event List
         </h1>
         <div>
