@@ -8,7 +8,6 @@ Modal.setAppElement(appElement);
 Modal.injectCSS();
 
 // Has full information on events and allows users to create new events.
-
 var Event = React.createClass({
     getInitialState: function(){
       return { modalIsOpen: false, value: "Comments will go here" }; 
