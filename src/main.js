@@ -37,7 +37,6 @@ var App = React.createClass({
     );  }
 
 });
-
         // <div>
         //   <CategoryBar/>
         // </div>
