@@ -23,7 +23,8 @@ var App = React.createClass({
           <Map/>
         </div>
         
-        <h1 style={styles.eventList}>Event List
+        <h1 style={styles.eventList}>
+          Event List
         </h1>
         <div>
           <List/>
