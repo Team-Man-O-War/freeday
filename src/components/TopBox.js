@@ -25,6 +25,7 @@ var TopBox = React.createClass({
   // <SignUp/>
   // <LogIn/> 
 
+//Radium in-line styling
 var styles = {
   base: {
     background: 'lightsteelblue',

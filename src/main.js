@@ -46,7 +46,10 @@ var App = React.createClass({
         //   <SearchBar/>
         //   <br></br>
         // </div> 
+
 App = Radium(App);
+
+//Radium in-line styling
 var styles = {
   base: {
     fontFamily: 'Verdana'

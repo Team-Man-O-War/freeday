@@ -14,6 +14,7 @@ var Clock = React.createClass({
   }
 });
 
+//Radium in-line styling
 var styles = {
   base: {
     fontFamily: 'Verdana',

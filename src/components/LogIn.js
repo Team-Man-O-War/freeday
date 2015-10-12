@@ -12,7 +12,6 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
     userInput.password = LoginDom.firstChild.children[2].value;
     
     var jsonifiedInput = JSON.stringify(userInput);
-
     var _this = this;
 
     $.ajax({
@@ -97,6 +96,7 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
 	}
 });
 
+//Radium in-line styling
 var styles = {
   base: {
     background: 'steelblue',

@@ -29,6 +29,7 @@ var ListItem = React.createClass({
 
 // <img src={this.props.singleEvent.stockImage} style={styles.image}/>
 
+//Radium in-line styling
 var styles = {
   base: {
     background: 'peachpuff',

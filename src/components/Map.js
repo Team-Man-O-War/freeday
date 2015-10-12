@@ -136,6 +136,7 @@ var Map = React.createClass({
   },
 });
 
+//Radium in-line styling
 var styles = {
   map: {
     height: 10,

@@ -114,43 +114,44 @@ var SignUp = React.createClass({
  }
 });
 
+//Radium in-line styling
 var styles = {
-base: {
-  background: 'steelblue',
-  border: 0,
-  borderRadius: 8,
-  color: 'black',
-  padding: '.4% .8% .4% .8%',
-  margin: '0 0 0 .5%',
-  fontFamily: 'Verdana',
+  base: {
+    background: 'steelblue',
+    border: 0,
+    borderRadius: 8,
+    color: 'black',
+    padding: '.4% .8% .4% .8%',
+    margin: '0 0 0 .5%',
+    fontFamily: 'Verdana',
 
-  ':hover': {
-    backgroundColor: 'powderblue'
+    ':hover': {
+      backgroundColor: 'powderblue'
+    },
+
+    ':focus': {
+      backgroundColor: 'steelblue'
+    },
+
+    ':active': {
+      backgroundColor: 'midnightblue'
+    },
   },
 
-  ':focus': {
-    backgroundColor: 'steelblue'
+  input1: {
+    backgroundColor: 'seashell',
+    color: 'black',
+    borderRadius: 6,
+    margin: '.2% .7% .2% .7%',
+    padding: '.3%',
   },
 
-  ':active': {
-    backgroundColor: 'midnightblue'
-  },
-},
-
-input1: {
-  backgroundColor: 'seashell',
-  color: 'black',
-  borderRadius: 6,
-  margin: '.2% .7% .2% .7%',
-  padding: '.3%',
-},
-
-  input2: {
-  backgroundColor: 'seashell',
-  color: 'black',
-  borderRadius: 6,
-  padding: '.3%',
- }
+    input2: {
+    backgroundColor: 'seashell',
+    color: 'black',
+    borderRadius: 6,
+    padding: '.3%',
+   }
 };
 
 module.exports = Radium(SignUp);

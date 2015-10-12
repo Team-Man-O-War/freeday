@@ -64,6 +64,7 @@ var MarkerModal = React.createClass({
     }
 });
 
+//Radium in-line styling
 var styles = {
   base: {
     background: 'none',

@@ -66,6 +66,7 @@ var Event = React.createClass({
     }
 });
 
+//Radium in-line styling
 var styles = {
   base: {
     background: 'steelblue',
