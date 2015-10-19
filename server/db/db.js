@@ -3,9 +3,7 @@ var User = require('./models/User');
 var Event = require('./models/Event');
 var Category = require('./models/Category');
 
-
 //here we have to set up user.sync, we sync our schemas to become tables
-
 
 //here we set up the many to many relationship, and name the table UserEvent.
 // User.sync({force: true}).then(function () {
@@ -15,7 +13,6 @@ var Category = require('./models/Category');
 //     lastName: 'Hancock'
 //   });
 // });
-
 
 // Event.sync();
 // Category.sync();
@@ -32,7 +29,6 @@ var db = {
 };
 
 //this code above bundles together the db as an object to be exported below but it is useless at the moment
-
 
 // var db = {
 //   User: User,
