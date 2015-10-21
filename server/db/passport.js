@@ -15,10 +15,7 @@
 //       return done(null,user);
 //     });
 //   }
-
 //   ));
 
 
-
 //module.exports = passport;
-
