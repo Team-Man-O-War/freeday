@@ -94,5 +94,3 @@ gulp.task('server', function(){
 // Default Task
 gulp.task('default', 
 	['server', 'build', 'watch']);
-
-

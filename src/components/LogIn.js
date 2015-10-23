@@ -3,39 +3,40 @@ var Radium = require('radium');
 var $ = require('jquery');
 
 var LogIn = React.createClass({//For users logging into app. Will feed into TopBox component. Needs authorization/authentication.
-  handleSubmit:function(e){
+  handleSubmit2:function(e){
     e.preventDefault();
     var userInput = {};
     var LoginDom = React.findDOMNode(this);
     
-    userInput.username = LoginDom.firstChild.children[1].value;
-    userInput.password = LoginDom.firstChild.children[2].value;
-    
-    var jsonifiedInput = JSON.stringify(userInput);
+    userInput.username = $('#username2').val();
+    userInput.password = $('#password2').val();
 
-    var _this = this;
+    // $.ajax({
+    //   url:"/login",
+    //   type:"POST",
+    //   data: userInput,
+    //   datatype:'json' ,
+    //   contentType:'application/json',
 
-    $.ajax({
-      url:"/login",
-      type:"POST",
-      data:jsonifiedInput,
-      datatype:'json' ,
-      contentType:'application/json',
-
-      success: function(token){
+    //   success: function(token){
         
-        _this.setState({Authorization:"Bearer "+token})
+    //     localStorage.setItem('jwt', jwt);
+    //     location.reload();
 
-        localStorage.Authorization = _this.state.Authorization
-
-        console.log("this is the something that i am looking for: ",token);
+    //     console.log("this is the something that i am looking for: ",token);
         
-      },
-      error: function(xhr,ajaxOptions,err){
-        alert("error",err);
-        console.log(err);
-        console.log(xhr.status);
-      }
+    //   },
+    //   error: function(xhr,ajaxOptions,err){
+    //     alert("error",err);
+    //     console.log(err);
+    //     console.log(xhr.status);
+    //   }
+    // });
+    $.post('/login', userInput, function () {
+      console.log('hello');
+      localStorage.setItem('jwt', jwt);
+      location.reload();
+      userInput = {};
     });
 
    }, 
@@ -71,16 +72,17 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
       return (
         <div> 
           <label>Log In </label>
-          <form onSubmit={this.handleSubmit}>
-            <input type="text" placeholder= "username" style={styles.input1}>
+          <form onSubmit={this.handleSubmit2}>
+            <input type="text" placeholder= "username" id="username2" style={styles.input1}>
               {this.props.children}
             </input>
-            <input type="password" placeholder= "password" style={styles.input2}>
+            <input type="password" placeholder= "password" id="password2" style={styles.input2}>
               {this.props.children}
-            </input>
+            </input> 
+            <button style={styles.base} type="submit"> {this.props.children}Submit</button>
           </form>
 
-              <button style={styles.base}> {this.props.children}Submit</button>
+              
               <br></br>
               <a href="/auth/facebook" class="btn btn-primary" ><span class="fa fa-facebook"></span> Facebook</a>
               <button style={styles.gmail}>{this.props.children}G-Mail</button>

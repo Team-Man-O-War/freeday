@@ -21,8 +21,8 @@ var SignUp = React.createClass({
     e.preventDefault();
     var userInput = {};
     var signUpDom = React.findDOMNode(this);
-    userInput.username = signUpDom.firstChild.children[1].value;
-    userInput.password = signUpDom.firstChild.children[2].value;
+    userInput.username = $('#username').val();
+    userInput.password = $('#password').val();
 
     this.setState({
       userInput: userInput
@@ -33,22 +33,27 @@ var SignUp = React.createClass({
     //the json.stringify sends the correct form
    
     var _this = this;
-    $.ajax({
-      url:"/signup",
-      type:"POST",
-      data:jsonifiedInput,
-      datatype:'json' ,
-      contentType:'application/json',
+    // $.ajax({
+    //   url:"/signup",
+    //   type:"POST",
+    //   data:jsonifiedInput,
+    //   datatype:'json' ,
+    //   contentType:'application/json',
 
-      success: function(jwt){
-        localStorage.setItem('jwt', jwt);
-        location.reload();
-      },
-      error: function(xhr,ajaxOptions,err){
-        alert("error",err);
-        console.log(err);
-        console.log(xhr.status);
-      }
+    //   success: function(jwt){
+    //     localStorage.setItem('jwt', jwt);
+    //     location.reload();
+    //   },
+    //   error: function(xhr,ajaxOptions,err){
+    //     alert("error",err);
+    //     console.log(err);
+    //     console.log(xhr.status);
+    //   }
+    // });
+    $.post('/login', userInput, function () {
+      localStorage.setItem('jwt', jwt);
+      location.reload();
+      userInput = {};
     });
   },
 
@@ -77,10 +82,10 @@ var SignUp = React.createClass({
           <div>
             <form onSubmit={this.handleSubmit}>
               <label>Sign Up</label>
-              <input type="text" placeholder= "username" style={styles.input1}>
+              <input type="text" placeholder= "username" id= "username" style={styles.input1}>
                 {this.props.children}
                 </input>
-              <input type="password" placeholder= "password" style={styles.input2}>
+              <input type="password" placeholder= "password" id="password" style={styles.input2}>
                 {this.props.children}
                 </input>
               <button style={styles.base}>
