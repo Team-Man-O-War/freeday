@@ -27,6 +27,5 @@ var Event = sequelize.define('event',{
     field:'tags'
   }
 
-
 });
 module.exports = Event;
