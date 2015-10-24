@@ -1,7 +1,6 @@
 var React = require('react');
 var $ = require('jquery');
 var meetup = require('../meetup.json');
-var Radium = require('radium');
 var EventInfo = require('./EventInfo');
 
 var ListItem = React.createClass({
@@ -13,7 +12,7 @@ var ListItem = React.createClass({
 
   render: function() {
     return (
-      <div className="infinite-list-item" style={styles.base}>
+      <div className="infinite-list-item">
         {this.props.children}
          <h2>{this.props.singleEvent.name}</h2>
           <br></br>
@@ -29,21 +28,4 @@ var ListItem = React.createClass({
 
 // <img src={this.props.singleEvent.stockImage} style={styles.image}/>
 
-//Radium in-line styling
-var styles = {
-  base: {
-    background: 'peachpuff',
-    border: '2px solid black',
-    borderRadius: 8,
-    color: 'black',
-    maxWidth: '83%',
-    float: 'left',
-    padding: '1% 60% 1% 3%',
-    margin: '.3% 5% .3% 8%',
-    ':hover': {
-      opacity: 0.80
-    },
-  }
-};
-
-module.exports = Radium(ListItem);
+module.exports = ListItem;

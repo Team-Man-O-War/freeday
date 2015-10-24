@@ -6,12 +6,11 @@ var BottomBox = require('./components/BottomBox');
 var List = require('./components/List');
 var Map = require('./components/Map');
 // var Tab = require('./components/Tab');
-var Radium = require('radium');
 
 var App = React.createClass({
   render: function(){
     return (
-      <div style={styles.base}>
+      <div>
       {this.props.children}
         <div>
           <TopBox/>
@@ -23,7 +22,7 @@ var App = React.createClass({
           <Map/>
         </div>
         
-        <h1 style={styles.eventList}>
+        <h1>
           Event List
         </h1>
         <div>
@@ -46,19 +45,6 @@ var App = React.createClass({
         //   <SearchBar/>
         //   <br></br>
         // </div> 
-
-App = Radium(App);
-
-//Radium in-line styling
-var styles = {
-  base: {
-    fontFamily: 'Verdana'
-  },
-  eventList: {
-    padding: '1% 0 1% 0',
-    margin: '0 0 0 43%'
-  }
-};
 
 React.render(<App/>, document.getElementById('main'));
 

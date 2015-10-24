@@ -28,7 +28,7 @@ var Event = React.createClass({
     render: function(){
       return (
         <div>
-          <button onClick={this.openModal} style={styles.base}>
+          <button onClick={this.openModal}>
           {this.props.children}Event Information</button>
             <Modal
               isOpen={this.state.modalIsOpen}
@@ -68,29 +68,6 @@ var Event = React.createClass({
 
 //Radium in-line styling
 var styles = {
-  base: {
-    background: 'steelblue',
-    border: 0,
-    borderRadius: 8,
-    float: 'left',
-    margin: '0 0 0 250px',
-    color: 'black',
-    height: '150px',
-    width: '100%',
-    fontFamily: 'Verdana',
-
-    ':hover': {
-      backgroundColor: 'powderblue'
-    },
-
-    ':focus': {
-      backgroundColor: 'midnightblue'
-    },
-
-    ':active': {
-      backgroundColor: 'midnightblue'
-    },
-  },
   time: {
     float:'right',
     color: 'steelblue',

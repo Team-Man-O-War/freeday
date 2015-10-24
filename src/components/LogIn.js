@@ -1,5 +1,4 @@
 var React = require('react');
-var Radium = require('radium');
 var $ = require('jquery');
 
 var LogIn = React.createClass({//For users logging into app. Will feed into TopBox component. Needs authorization/authentication.
@@ -71,18 +70,18 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
         <div> 
           <label>Log In </label>
           <form onSubmit={this.handleSubmit}>
-            <input type="text" placeholder= "username" style={styles.input1}>
+            <input type="text" placeholder= "username">
               {this.props.children}
             </input>
-            <input type="password" placeholder= "password" style={styles.input2}>
+            <input type="password" placeholder= "password">
               {this.props.children}
             </input>
           </form>
 
-              <button style={styles.base}> {this.props.children}Submit</button>
+              <button> {this.props.children}Submit</button>
               <br></br>
               <a href="/auth/facebook" class="btn btn-primary" ><span class="fa fa-facebook"></span> Facebook</a>
-              <button style={styles.gmail}>{this.props.children}G-Mail</button>
+              <button>{this.props.children}G-Mail</button>
         </div>
       )
     // } else {
@@ -96,64 +95,4 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
 	}
 });
 
-//Radium in-line styling
-var styles = {
-  base: {
-    background: 'steelblue',
-    border: 0,
-    borderRadius: 8,
-    color: 'black',
-    padding: '.4% .8% .4% .8%',
-    margin: '0 0 0 .5%',
-    fontFamily: 'Verdana',
-
-    ':hover': {
-      backgroundColor: 'powderblue'
-    },
-
-    ':focus': {
-      backgroundColor: 'steelblue'
-    },
-
-    ':active': {
-      backgroundColor: 'midnightblue'
-    },
-  },
-
-    input1: {
-    backgroundColor: 'seashell',
-    color: 'black',
-    borderRadius: 6,
-    margin: '0 .8% 0 1.2%',
-    padding: '.3%',
-    fontFamily: 'Verdana'
-  },
-
-    input2: {
-    backgroundColor: 'seashell',
-    color: 'black',
-    borderRadius: 6,
-    padding: '.3em',
-    fontFamily: 'Verdana'
-  },
-
-facebook: {
-  backgroundColor: '#3b5998',
-  color: 'white',
-  borderRadius: 4,
-  margin: '1% .5% 0 11.8%',
-  padding: '.6%',
-  fontFamily: 'Verdana'
-},
-
-gmail: {
-  backgroundColor: 'crimson',
-  color: 'white',
-  borderRadius: 4,
-  margin: '1% 0 0 0',
-  padding: '.6%',
-  fontFamily: 'Verdana'
-},
-};
-
-module.exports = Radium(LogIn);
+module.exports = LogIn;

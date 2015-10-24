@@ -114,7 +114,7 @@ var Map = React.createClass({
   }
 
     return (
-      <div style={styles.base}>
+      <div>
       {this.props.children}
         <div className="container-fluid">
           <div className="row">
@@ -140,22 +140,12 @@ var Map = React.createClass({
 var styles = {
   map: {
     height: 10,
-    width: 20
-  },
-
-  base: {
-    background: 'steelblue',
-    border: 0,
-    borderRadius: 8,
-    color: 'black',
-    padding: '.5%',
-    fontFamily: 'Verdana',
+    width: 100
   },
   meetup:{
     borderRadius: 100,
     background: '#e51937'
   }
-
 };
 
 module.exports = Map;
