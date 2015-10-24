@@ -11,6 +11,7 @@ var port = process.env.PORT || 3000;
 //var User = db.User; this doesnt exist anymore
 var passport = require('../db/passport.js');
 var router = require('../router.js');
+
 // app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(bodyParser.json());
 // app.use(morgan("dev"));
@@ -20,6 +21,7 @@ var router = require('../router.js');
 //     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
 //     next();
 // });
+
 //We are allowing requests to come from different domains in order to develop a client-independent system. If you do not allow this, you will trigger a CORS (Cross Origin Request Sharing) error in the web browser. not sure if we need any of that stuff for the jot^^^^^^^
 
 app.configure(function(){
@@ -28,10 +30,8 @@ app.configure(function(){
   app.use(passport.initialize());
   app.use(app.router);
 });
+
 //passport.initialize() middleware is required to initialize Passport
-
-
-
 
 app.post('/login',
   //passport.authenticate('local',{successRedirect:'/',failureRedirect:'/login'}),

@@ -15,14 +15,17 @@ var TopBox = React.createClass({
       {this.props.children}
       <h1 style={styles.logo}><a href=''>freeday</a></h1>
         <CreateEvent/> 
-        <SignUp/>
-        <LogIn/> 
+
         <Clock/>
       </div>
 		)
 	}
 });
 
+  // <SignUp/>
+  // <LogIn/> 
+
+//Radium in-line styling
 var styles = {
   base: {
     background: 'lightsteelblue',
@@ -35,7 +38,7 @@ var styles = {
   logo: {
     fontSize: 80,
     fontFamily: 'Papyrus',
-    margin: '0 0 .3% 8.8%'
+    margin: '2.5% 0 0 7%'
   }
 };
 

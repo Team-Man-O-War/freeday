@@ -23,7 +23,7 @@ var List = React.createClass({
         events: data.results
       });
       self.setState({
-        elements: self.buildElements(0, 20)
+        elements: self.buildElements(0, 100)
         });
     });
     $.get('/get', function (data) {
@@ -36,10 +36,11 @@ var List = React.createClass({
   buildElements: function(start, end) {
     var events = [];
     var eventArray = [];
-    for (var i = 0; i < this.state.userEvents.length; i+=1) {
+    if (this.state.userEvents){
+       for (var i = 0; i < this.state.userEvents.length; i+=1) {
       events.push(this.state.userEvents[i]);
     }
-    
+    }
     var filtered =  this.state.events.filter(function(e) {
       var newEvent = {};
         var d = new Date(e.time);
@@ -53,7 +54,7 @@ var List = React.createClass({
         newEvent.category;
     
       events.push(newEvent);
-      console.log(events);
+      // console.log(events);
     });
     if (this.state.events.length > 0)  {
       for (var i = start; i < end; i++) {
@@ -94,8 +95,8 @@ var List = React.createClass({
       
         return (
           <Infinite elementHeight={150}
-             containerHeight={400}
-             infiniteLoadBeginBottomOffset={5}
+             containerHeight={500}
+             infiniteLoadBeginBottomOffset={15}
              onInfiniteLoad={this.handleInfiniteLoad}
              loadingSpinnerDelegate={this.elementInfiniteLoad()}
              isInfiniteLoading={this.state.isInfiniteLoading}>

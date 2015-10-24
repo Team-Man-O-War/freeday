@@ -33,7 +33,6 @@ router.post('/login', passport.authenticate('local', {
 }));
 
 
-
 passport.use('local', new LocalStrategy({
   usernameField : 'username',
   passwordField : 'password',
@@ -52,7 +51,7 @@ passport.use('local', new LocalStrategy({
           return done(null, false, {message: "Wrong password"});
         } 
         console.log('all good dog');
-       var token = jwt.sign({username: user.username}, secret);
+        var token = jwt.sign({username: user.username}, secret);
 
         return done(null, user, token);
       });
@@ -77,7 +76,6 @@ passport.use('local', new LocalStrategy({
 
 //     })(req,res,next);
 // });
-
 
 router.post('/signup', function (req, res, next) {
  User.find({where: {username: req.body.username}}).then(function (user) {
@@ -105,14 +103,10 @@ passport.use(new FacebookStrategy({
   function(accessToken, refreshToken, profile, done) {
 
       User.find({where: {fbID: profile.id}}).then(function(user) {
-  
         var token = jwt.sign({username: profile.name.givenName}, secret);
         if (user) { 
-
           done(null, token);
-          
         } else {
-
         User
           .create({fbID: profile.id, username: profile.name.givenName})
           .then(function(user) {
@@ -121,7 +115,6 @@ passport.use(new FacebookStrategy({
         }
       });
   }
-
 ));
 
 router.get('/auth/facebook', passport.authenticate('facebook'));
