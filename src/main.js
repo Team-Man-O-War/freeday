@@ -1,51 +1,31 @@
 var React = require('react');
-var TopBox = require('./components/TopBox');
-var CategoryBar = require('./components/CategoryBar');
+var Header = require('./components/Header');
 var SearchBar = require('./components/SearchBar');
-var BottomBox = require('./components/BottomBox');
+var Footer = require('./components/Footer');
 var List = require('./components/List');
 var Map = require('./components/Map');
-// var Tab = require('./components/Tab');
 
 var App = React.createClass({
   render: function(){
     return (
       <div>
       {this.props.children}
-        <div>
-          <TopBox/>
-        </div>
+        <Header/>
 
         <br></br>
 
-        <div>
-          <Map/>
-        </div>
+        <Map/>
         
-        <h1>
-          Event List
-        </h1>
-        
-        <div>
-          <List/>
-        </div>
+        <h3>Event List</h3>
 
-        <div>
-          <BottomBox/>
-        </div>
+        <List/>
+
+        <Footer/>
 
       </div>
     );
   }
 });
-        // <div>
-        //   <CategoryBar/>
-        // </div>
-
-        // <div>
-        //   <SearchBar/>
-        //   <br></br>
-        // </div> 
 
 React.render(<App/>, document.getElementById('main'));
 
