@@ -25,6 +25,7 @@ var App = React.createClass({
         <h1>
           Event List
         </h1>
+        
         <div>
           <List/>
         </div>
