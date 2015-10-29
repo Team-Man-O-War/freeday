@@ -26,7 +26,7 @@ var List = React.createClass({
         elements: self.buildElements(0, 20)
         });
     });
-    $.get('/get', function (data) {
+    $.get('/', function (data) {
       self.setState({
         userEvents: data
       });

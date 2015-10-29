@@ -13,9 +13,7 @@ var session = require('express-session');
 
 var eventCtrl =  require('./controllers/event.controller');
 
-router.post('/post', eventCtrl.postEvent);
-router.get('/get', eventCtrl.getEvents);
-router.put('/update/:id', eventCtrl.editEvent);
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // require('./router')(passport);
@@ -26,7 +24,7 @@ app.use(session({resave: false,
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(router);
+app.use(require('./routes/events.routes'));
 app.use(passport.initialize());
 app.use(express.static('client'));//should serve index.html page.
 require('./db/passport');
@@ -54,18 +52,20 @@ app.get('/event', function(req, res) {
     });
 });
 
-var pos;
-app.post('/mylocation', function(req, res) {
- pos = req.body;
- res.sendStatus(200);
-});
+
 
 
 
 app.get('/meetup', function(req, res) {
+  var pos;
+  request.post('/mylocation', function(req, res) {
+   pos = req.body;
+   res.sendStatus(200);
+  });
   if (pos !== undefined) {
   request.get('https://api.meetup.com/2/open_events?sign=true&photo-host=public&lat=' + pos.lat + '&lon=' + pos.lon + '&page=20&key=' + config.meetupApi.key,
     function(err, response, body) {
+
       if (!response.headers['content-type']) {
         res.set('Content-Type', 'application/json');
       } else {
@@ -77,13 +77,6 @@ app.get('/meetup', function(req, res) {
   }
 });
 
-
-
-
-console.log('Connected');
-
-
 app.listen(3000);
 
-module.exports = router;
 

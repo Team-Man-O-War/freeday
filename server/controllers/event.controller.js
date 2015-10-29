@@ -13,15 +13,35 @@ exports.postEvent = function (req, res) {
     });
 };
 
+exports.singleEvent =  function (req, res) {
+  Event
+    .findOne({where: {id: req.params.id}})
+    .then(function (event) {
+      console.log(req.params.id);
+      res.send(event);
+    });
+};
+
 exports.editEvent = function (req, res) {
   console.log(req.body);
   Event
-    .update(
-    {where: {id: req.body.id}    
+    .find(
+      {where: {id: req.params.id}    
     })
-    .then(function (events) {
-      res.send(events);
-    });
+    .then(function (event) {
+      console.log(req.body);
+      if (event) {
+        event.updateAttributes({
+          name: req.body.name, category: req.body.category, 
+          time: req.body.time, description: req.body.description, 
+          location: req.body.location, tags: req.body.tags
+        }).then(function(event) {
+
+          res.send(event);
+        });
+      }
+      
+  });
 };  
 
 exports.getEvents = function (req, res) {
@@ -29,6 +49,16 @@ exports.getEvents = function (req, res) {
   Event
     .findAll()
     .then(function (events) {
-      res.json(events);
+      res.send(events);
     });
+};
+
+exports.noMas = function (req, res) {
+  Event
+    .destroy({
+      where: {
+        id: req.params.id
+    }}).then(function (event) {
+      res.send({message: 'It\'s deleted!'});
+  });
 };
