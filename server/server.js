@@ -33,7 +33,7 @@ require('./db/db');
 // passport.serializeUser(function(user, done) {
 //   done(null, user.id);
 // });
-
+// just a comment
 // passport.deserializeUser(function(user, done) {
 //   done(null, user);
 // });
