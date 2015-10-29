@@ -51,6 +51,7 @@ var CategoryItem = React.createClass({
 	}
 });
 
+//Radium in-line styling
 var styles = {
    meetup: {
     background: 'red',

@@ -24,6 +24,7 @@ app.use(session({resave: false,
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 app.use(require('./routes/events.routes'));
 app.use(passport.initialize());
 app.use(express.static('client'));//should serve index.html page.
@@ -51,7 +52,6 @@ app.get('/event', function(req, res) {
       res.json(JSON.parse(body));
     });
 });
-
 
 
 

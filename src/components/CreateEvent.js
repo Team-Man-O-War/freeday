@@ -84,6 +84,7 @@ else
     }
 });
 
+//Radium in-line styling
 var styles = {
   base: {
     background: 'steelblue',

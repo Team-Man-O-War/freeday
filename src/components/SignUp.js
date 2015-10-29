@@ -6,16 +6,11 @@ var AppDispatcher = require('../flux/Dispatcher');
 
 //For users signing up for app.
 var SignUp = React.createClass({
-  getInitialState: function () {
-    return {
-      userInput: ''
-    };
-  },
-
-  componentDidMount: function() {
-    // console.log(AppDispatcher.handleLogin());
-    // console.log(localStorage.jwt);
-  },
+ getInitialState: function () {
+   return {
+     userInput: ''
+   };
+ },
 
   handleSubmit:function(e){
     e.preventDefault();
@@ -23,34 +18,8 @@ var SignUp = React.createClass({
     var signUpDom = React.findDOMNode(this);
     userInput.username = $('#username').val();
     userInput.password = $('#password').val();
-
-    this.setState({
-      userInput: userInput
-    });
-    console.log(userInput);
-    
-    var jsonifiedInput = JSON.stringify(userInput);
-    //the json.stringify sends the correct form
    
-    var _this = this;
-    // $.ajax({
-    //   url:"/signup",
-    //   type:"POST",
-    //   data:jsonifiedInput,
-    //   datatype:'json' ,
-    //   contentType:'application/json',
-
-    //   success: function(jwt){
-    //     localStorage.setItem('jwt', jwt);
-    //     location.reload();
-    //   },
-    //   error: function(xhr,ajaxOptions,err){
-    //     alert("error",err);
-    //     console.log(err);
-    //     console.log(xhr.status);
-    //   }
-    // });
-    $.post('/login', userInput, function () {
+    $.post('/signup', userInput, function () {
       localStorage.setItem('jwt', jwt);
       location.reload();
       userInput = {};
@@ -62,18 +31,17 @@ var SignUp = React.createClass({
     location.reload();
   },
 
-
-
   handleSubmitEvent: function () {
-    var userEvent = {};
-    userEvent.name = $('#name').val();
-    userEvent.description = $('#description').val();
-    userEvent.location = $('#location').val();
-    userEvent.time = Date.now();
-    $.post('/post', userEvent, function () {
-      userEvent = {};
-    });
-  },
+   var userEvent = {};
+   userEvent.name = $('#name').val();
+   userEvent.description = $('#description').val();
+   userEvent.location = $('#location').val();
+   userEvent.time = Date.now();
+   $.post('/post', userEvent, function () {
+     userEvent = {};
+   });
+ },
+
 
 	render: function(){
 		
@@ -90,7 +58,8 @@ var SignUp = React.createClass({
                 </input>
               <button style={styles.base}>
                 {this.props.children}Submit</button>
-            </form>   
+            </form> 
+
             <form onSubmit={this.handleSubmitEvent}>
                        <input type ='text' placeholder='Event Name' id='name'/>
                          <br></br>
@@ -121,43 +90,44 @@ var SignUp = React.createClass({
   }
 });
 
+//Radium in-line styling
 var styles = {
- base: {
-   background: 'steelblue',
-   border: 0,
-   borderRadius: 8,
-   color: 'black',
-   padding: '.4% .8% .4% .8%',
-   margin: '0 0 0 .5%',
-   fontFamily: 'Verdana',
+  base: {
+    background: 'steelblue',
+    border: 0,
+    borderRadius: 8,
+    color: 'black',
+    padding: '.4% .8% .4% .8%',
+    margin: '0 0 0 .5%',
+    fontFamily: 'Verdana',
 
-   ':hover': {
-     backgroundColor: 'powderblue'
-   },
+    ':hover': {
+      backgroundColor: 'powderblue'
+    },
 
-   ':focus': {
-     backgroundColor: 'steelblue'
-   },
+    ':focus': {
+      backgroundColor: 'steelblue'
+    },
 
-   ':active': {
-     backgroundColor: 'midnightblue'
-   },
- },
+    ':active': {
+      backgroundColor: 'midnightblue'
+    },
+  },
 
- input1: {
-   backgroundColor: 'seashell',
-   color: 'black',
-   borderRadius: 6,
-   margin: '.2% .7% .2% .7%',
-   padding: '.3%',
- },
+  input1: {
+    backgroundColor: 'seashell',
+    color: 'black',
+    borderRadius: 6,
+    margin: '.2% .7% .2% .7%',
+    padding: '.3%',
+  },
 
-   input2: {
-   backgroundColor: 'seashell',
-   color: 'black',
-   borderRadius: 6,
-   padding: '.3%',
-  }
+    input2: {
+    backgroundColor: 'seashell',
+    color: 'black',
+    borderRadius: 6,
+    padding: '.3%',
+   }
 };
 
 module.exports = Radium(SignUp);

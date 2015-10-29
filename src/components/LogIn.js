@@ -10,28 +10,10 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
     
     userInput.username = $('#username2').val();
     userInput.password = $('#password2').val();
+   
+    var jsonifiedInput = JSON.stringify(userInput);
+    var _this = this;
 
-    // $.ajax({
-    //   url:"/login",
-    //   type:"POST",
-    //   data: userInput,
-    //   datatype:'json' ,
-    //   contentType:'application/json',
-
-    //   success: function(token){
-        
-    //     localStorage.setItem('jwt', jwt);
-    //     location.reload();
-
-    //     console.log("this is the something that i am looking for: ",token);
-        
-    //   },
-    //   error: function(xhr,ajaxOptions,err){
-    //     alert("error",err);
-    //     console.log(err);
-    //     console.log(xhr.status);
-    //   }
-    // });
     $.post('/login', userInput, function () {
       console.log('hello');
       localStorage.setItem('jwt', jwt);
@@ -99,6 +81,7 @@ var LogIn = React.createClass({//For users logging into app. Will feed into TopB
 	}
 });
 
+//Radium in-line styling
 var styles = {
   base: {
     background: 'steelblue',

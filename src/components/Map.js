@@ -136,6 +136,7 @@ var Map = React.createClass({
   },
 });
 
+//Radium in-line styling
 var styles = {
   map: {
     height: 10,
@@ -152,6 +153,7 @@ var styles = {
   },
   meetup:{
     borderRadius: 100,
+    background: '#e51937'
   }
 
 };
