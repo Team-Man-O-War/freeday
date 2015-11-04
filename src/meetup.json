@@ -27,14 +27,14 @@
         "time": 1441465200000,
         "updated": 1438756499000,
         "group": {
-            "join_mode": "open",
-            "created": 1382307357000,
-            "name": "Shepherd Church Mountain Biking Club",
-            "group_lon": -118.54000091552734,
-            "id": 10768692,
-            "urlname": "Shepherd-Church-Mountain-Biking-Club",
-            "group_lat": 34.279998779296875,
-            "who": "Shepherd Church MTB Club riders"
+          "join_mode": "open",
+          "created": 1382307357000,
+          "name": "Shepherd Church Mountain Biking Club",
+          "group_lon": -118.54000091552734,
+          "id": 10768692,
+          "urlname": "Shepherd-Church-Mountain-Biking-Club",
+          "group_lat": 34.279998779296875,
+          "who": "Shepherd Church MTB Club riders"
         },
         "status": "upcoming"
     },
