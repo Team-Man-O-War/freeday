@@ -10,7 +10,6 @@ var User = require('./db/models/user');
 var passport = require('passport');
 var session = require('express-session');
 
-
 var eventCtrl =  require('./controllers/event.controller');
 
 router.post('/post', eventCtrl.postEvent);

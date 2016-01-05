@@ -1,5 +1,4 @@
 var React = require('react');
-// var Marker = require('./Marker');
 var GoogleMap = require('google-map-react');
 var Radium = require('radium');
 var $ = require('jquery');

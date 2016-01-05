@@ -13,7 +13,6 @@ var reload = browsersync.reload;
 //	.pipe(gulp.dest('path'));
 //});
 
-
 gulp.task('watch', function() {
 	var start = Date.now();
 	var watcher = watchify(browserify({
@@ -35,8 +34,8 @@ gulp.task('watch', function() {
 		.pipe(source('bundle.js'))
 		.pipe(gulp.dest('./client/build'));
 });
-gulp.task('build', function() {
 
+gulp.task('build', function() {
 	browserify({
 		entries: './src/main.js',
 		transform: reactify,
@@ -49,6 +48,7 @@ gulp.task('build', function() {
 		.pipe(source('bundle.js'))
 		.pipe(gulp.dest('./client/build'));
 });
+
 // Process Scripts
 //gulp.task('scripts', function() {
 //	return gulp.src('./src/components/*.js')
@@ -56,7 +56,6 @@ gulp.task('build', function() {
 //	.pipe(uglify())
 //	.pipe(gulp.dest('./client/build'));
 //});
-
 
 
 //gulp.task('browserify', function() {
@@ -75,7 +74,6 @@ gulp.task('build', function() {
 
 gulp.task('sync', ['watch'], function() {
   browsersync.init({
- 
 	 	files: ['**/*.*'],
  		files: ['**/**'],
   	proxy: 'http://localhost:3000',
@@ -94,5 +92,3 @@ gulp.task('server', function(){
 // Default Task
 gulp.task('default', 
 	['server', 'build', 'watch']);
-
-
